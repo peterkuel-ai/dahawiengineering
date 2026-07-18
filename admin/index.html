@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard — Dahawi Engineering</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Admin Dashboard</h1>
+
+    <div id="login" class="card">
+      <h2>Sign in</h2>
+      <input id="password" type="password" placeholder="Admin password">
+      <button id="btn-login">Sign in</button>
+      <p class="muted">This dashboard edits files inside the website. Use strong password.</p>
+      <p class="muted">Important: Open this page through a PHP server, not VS Code Live Preview.</p>
+    </div>
+
+    <div id="app" class="hidden">
+      <div class="sidebar">
+        <h3>Files</h3>
+        <div id="file-list" class="file-list">Loading…</div>
+      </div>
+
+      <section class="editor">
+        <div class="editor-head">
+          <input id="current-path" readonly>
+          <div>
+            <button id="btn-refresh">Refresh list</button>
+            <button id="btn-save" class="primary">Save</button>
+            <button id="btn-logout" class="secondary">Logout</button>
+          </div>
+        </div>
+        <textarea id="editor-area" spellcheck="false"></textarea>
+      </section>
+    </div>
+
+    <div id="message" class="message hidden"></div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

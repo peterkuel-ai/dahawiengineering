@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dahawi Engineering</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- font awesome cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- fonts -->
+        <link rel = "stylesheet" href = "font/fonts.css">
+        <!-- normalize css -->
+        <link rel = "stylesheet" href = "css/normalize.css">
+        <!-- custom css -->
+        <link rel = "stylesheet" href = "css/utility.css">
+        <link rel = "stylesheet" href = "css/style.css">
+        <link rel = "stylesheet" href = "css/responsive.css">
+    </head>
+    <body>
+
+        <!-- navbar  -->        
+            <nav class = "navbar">
+            <div class = "container flex">
+                        <a href = "" class = "site-brand">Dahawi<span>Engineering</span></a>
+                
+                <button type="button" id="navbar-show-btn" class="flex" aria-label="Open navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div id="navbar-collapse">
+                    <button type="button" id="navbar-close-btn" class="flex" aria-label="Close navigation menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="gallery.html" class="nav-link active">Services</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Portfolio</a></li>
+                        <li class="nav-item"><a href="news.html" class="nav-link">News & Activites</a></li>
+                        <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- header -->
+        <header class = "flex header-sm">
+            <div class = "container">
+                <div class = "header-title">
+                    <h1>Services</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+                </div>
+            </div>
+        </header>
+        <!-- header -->
+
+        <!-- gallery section -->
+        <section id = "gallery" class = "py-4">
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">services in action</span>
+                    <h2 class = "lg-title">Our Projects</h2>
+                </div>
+                <div class = "gallery-row">
+                    <div class = "gallery-item shadow" data-index="1" data-title="Substation layout" data-description="High-voltage substation design and site preparation.">
+                        <img src = "images/project.jpeg" alt = "Substation layout">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Substation layout</span>
+                            <!-- <p class="text">High-voltage substation design and site preparation.</p> -->
+                        </div>
+                    </div>
+                    <div class = "gallery-item shadow" data-index="2" data-title="Transmission line" data-description="Durable transmission routing for dependable power delivery.">
+                        <img src = "images/project1.jpeg" alt = "Transmission line">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Transmission line</span>
+                            <!-- <p class="text">Durable transmission routing for dependable power delivery.</p> -->
+                        </div>
+                    </div>
+                    <div class = "gallery-item shadow" data-index="3" data-title="Switchgear installation" data-description="Control and protection equipment installation at site.">
+                        <img src = "images/project2.jpeg" alt = "Switchgear installation">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Switchgear installation</span>
+                            <!-- <p class="text">Control and protection equipment installation at site.</p> -->
+                        </div>
+                    </div>
+                    <div class = "gallery-item shadow" data-index="4" data-title="Control panel" data-description="Commissioning and testing of electrical control systems.">
+                        <img src = "images/project3.jpeg" alt = "Control panel">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Control panel</span>
+                            <!-- <p class="text">Commissioning and testing of electrical control systems.</p> -->
+                        </div>
+                    </div>
+                    <div class = "gallery-item shadow" data-index="5" data-title="Power network" data-description="Network integration and infrastructure coordination.">
+                        <img src = "images/project4.jpeg" alt = "Power network">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Power network</span>
+                            <!-- <p class="text">Network integration and infrastructure coordination.</p> -->
+                        </div>
+                    </div>
+                    <div class = "gallery-item shadow" data-index="6" data-title="Energy site" data-description="On-site execution of electrical energy projects.">
+                        <img src = "images/project5.jpeg" alt = "Energy site">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Energy site</span>
+                            <!-- <p class="text">On-site execution of electrical energy projects.</p> -->
+                        </div>
+                    </div>
+
+                    <div class = "gallery-item shadow" data-index="8" data-title="Site preparation" data-description="Civil works and equipment placement before commissioning.">
+                        <img src = "images/site-preparation.jpg" alt = "Site preparation">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Site preparation</span>
+                            <!-- <p class="text">Civil works and equipment placement before commissioning.</p> -->
+                        </div>
+                    </div>
+                    <div class = "gallery-item shadow" data-index="9" data-title="Project handover" data-description="Finished project handover with documentation and final checks.">
+                        <img src = "images/handover.jpg" alt = "Project handover">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                        <div class="gallery-body">
+                            <span>Project handover</span>
+                            <!-- <p class="text">Finished project handover with documentation and final checks.</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of gallery section -->
+
+        <!-- img modal -->
+        <div id = "img-modal-box">
+            <div id = "img-modal">
+                <button type = "button" id = "modal-close-btn" class = "flex">
+                    <i class = "fas fa-times"></i>
+                </button>
+                <button type = "button" id = "prev-btn" class = "flex">
+                    <i class = "fas fa-chevron-left"></i>
+                </button>
+                <button type = "button" id = "next-btn" class = "flex">
+                    <i class = "fas fa-chevron-right"></i>
+                </button>
+                <img src = "images/gallery-1.jpg" alt="Gallery preview">
+                <div class="gallery-modal-caption"></div>
+            </div>
+        </div>
+        <!-- end of img modal -->
+
+        <!-- blog section -->
+        <section id = "blog" class = "py-4">
+            <div class = "container">
+                <div class = "title-wrap">
+                    <h1 class = "title">Projects We Did</h1>
+                </div>
+
+                <div class = "blog-row">
+                    <div class = "blog-item my-2 shadow">
+                        <div class = "blog-item-top">
+                            <img src = "images/image5.jpg" alt = "blog">
+                            <span class = "blog-date">PROJECT DONE</span>
+                        </div>
+                        <div class = "blog-item-bottom">
+                            <span>1.⁠Internal Electrical Installations</span>
+                            <a href = "#">Al Salam Medical Center (AMC)</a>
+                            <p class = "text">                            Provided design support, installation, testing, and commissioning of complete internal electrical systems for Al Salam Medical Center (AMC Centre). The project covered electrical power distribution, lighting, ventilation, air conditioning, and cooling systems, ensuring reliable and safe operation of both medical and administrative facilities.</p>
+                        </div>
+                    </div>
+
+                    <div class = "blog-item my-2 shadow">
+                        <div class = "blog-item-top">
+                            <img src = "images/image1.jpg" alt = "blog">
+                            <span class = "blog-date">PROJECT DONE</span>
+                        </div>
+                        <div class = "blog-item-bottom">
+                            <span>2.⁠33/11 kV Substation</span>
+                            <a href = "#">Jood's Cables Factory</a>
+                            <p class = "text">Khartoum, Sudan Engineering, installation, testing, and commissioning of a complete 33/11 kV electrical substation to provide reliable power supply for industrial operations while ensuring compliance with international safety and quality standards. Scope Highlights Substation Construction Electrical Installation Testing & Commissioning Industrial Power Integration</p>
+                        </div>
+                    </div>
+
+                    <div class = "blog-item my-2 shadow">
+                        <div class = "blog-item-top">
+                            <img src = "images/image6.jpg" alt = "blog">
+                            <span class = "blog-date">PROJECT DONE</span>
+                        </div>
+                        <div class = "blog-item-bottom">
+                            <span>3.⁠ ⁠High Voltage Reactor Project</span>
+                            <a href = "#">Merowe Substation Merowe, Sudan</a>
+                            <p class = "text">Implementation of a high-voltage reactor project aimed at supporting national grid stability and optimizing voltage control through internationally recognized engineering practices and advanced technologies. Scope Highlights High Voltage Systems Grid Stability Improvement Voltage Control Optimization International Technical Collaboration Executed by SETCO in cooperation with Siemens</p>
+                        </div>
+                    </div>
+
+                    <div class = "blog-item my-2 shadow">
+                        <div class = "blog-item-top">
+                            <img src = "images/image4.jpg" alt = "blog">
+                            <span class = "blog-date">PROJECT DONE</span>
+                        </div>
+                        <div class = "blog-item-bottom">
+                            <span>4.⁠ ⁠Reactor Project Dongola</span>
+                            <a href = "#">Dongola, Sudan</a>
+                            <p class = "text"> Substation Dongola, Sudan Supply and installation of a power reactor designed to improve voltage regulation, enhance power quality, reduce network losses, & strengthen substation operational performance.Scope Highlights Reactor Supply Installation Works Grid Stability Enhancement System Optimization</p>
+                        </div>
+                    </div>
+
+                    <div class = "blog-item my-2 shadow">
+                        <div class = "blog-item-top">
+                            <img src = "images/image7.jpg" alt = "blog">
+                            <span class = "blog-date">oct 28, 2021</span>
+                        </div>
+                        <div class = "blog-item-bottom">
+                            <span>5.⁠ ⁠Resort Lighting Project</span>
+                            <a href = "#">Al-Jadayel Resort</a>
+                            <p class = "text">Execution of the outdoor and landscape lighting works for Al Jadayel Resort through a joint delivery team comprising Dahawi Engineering Company and Star Hope Power. Scope Highlights Outdoor & Landscape Lighting Systems Decorative and Architectural Lighting Power Distribution for Lighting Networks Cable Installation & Termination Works Lighting Control Systems Testing & Commissioning Quality & Safety Compliance Resort Infrastructure Support</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of blog section -->
+
+        <!-- footer -->
+        <footer class = "py-4">
+            <div class = "container footer-row">
+                <div class = "footer-item">
+                    <a href = "" class = "site-brand">Dahawi<span>Engineering</span></a>
+                    
+                    <p class = "text">Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.</p>
+                </div>
+
+                <div class = "footer-item quick-links">
+                    <h2>Quick Links</h2>
+                    <ul class="quick-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Services</a></li>
+                        <li><a href="blog.html">Portfolio</a></li>
+                        <li><a href="news.html">News & Activites</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class = "footer-item follow-us">
+                    <h2>Follow us on: </h2>
+                    <ul class = "social-links">
+                        <li>
+                            <a href = "#" aria-label = "Facebook">
+                                <i class = "fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#" aria-label = "Instagram">
+                                <i class = "fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#" aria-label = "Twitter">
+                                <i class = "fab fa-x-twitter"></i>
+                            </a>
+                        </li>                        <li>
+                            <a href = "#" aria-label = "LinkedIn">
+                                <i class = "fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "subscribe-form footer-item contact">
+                    <h2>Contact Directly</h2>
+                    <p class = "text">Email: <a href = "mailto:info@dahawiengineering.com">info@dahawiengineering.com</a></p>
+                    <p class = "text">Phone: <a href = "tel:+256762460923">+256 762 460 923</a></p>
+                    <p class = "text">Phone: <a href = "tel:+249912194405">+249 912 194 405</a></p>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
+        <section class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Dahawi Engineering. All rights reserved.</p>
+                <p>Your partner in electrical infrastructure excellence</p>
+            </div>
+        </section>
+
+        <!-- js -->
+        <script src = "js/script.js"></script>
+        <script>
+            const galleryItems = document.querySelectorAll('.gallery-item[data-index]');
+            const imgModalDiv = document.getElementById('img-modal-box');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const modalImage = document.querySelector('#img-modal img');
+            const modalCaption = document.querySelector('#img-modal .gallery-modal-caption');
+            let currentIndex = 0;
+
+            const galleryData = Array.from(galleryItems).map((item) => ({
+                index: Number(item.dataset.index),
+                src: item.querySelector('img').getAttribute('src'),
+                title: item.dataset.title,
+                description: item.dataset.description
+            })).sort((a, b) => a.index - b.index);
+
+            const openModal = (item) => {
+                if (!item) return;
+                currentIndex = item.index;
+                modalImage.src = item.src;
+                modalImage.alt = item.title || 'Gallery image';
+                if (modalCaption) {
+                    modalCaption.innerHTML = `<strong>${item.title}</strong><p>${item.description}</p>`;
+                }
+                imgModalDiv.style.display = 'block';
+            };
+
+            galleryItems.forEach((galleryItem) => {
+                galleryItem.addEventListener('click', () => {
+                    const item = galleryData.find((entry) => entry.index === Number(galleryItem.dataset.index));
+                    openModal(item);
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = currentIndex === galleryData.length ? 1 : currentIndex + 1;
+                openModal(galleryData.find((entry) => entry.index === currentIndex));
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = currentIndex === 1 ? galleryData.length : currentIndex - 1;
+                openModal(galleryData.find((entry) => entry.index === currentIndex));
+            });
+
+            modalCloseBtn.addEventListener('click', () => {
+                imgModalDiv.style.display = 'none';
+            });
+
+            imgModalDiv.addEventListener('click', (event) => {
+                if (event.target === imgModalDiv) {
+                    imgModalDiv.style.display = 'none';
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-labelledby="title desc">
+    <title id="title">Electrical infrastructure project illustration</title>
+    <desc id="desc">A modern substation, power lines, and field engineering equipment.</desc>
+    <defs>
+        <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f9a825"/>
+            <stop offset="1" stop-color="#f3c86b"/>
+        </linearGradient>
+        <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#25343a"/>
+            <stop offset="1" stop-color="#0e1010"/>
+        </linearGradient>
+    </defs>
+    <rect width="900" height="680" rx="16" fill="#eef4f3"/>
+    <path d="M0 500 C150 430 260 535 430 470 C620 398 720 495 900 430 L900 680 L0 680 Z" fill="url(#ground)"/>
+    <circle cx="715" cy="132" r="78" fill="#f9a825" opacity="0.28"/>
+
+    <g fill="none" stroke="#263238" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M125 510 L235 150 L345 510"/>
+        <path d="M180 330 H290"/>
+        <path d="M155 420 H315"/>
+        <path d="M505 510 L615 150 L725 510"/>
+        <path d="M560 330 H670"/>
+        <path d="M535 420 H695"/>
+        <path d="M235 150 C360 105 490 105 615 150"/>
+        <path d="M345 510 C430 430 485 430 505 510"/>
+    </g>
+
+    <g stroke="#f9a825" stroke-width="5" fill="none" stroke-linecap="round">
+        <path d="M145 245 H705"/>
+        <path d="M115 365 H735"/>
+    </g>
+
+    <g>
+        <rect x="330" y="390" width="210" height="130" rx="8" fill="#ffffff"/>
+        <rect x="360" y="420" width="40" height="70" rx="4" fill="url(#panel)"/>
+        <rect x="420" y="420" width="40" height="70" rx="4" fill="url(#panel)"/>
+        <rect x="480" y="420" width="40" height="70" rx="4" fill="url(#panel)"/>
+        <path d="M340 520 H530" stroke="#d6dedc" stroke-width="10"/>
+    </g>
+
+    <g>
+        <rect x="615" y="452" width="148" height="78" rx="8" fill="#ffffff"/>
+        <rect x="642" y="482" width="96" height="18" rx="9" fill="#263238"/>
+        <circle cx="653" cy="532" r="22" fill="#111"/>
+        <circle cx="730" cy="532" r="22" fill="#111"/>
+        <rect x="650" y="430" width="56" height="28" rx="6" fill="#f9a825"/>
+    </g>
+
+    <g fill="#ffffff" opacity="0.92">
+        <rect x="92" y="545" width="175" height="18" rx="9"/>
+        <rect x="315" y="565" width="135" height="16" rx="8"/>
+        <rect x="560" y="562" width="215" height="18" rx="9"/>
+    </g>
+</svg>
