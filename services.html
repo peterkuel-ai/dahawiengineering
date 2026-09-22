@@ -1,0 +1,1427 @@
+<!DOCTYPE html> <html dir="ltr" id="html-root" lang="en">
+<head>
+ <!-- Website Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title data-ar="أعمالنا | شركة ضحوي الهندسية" data-en="Services | Dahawi Engineering">Services | Dahawi Engineering</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Font Awesome -->
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Cairo (Arabic) + Inter (English) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+ /* ============================================================
+ RESET & BASE
+ ============================================================ */
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } :root {
+ --primary: #c62828;
+ --accent: #f6b746;
+ --bg: #f5f6f6;
+ --white: #ffffff;
+ --text: #182023;
+ --navy-mid: #202a2d;
+ --text-light: #697275;
+ --border: #e5e7e8;
+ --shadow: 0 4px 20px rgba(0,0,0,.10);
+ --radius: 12px;
+ --nav-h: 72px;
+ --dark: #182023;
+ --font-en: 'Inter', sans-serif;
+ --font-ar: 'Cairo', sans-serif;
+ } html { scroll-behavior: smooth; } body {
+ font-family: var(--font-en);
+ font-size: 16px;
+ color: var(--text);
+ background: var(--bg);
+ line-height: 1.7;
+ } /* Arabic mode */
+ html[lang="ar"] body { font-family: var(--font-ar); direction: rtl; }
+ html[lang="ar"] * { letter-spacing: 0 !important; } a { text-decoration: none; color: inherit; }
+ ul { list-style: none; }
+ img { max-width: 100%; display: block; } .container { width: min(1200px, 92%); margin-inline: auto; }
+ .flex { display: flex; align-items: center; }
+ .py-4 { padding-block: 4rem; }
+ .my-2 { margin-block: 1.5rem; }
+ .shadow { box-shadow: var(--shadow); }
+ .text { font-size: .95rem; color: var(--text-light); line-height: 1.7; }
+ /* ============================================================
+ LANGUAGE TOGGLE BUTTON
+ ============================================================ */
+ #lang-toggle {
+ display: flex;
+ align-items: center;
+ gap: .45rem;
+ background: transparent;
+ border: 2px solid rgba(255,255,255,.55);
+ color: #fff;
+ padding: .35rem .85rem;
+ border-radius: 50px;
+ font-size: .8rem;
+ font-weight: 600;
+ cursor: pointer;
+ transition: background .2s, border-color .2s;
+ letter-spacing: .5px;
+ white-space: nowrap;
+ }
+ #lang-toggle:hover { background: rgba(255,255,255,.15); border-color: #fff; }
+ #lang-toggle .flag { font-size: 1rem; } /* ============================================================
+ NAVBAR
+ ============================================================ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy-mid);height:var(--nav-h);box-shadow:0 2px 16px rgba(0,0,0,.25);border-bottom:3px solid var(--primary)}
+.navbar .container{height:100%;justify-content:space-between;gap:1rem}
+.site-brand{font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-.5px}
+.site-brand span{color:var(--accent)}
+#navbar-collapse{display:flex;align-items:center;gap:1rem;margin-inline-start:auto}
+.navbar-nav{display:flex;align-items:center;gap:.25rem}
+.nav-link{display:block;padding:.45rem .9rem;color:rgba(255,255,255,.82);font-size:.875rem;font-weight:500;border-radius:0;transition:background .18s,color .18s}
+.nav-link:hover,.nav-link.active{background:rgba(246,183,70,.14);color:var(--accent)}
+#navbar-show-btn,#navbar-close-btn{display:none;background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:.4rem} /* ============================================================
+ SCROLLED NAVBAR
+ ============================================================ */
+.navbar.scrolled{background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+.navbar.scrolled .site-brand{color:var(--dark)}
+.navbar.scrolled .nav-link{color:var(--dark)}
+.navbar.scrolled .nav-link:hover,.navbar.scrolled .nav-link.active{background:rgba(198,40,40,.08);color:var(--primary)}
+.navbar.scrolled #navbar-show-btn,.navbar.scrolled #navbar-close-btn{color:var(--dark)} /* ============================================================
+ MOBILE NAVBAR مشكلة 
+ ============================================================ */
+@media (max-width:768px){
+ 
+#navbar-show-btn{display:flex!important;align-items:center;justify-content:center;position:relative;z-index:1200}
+#navbar-collapse{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;max-width:100vw;height:100dvh;box-sizing:border-box;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow-y:auto;overflow-x:hidden;transform:translateX(-100%);transition:transform .35s ease,background .3s ease;z-index:1100}
+#navbar-collapse.open{transform:translateX(0)}
+.navbar-nav{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:.5rem;margin:0;padding:0 1rem;box-sizing:border-box}
+.nav-link{display:block;width:100%;box-sizing:border-box;font-size:1.1rem;padding:.75rem 2rem;text-align:center;color:var(--dark)}
+.nav-link:hover,.nav-link.active{color:var(--primary);background:rgba(198,40,40,.08)}
+#navbar-close-btn{display:flex!important;align-items:center;justify-content:center;position:absolute;top:1rem;right:1.5rem;z-index:1201;color:var(--dark)}
+html[lang="ar"] #navbar-close-btn{right:auto;left:1.5rem}
+html[lang="ar"] #navbar-collapse{direction:rtl}
+html[lang="en"] #navbar-collapse{direction:ltr} 
+/* القائمة المفتوحة عند SCROLL */
+.navbar.scrolled #navbar-collapse,.navbar.scrolled #navbar-collapse.open{background:var(--dark)}
+.navbar.scrolled #navbar-collapse .nav-link{color:#fff}
+.navbar.scrolled #navbar-collapse .nav-link:hover,.navbar.scrolled #navbar-collapse .nav-link.active{color:var(--primary);background:rgba(198,40,40,.12)}
+.navbar.scrolled #navbar-close-btn{color:#fff}
+} 
+@media (max-width:480px){
+#navbar-collapse{padding-inline:1rem}
+.navbar-nav{max-width:100%;padding-inline:.5rem}
+.nav-link{padding-inline:1rem}
+} /* ============================================================
+ HEADER
+ ============================================================ */
+ .header-sm {
+ margin-top: var(--nav-h);
+ /* BG.PNG applied via dahawi-unified.css */
+ padding: 3.5rem 0;
+ justify-content: center; text-align: center;
+ }
+ .header-title h1 {
+ font-size: clamp(2rem, 5vw, 3rem);
+ font-weight: 800; color: #fff;
+ }
+ .header-title p {
+ margin-top: .75rem;
+ color: rgba(255,255,255,.72);
+ font-size: 1.05rem;
+ max-width: 600px; margin-inline: auto;
+ } /* ============================================================
+ SECTION TITLES
+ ============================================================ */
+ .title-wrap { text-align: center; margin-bottom: 2.5rem; }
+ .sm-title {
+ display: inline-block;
+ font-size: .78rem; font-weight: 700; letter-spacing: 2.5px;
+ text-transform: uppercase; color: var(--primary);
+ margin-bottom: .5rem;
+ }
+ html[lang="ar"] .sm-title { letter-spacing: 0; }
+ .lg-title { font-size: clamp(1.6rem,3.5vw,2.4rem); font-weight: 800; color: var(--dark); text-transform: capitalize; }
+ .title { font-size: clamp(1.4rem,3vw,2rem); font-weight: 700; color: var(--dark); } /* ============================================================
+ SERVICES PORTFOLIO
+ ============================================================ */
+ #services-portfolio { background: var(--bg); }
+ .services-row {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.5rem;
+ }
+ .service-card {
+ background: var(--white); border-radius: var(--radius);
+ padding: 2rem 1.75rem; box-shadow: var(--shadow);
+ border-top: 4px solid transparent;
+ transition: transform .3s, border-color .3s;
+ }
+ .service-card:hover { transform: translateY(-6px); border-top-color: var(--primary); }
+ .service-icon {
+ width: 58px; height: 58px; border-radius: 50%;
+ background: rgba(198,40,40,.1);
+ display: flex; align-items: center; justify-content: center;
+ margin-bottom: 1.25rem;
+ }
+ .service-icon i { color: var(--primary); font-size: 1.35rem; }
+ .service-card h3 { font-size: 1.08rem; font-weight: 700; color: var(--dark); margin-bottom: .6rem; }
+ .service-card p.text { font-size: .88rem; margin-bottom: 1rem; }
+ .service-list li {
+ display: flex; align-items: flex-start; gap: .55rem;
+ font-size: .85rem; color: var(--text-light);
+ margin-bottom: .5rem; line-height: 1.5;
+ }
+ .service-list li i { color: var(--primary); font-size: .7rem; margin-top: .4rem; flex: 0 0 auto; } /* ============================================================
+ EQUIPMENT & RESOURCES
+ ============================================================ */
+ #equipment { background: var(--white); }
+ .equip-row {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 1.25rem;
+ }
+ .equip-item {
+ background: var(--bg); border-radius: var(--radius);
+ padding: 1.5rem 1.1rem; text-align: center;
+ }
+ .equip-item i { color: var(--primary); font-size: 1.5rem; margin-bottom: .75rem; display: block; }
+ .equip-item span { font-size: .85rem; font-weight: 600; color: var(--text); } /* ============================================================
+ QHSE MANAGEMENT SYSTEM
+ ============================================================ */
+ #qhse { background: linear-gradient(135deg, var(--dark) 0%, #263238 100%); }
+ #qhse .sm-title { color: var(--accent); }
+ #qhse .lg-title { color: #fff; }
+ .qhse-row {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.5rem;
+ }
+ .qhse-item {
+ background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+ border-radius: var(--radius); padding: 1.5rem;
+ }
+ .qhse-item i { color: var(--accent); font-size: 1.4rem; margin-bottom: .75rem; display: block; }
+ .qhse-item h3 { font-size: .98rem; font-weight: 700; color: #fff; margin-bottom: .5rem; }
+ .qhse-item p { font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; } /* ============================================================
+ GALLERY
+ ============================================================ */
+ #gallery { background: var(--white); }
+ .gallery-row {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: 1.5rem;
+ }
+ .gallery-item {
+ position: relative; border-radius: var(--radius);
+ overflow: hidden; cursor: pointer;
+ background: var(--primary);
+ }
+ .gallery-item img {
+ width: 100%; height: 220px; object-fit: cover;
+ transition: transform .4s ease, opacity .4s;
+ }
+ .gallery-item:hover img { transform: scale(1.07); opacity: .75; }
+ .zoom-icon {
+ position: absolute; top: 50%; left: 50%;
+ transform: translate(-50%,-50%) scale(0);
+ color: #fff; font-size: 1.6rem;
+ transition: transform .3s;
+ pointer-events: none;
+ }
+ .gallery-item:hover .zoom-icon { transform: translate(-50%,-50%) scale(1); }
+ .gallery-body {
+ position: absolute; bottom: 0; left: 0; right: 0;
+ background: linear-gradient(transparent, rgba(0,0,0,.72));
+ padding: 1.5rem 1rem .85rem;
+ color: #fff;
+ }
+ .gallery-body span { font-weight: 600; font-size: .95rem; } /* ============================================================
+ IMG MODAL
+ ============================================================ */
+ #img-modal-box {
+ display: none; position: fixed; inset: 0; z-index: 2000;
+ background: rgba(0,0,0,.88); justify-content: center; align-items: center;
+ }
+ #img-modal-box[style*="block"] { display: flex !important; }
+ #img-modal {
+ position: relative; max-width: 880px; width: 92%;
+ background: var(--white); border-radius: var(--radius); overflow: hidden;
+ }
+ #img-modal img { width: 100%; max-height: 520px; object-fit: contain; background: #000; }
+ .gallery-modal-caption { padding: 1rem 1.25rem; }
+ .gallery-modal-caption strong { font-size: 1.05rem; color: var(--primary); }
+ .gallery-modal-caption p { font-size: .9rem; color: var(--text-light); margin-top: .25rem; } #modal-close-btn {
+ position: absolute; top: .75rem; right: .75rem;
+ background: rgba(0,0,0,.55); border: none; color: #fff;
+ width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+ font-size: 1rem; z-index: 10;
+ }
+ html[lang="ar"] #modal-close-btn { right: auto; left: .75rem; } #prev-btn, #next-btn {
+ position: absolute; top: 50%; transform: translateY(-50%);
+ background: rgba(0,0,0,.45); border: none; color: #fff;
+ width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+ font-size: 1.1rem; z-index: 10;
+ }
+ #prev-btn { left: .75rem; }
+ #next-btn { right: .75rem; }
+ html[lang="ar"] #prev-btn { left: auto; right: .75rem; }
+ html[lang="ar"] #next-btn { right: auto; left: .75rem; } /* ============================================================
+ BLOG / PROJECTS
+ ============================================================ */
+ .blog-row {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ gap: 1.5rem;
+ }
+ .blog-item {
+ background: var(--white); border-radius: var(--radius);
+ overflow: hidden; transition: transform .3s;
+ }
+ .blog-item:hover { transform: translateY(-4px); }
+ .blog-item-top { position: relative; }
+ .blog-item-top img { width: 100%; height: 200px; object-fit: cover; }
+ .blog-date {
+ position: absolute; bottom: 0;
+ transform: translateY(50%);
+ background: var(--primary); color: #fff;
+ font-size: .72rem; font-weight: 700; padding: .32rem .85rem;
+ border-radius: 0; text-transform: uppercase; letter-spacing: 1px;
+ z-index: 2;
+ }
+ html[lang="en"] .blog-date { left: .75rem; }
+ html[lang="ar"] .blog-date { right: .75rem; } .blog-item-bottom { padding: 1.25rem; }
+ .blog-item-bottom > span {
+ display: block; font-weight: 700; font-size: 1rem;
+ color: var(--primary); margin-bottom: .35rem;
+ }
+ .blog-item-bottom > a {
+ display: inline-block; font-size: .82rem; font-weight: 600;
+ color: var(--accent); margin-bottom: .6rem;
+ }
+ .blog-item-bottom .text { font-size: .88rem; } /* ============================================================
+ FOOTER
+ ============================================================ */
+ footer {
+ background: var(--dark);
+ color: rgba(255,255,255,.82);
+ }
+ .footer-row {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 2rem;
+ }
+ .footer-item .site-brand { color: #fff; display: inline-block; margin-bottom: .75rem; }
+ .footer-item h2 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: .85rem; }
+ .footer-item .text { font-size: .88rem; color: rgba(255,255,255,.65); }
+ .footer-item .text a { color: var(--accent); }
+ .footer-item .text a:hover { text-decoration: underline; } .quick-links-list li { margin-bottom: .4rem; }
+ .quick-links-list a { font-size: .88rem; color: rgba(255,255,255,.65); transition: color .2s; }
+ .quick-links-list a:hover { color: var(--accent); } .social-links { display: flex; gap: .75rem; flex-wrap: wrap; }
+ .social-links a {
+ width: 38px; height: 38px; border-radius: 50%;
+ background: rgba(255,255,255,.1); color: #fff;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .9rem; transition: background .2s;
+ }
+ .social-links a:hover { background: var(--accent); } 
+/* =========================================================
+ FOOTER BOTTOM — ULTRA THIN BAR
+ ========================================================= */ .footer-bottom {
+ padding: 0.2rem 0 !important;
+ min-height: 0 !important;
+} .footer-bottom .container {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 1rem;
+ min-height: 0 !important;
+} .footer-bottom p {
+ margin: 0 !important;
+ padding: 0 !important;
+ font-size: 0.68rem !important;
+ line-height: 1.25 !important;
+} 
+/* RTL / LTR */
+html[dir="rtl"] .footer-bottom .container {
+ flex-direction: row-reverse;
+} 
+/* Mobile */
+@media (max-width: 576px) {
+ .footer-bottom {
+ padding: 0.18rem 0 !important;
+ } .footer-bottom p {
+ font-size: 0.62rem !important;
+ }
+} 
+ /* ============================================================
+ REVEAL ANIMATIONS
+ ============================================================ */
+ .reveal-up { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+ .reveal-up.active { opacity: 1; transform: none; } /* ============================================================
+ RESPONSIVE
+ ============================================================ */
+ @media (max-width: 1024px) {
+ .services-row { grid-template-columns: 1fr 1fr; }
+ .equip-row { grid-template-columns: repeat(3, 1fr); }
+ .qhse-row { grid-template-columns: 1fr 1fr; }
+ }
+ @media (max-width: 768px) {
+ #navbar-show-btn { display: flex; }
+ #navbar-collapse {
+ position: fixed; inset: 0;
+ background: var(--dark);
+ flex-direction: column; justify-content: center;
+ transform: translateX(-100%); transition: transform .3s;
+ z-index: 1100;
+ }
+ html[lang="ar"] #navbar-collapse { transform: translateX(100%); }
+ #navbar-collapse.open { transform: translateX(0); }
+ .navbar-nav { flex-direction: column; gap: .5rem; }
+ .nav-link { font-size: 1.1rem; padding: .75rem 2rem; }
+ #navbar-close-btn { display: flex; position: absolute; top: 1rem; right: 1.5rem; }
+ html[lang="ar"] #navbar-close-btn { right: auto; left: 1.5rem; } .services-row { grid-template-columns: 1fr; }
+ .equip-row { grid-template-columns: 1fr 1fr; }
+ .qhse-row { grid-template-columns: 1fr; }
+ }
+        .footer-logo-col{
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-col {
+        display: none;
+    }
+}
+.footer-logo-col {
+    background: transparent !important;
+    align-self: flex-start;        /* محاذاة مع أعلى بقية الأعمدة */
+    display: flex;
+    justify-content: center;       /* توسيط أفقي */
+    padding-top: .85rem;
+    width: 100%;                   /* ✅ يضمن أن التوسيط يعمل في RTL و LTR */
+}
+
+.footer-logo-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    background: transparent !important;
+    mix-blend-mode: lighten;
+    margin-inline: auto;           /* ✅ توسيط إضافي لضمان العمل في الاتجاهين */
+}
+.footer-logo-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    mix-blend-mode: screen;     /* يزيل الخلفية البيضاء ويبقي الألوان */
+}
+
+#navbar-collapse #lang-toggle i {
+    color: #fff !important;
+}
+ </style> <link rel="stylesheet" href="dahawi-unified.css"/>
+</head>
+<body>
+<!-- ============================================================
+ NAVBAR
+============================================================ -->
+<nav class="navbar">
+  <div class="container flex">
+    <a class="site-brand" href="index.html">
+      <span class="brand-en">Dahawi<span>Engineering</span></span>
+      <span class="brand-ar">شركة ضحوي<span> الهندسية</span></span>
+    </a>
+
+    <button aria-label="Open menu" id="navbar-show-btn" type="button">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="navbar-collapse">
+      <button aria-label="Close menu" id="navbar-close-btn" type="button">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" data-ar="الرئيسية" data-en="Home" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" data-ar="من نحن" data-en="About Us" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" data-ar="خدماتنا" data-en="Services" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" data-ar="مشاريعنا" data-en="Projects" href="portfolio.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" data-ar="الأسئلة الشائعة" data-en="FAQ" href="faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" data-ar="تواصل معنا" data-en="Contact" href="contact.html">Contact</a></li>
+      </ul>
+
+      <button aria-label="Switch language" id="lang-toggle" title="Switch language">
+        <i class="fas fa-globe"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+ HEADER
+============================================================ -->
+<header class="flex header-sm reveal-up active">
+  <div class="container">
+    <div class="header-title">
+      <h1 data-ar="خدماتنا" data-en="Services">Services</h1>
+
+      <p
+        data-ar="تعرّف على خدماتنا المتخصصة في مجالات البنية التحتية الكهربائية وأنظمة الطاقة وشبكات النقل والتوزيع."
+        data-en="Explore the services we provide for electrical infrastructure, power systems, and energy network support."
+      >
+        Explore the services we provide for electrical infrastructure, power systems, and energy network support.
+      </p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+ SERVICES PORTFOLIO
+============================================================ -->
+<section class="py-4 reveal-up" id="services-portfolio">
+  <div class="container">
+
+    <div class="title-wrap reveal-up">
+      <span class="sm-title" data-ar="ما نقدمه" data-en="what we offer">what we offer</span>
+      <h2 class="lg-title" data-ar="خدماتنا الهندسية" data-en="services portfolio">services portfolio</h2>
+    </div>
+
+    <div class="services-row">
+
+      <!-- Power Infrastructure -->
+      <div class="service-card reveal-up">
+        <div class="service-icon">
+          <i class="fas fa-charging-station"></i>
+        </div>
+
+        <h3 data-ar="البنية التحتية الكهربائية" data-en="Power Infrastructure">
+          Power Infrastructure
+        </h3>
+
+        <p
+          class="text"
+          data-ar="نقدم حلولاً متكاملة لإنشاء الشبكات الكهربائية والمحطات وتوسعتها وتحديثها، بدءاً من التخطيط والتصميم، ووصولاً إلى الاختبار والتشغيل."
+          data-en="Comprehensive solutions covering the construction, expansion, and modernization of electrical networks and substations, from planning and design to testing and commissioning."
+        >
+          Comprehensive solutions covering the construction, expansion, and modernization of electrical networks and substations, from planning and design to testing and commissioning.
+        </p>
+
+        <ul class="service-list">
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="إنشاء محطات التوزيع" data-en="Construction of distribution substations">
+              Construction of distribution substations
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="تطوير شبكات النقل والتوزيع" data-en="Transmission &amp; distribution network development">
+              Transmission &amp; distribution network development
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="الاختبار والتشغيل ووضع الأنظمة تحت الجهد" data-en="Testing, commissioning &amp; energization">
+              Testing, commissioning &amp; energization
+            </span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Renewable Energy -->
+      <div class="service-card reveal-up">
+        <div class="service-icon">
+          <i class="fas fa-solar-panel"></i>
+        </div>
+
+        <h3 data-ar="الطاقة المتجددة" data-en="Renewable Energy">
+          Renewable Energy
+        </h3>
+
+        <p
+          class="text"
+          data-ar="نقدم خدمات تصميم وتركيب وتشغيل وتحسين أنظمة الطاقة المتجددة، بما يضمن أعلى مستويات الكفاءة والأداء المستدام على المدى الطويل."
+          data-en="Design, installation, commissioning, and optimization of renewable energy systems, ensuring maximum efficiency and long-term performance."
+        >
+          Design, installation, commissioning, and optimization of renewable energy systems, ensuring maximum efficiency and long-term performance.
+        </p>
+
+        <ul class="service-list">
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="تصميم أنظمة الطاقة الشمسية" data-en="Solar power system design">
+              Solar power system design
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="التركيب والاختبار والتشغيل" data-en="Solar installation &amp; commissioning">
+              Solar installation &amp; commissioning
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="حلول الطاقة الهجينة" data-en="Hybrid energy solutions">
+              Hybrid energy solutions
+            </span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Operations & Maintenance -->
+      <div class="service-card reveal-up">
+        <div class="service-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+
+        <h3 data-ar="التشغيل والصيانة" data-en="Operations &amp; Maintenance">
+          Operations &amp; Maintenance
+        </h3>
+
+        <p
+          class="text"
+          data-ar="نقدم برامج متكاملة للصيانة الوقائية والتنبؤية والتصحيحية للمحولات والمحطات ومفاتيح الجهد المتوسط والمنخفض والكيبلات."
+          data-en="Preventive, predictive, and corrective maintenance programs for transformers, substations, switchgear, and cable systems."
+        >
+          Preventive, predictive, and corrective maintenance programs for transformers, substations, switchgear, and cable systems.
+        </p>
+
+        <ul class="service-list">
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="صيانة المحولات واختبارها" data-en="Transformer maintenance &amp; testing">
+              Transformer maintenance &amp; testing
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="صيانة مفاتيح الجهد المتوسط" data-en="Medium-voltage switchgear maintenance">
+              Medium-voltage switchgear maintenance
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="برامج إطالة العمر التشغيلي للأصول والمعدات" data-en="Asset life extension programs">
+              Asset life extension programs
+            </span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Industrial Electrical Services -->
+      <div class="service-card reveal-up">
+        <div class="service-icon">
+          <i class="fas fa-industry"></i>
+        </div>
+
+        <h3 data-ar="الخدمات الكهربائية الصناعية" data-en="Industrial Electrical Services">
+          Industrial Electrical Services
+        </h3>
+
+        <p
+          class="text"
+          data-ar="نقدم خدمات كهربائية متخصصة للمنشآت الصناعية تشمل التركيب والاختبار والصيانة وتحسين أداء المعدات والأنظمة الكهربائية."
+          data-en="Specialized electrical services for industrial facilities, supporting installation, testing, maintenance, and equipment performance optimization."
+        >
+          Specialized electrical services for industrial facilities, supporting installation, testing, maintenance, and equipment performance optimization.
+        </p>
+
+        <ul class="service-list">
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="تركيب المحركات الصناعية" data-en="Industrial motor installation">
+              Industrial motor installation
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="اختبار المعدات الكهربائية" data-en="Electrical equipment testing">
+              Electrical equipment testing
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="تشخيص الأعطال واستكشافها ومعالجتها" data-en="Fault detection &amp; troubleshooting">
+              Fault detection &amp; troubleshooting
+            </span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Engineering Consultancy -->
+      <div class="service-card reveal-up">
+        <div class="service-icon">
+          <i class="fas fa-drafting-compass"></i>
+        </div>
+
+        <h3 data-ar="الاستشارات الهندسية" data-en="Engineering Consultancy">
+          Engineering Consultancy
+        </h3>
+
+        <p
+          class="text"
+          data-ar="نقدم خدمات استشارية احترافية تدعم اتخاذ القرارات الفنية وتطوير المشاريع، من خلال دراسات الجدوى ومراجعة التصاميم والإشراف الهندسي."
+          data-en="Professional consultancy services supporting decision-making and project optimization through feasibility studies and design reviews."
+        >
+          Professional consultancy services supporting decision-making and project optimization through feasibility studies and design reviews.
+        </p>
+
+        <ul class="service-list">
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="دراسات الجدوى الفنية" data-en="Technical feasibility studies">
+              Technical feasibility studies
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="مراجعة التصاميم الهندسية" data-en="Engineering design reviews">
+              Engineering design reviews
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="الإشراف على المشاريع" data-en="Project supervision">
+              Project supervision
+            </span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Training Services -->
+      <div class="service-card reveal-up">
+        <div class="service-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+
+        <h3 data-ar="خدمات التدريب" data-en="Training Services">
+          Training Services
+        </h3>
+
+        <p
+          class="text"
+          data-ar="نقدم برامج تدريبية متخصصة تهدف إلى تطوير الكفاءات الفنية وتعزيز ثقافة السلامة المهنية ورفع القدرات التشغيلية."
+          data-en="Specialized training programs aimed at developing technical competencies, enhancing workplace safety, and strengthening operational capabilities."
+        >
+          Specialized training programs aimed at developing technical competencies, enhancing workplace safety, and strengthening operational capabilities.
+        </p>
+
+        <ul class="service-list">
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="التدريب على السلامة الكهربائية" data-en="Electrical safety training">
+              Electrical safety training
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="تدريب التشغيل والصيانة" data-en="Operations &amp; maintenance training">
+              Operations &amp; maintenance training
+            </span>
+          </li>
+
+          <li>
+            <i class="fas fa-circle"></i>
+            <span data-ar="برامج بناء القدرات" data-en="Capacity building programs">
+              Capacity building programs
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+ GALLERY SECTION
+============================================================ -->
+<section class="py-4 reveal-up active" id="gallery">
+  <div class="container">
+
+    <div class="title-wrap reveal-up active">
+      <span class="sm-title" data-ar="من أعمالنا" data-en="service portfolio">
+        service portfolio
+      </span>
+
+      <h2 class="lg-title" data-ar="معرض الأعمال" data-en="project gallery">
+        project gallery
+      </h2>
+    </div>
+
+    <div class="gallery-row">
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="تصميم محطات الجهد العالي وتجهيز مواقعها."
+        data-desc-en="High-voltage substation design and site preparation."
+        data-index="1"
+        data-title-ar="تخطيط محطة التحويل"
+        data-title-en="Substation layout"
+      >
+        <img alt="Substation layout" src="./project.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="تخطيط محطة التحويل" data-en="Substation layout">
+            Substation layout
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="مسارات نقل كهربائية مصممة لضمان توصيل طاقة موثوقة."
+        data-desc-en="Durable transmission routing for dependable power delivery."
+        data-index="2"
+        data-title-ar="خط النقل الكهربائي"
+        data-title-en="Transmission line"
+      >
+        <img alt="Transmission line" src="./project1.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="خط النقل الكهربائي" data-en="Transmission line">
+            Transmission line
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="تركيب معدات التحكم والحماية الكهربائية في الموقع."
+        data-desc-en="Control and protection equipment installation at site."
+        data-index="3"
+        data-title-ar="تركيب معدات الفصل والتحكم الكهربائية"
+        data-title-en="Switchgear installation"
+      >
+        <img alt="Switchgear installation" src="./project2.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="تركيب معدات الفصل والتحكم الكهربائية" data-en="Switchgear installation">
+            Switchgear installation
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="اختبار وتشغيل أنظمة التحكم الكهربائية."
+        data-desc-en="Commissioning and testing of electrical control systems."
+        data-index="4"
+        data-title-ar="لوحة التحكم"
+        data-title-en="Control panel"
+      >
+        <img alt="Control panel" src="./project3.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="لوحة التحكم" data-en="Control panel">
+            Control panel
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="تكامل الشبكات وتنسيق البنية التحتية الكهربائية."
+        data-desc-en="Network integration and infrastructure coordination."
+        data-index="5"
+        data-title-ar="شبكة الطاقة"
+        data-title-en="Power network"
+      >
+        <img alt="Power network" src="./project4.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="شبكة الطاقة" data-en="Power network">
+            Power network
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="تنفيذ مشاريع الطاقة الكهربائية في الموقع."
+        data-desc-en="On-site execution of electrical energy projects."
+        data-index="6"
+        data-title-ar="موقع مشروع للطاقة"
+        data-title-en="Energy site"
+      >
+        <img alt="Energy site" src="./project5.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="موقع مشروع للطاقة" data-en="Energy site">
+            Energy site
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="تنفيذ الأعمال المدنية وتجهيز المعدات قبل التشغيل."
+        data-desc-en="Civil works and equipment placement before commissioning."
+        data-index="8"
+        data-title-ar="تجهيز الموقع"
+        data-title-en="Site preparation"
+      >
+        <img alt="Site preparation" src="./site-preparation.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="تجهيز الموقع" data-en="Site preparation">
+            Site preparation
+          </span>
+        </div>
+      </div>
+
+
+      <div
+        class="gallery-item shadow"
+        data-desc-ar="تسليم المشروع مكتملًا بعد استيفاء الوثائق والفحوصات النهائية."
+        data-desc-en="Finished project handover with documentation and final checks."
+        data-index="9"
+        data-title-ar="تسليم المشروع"
+        data-title-en="Project handover"
+      >
+        <img alt="Project handover" src="./handover.jpg"/>
+        <span class="zoom-icon"><i class="fas fa-search-plus"></i></span>
+
+        <div class="gallery-body">
+          <span data-ar="تسليم المشروع" data-en="Project handover">
+            Project handover
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+ EQUIPMENT & RESOURCES
+============================================================ -->
+<section class="py-4 reveal-up" id="equipment">
+  <div class="container">
+
+    <div class="title-wrap reveal-up">
+      <span class="sm-title" data-ar="ما نعمل به" data-en="what we work with">
+        what we work with
+      </span>
+
+      <h2 class="lg-title" data-ar="المعدات والموارد" data-en="equipment &amp; resources">
+        equipment &amp; resources
+      </h2>
+    </div>
+
+    <div class="equip-row">
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-gauge-high"></i>
+        <span data-ar="أجهزة الاختبار والقياس الكهربائية" data-en="Electrical testing &amp; measurement instruments">
+          Electrical testing &amp; measurement instruments
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-vial-circle-check"></i>
+        <span data-ar="معدات اختبار وتشخيص المحولات" data-en="Transformer testing &amp; diagnostic equipment">
+          Transformer testing &amp; diagnostic equipment
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-truck-moving"></i>
+        <span data-ar="مركبات الصيانة ومعدات الدعم الميداني" data-en="Maintenance vehicles &amp; field support equipment">
+          Maintenance vehicles &amp; field support equipment
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-magnifying-glass-chart"></i>
+        <span data-ar="أدوات الفحص والمسح الفني" data-en="Inspection &amp; technical survey tools">
+          Inspection &amp; technical survey tools
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-hard-hat"></i>
+        <span data-ar="معدات السلامة والوقاية الشخصية" data-en="Safety &amp; personal protective equipment (PPE)">
+          Safety &amp; personal protective equipment (PPE)
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-bolt"></i>
+        <span data-ar="أنظمة كشف أعطال الكيبلات" data-en="Cable fault detection systems">
+          Cable fault detection systems
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-diagram-project"></i>
+        <span data-ar="التصميم الهندسي وإدارة المشاريع" data-en="Engineering design &amp; project management">
+          Engineering design &amp; project management
+        </span>
+      </div>
+
+      <div class="equip-item reveal-up">
+        <i class="fas fa-screwdriver-wrench"></i>
+        <span data-ar="معدات وموارد مواقع المشاريع" data-en="Project site equipment &amp; operational resources">
+          Project site equipment &amp; operational resources
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+ QHSE MANAGEMENT SYSTEM
+============================================================ -->
+<section class="py-4 reveal-up" id="qhse">
+  <div class="container">
+
+    <div class="title-wrap reveal-up">
+      <span class="sm-title" data-ar="التزامنا في كل مشروع" data-en="our commitment on every project">
+        our commitment on every project
+      </span>
+
+      <h2 class="lg-title" data-ar="نظام إدارة الجودة والصحة والسلامة والبيئة" data-en="QHSE management system">
+        QHSE management system
+      </h2>
+    </div>
+
+    <div class="qhse-row">
+
+      <div class="qhse-item reveal-up">
+        <i class="fas fa-award"></i>
+        <h3 data-ar="الجودة" data-en="Quality">Quality</h3>
+
+        <p
+          data-ar="نلتزم بتنفيذ وتسليم مشاريع تلبي المواصفات التعاقدية والفنية أو تتجاوزها، من خلال تطبيق إجراءات صارمة لضبط الجودة في جميع مراحل العمل."
+          data-en="Commitment to delivering projects that meet or exceed contractual and technical specifications through strict quality control."
+        >
+          Commitment to delivering projects that meet or exceed contractual and technical specifications through strict quality control.
+        </p>
+      </div>
+
+
+      <div class="qhse-item reveal-up">
+        <i class="fas fa-heart-pulse"></i>
+        <h3 data-ar="الصحة" data-en="Health">Health</h3>
+
+        <p
+          data-ar="نحرص على حماية صحة كوادرنا من خلال المتابعة المستمرة وبرامج التوعية والالتزام بمعايير الصحة المهنية."
+          data-en="Protection of workforce health through continuous monitoring, awareness programs, and adherence to occupational health standards."
+        >
+          Protection of workforce health through continuous monitoring, awareness programs, and adherence to occupational health standards.
+        </p>
+      </div>
+
+
+      <div class="qhse-item reveal-up">
+        <i class="fas fa-hard-hat"></i>
+        <h3 data-ar="السلامة" data-en="Safety">Safety</h3>
+
+        <p
+          data-ar="نتبنى ثقافة سلامة استباقية تركز على تحديد المخاطر والوقاية من الحوادث، والعمل وفق مبدأ السعي نحو صفر حوادث."
+          data-en="Implementation of a proactive safety culture focused on hazard identification, risk mitigation, and zero-harm objectives."
+        >
+          Implementation of a proactive safety culture focused on hazard identification, risk mitigation, and zero-harm objectives.
+        </p>
+      </div>
+
+
+      <div class="qhse-item reveal-up">
+        <i class="fas fa-triangle-exclamation"></i>
+        <h3 data-ar="إدارة المخاطر" data-en="Risk Management">Risk Management</h3>
+
+        <p
+          data-ar="نعمل على تحديد المخاطر التشغيلية ومخاطر المشاريع وتقييمها ومعالجتها بصورة منهجية في جميع مراحل التنفيذ."
+          data-en="Systematic identification, assessment, and mitigation of operational and project risks throughout all phases of execution."
+        >
+          Systematic identification, assessment, and mitigation of operational and project risks throughout all phases of execution.
+        </p>
+      </div>
+
+
+      <div class="qhse-item reveal-up">
+        <i class="fas fa-leaf"></i>
+        <h3 data-ar="البيئة" data-en="Environment">Environment</h3>
+
+        <p
+          data-ar="نلتزم بتعزيز الممارسات المسؤولة بيئياً من خلال الحد من التلوث، وإدارة النفايات، وترشيد استخدام الموارد."
+          data-en="Promotion of environmentally responsible operations through pollution control, waste management, and sustainable resource use."
+        >
+          Promotion of environmentally responsible operations through pollution control, waste management, and sustainable resource use.
+        </p>
+      </div>
+
+
+      <div class="qhse-item reveal-up">
+        <i class="fas fa-arrows-spin"></i>
+        <h3 data-ar="التحسين المستمر" data-en="Continuous Improvement">
+          Continuous Improvement
+        </h3>
+
+        <p
+          data-ar="نعمل باستمرار على تطوير عملياتنا وأنظمتنا وقدرات كوادرنا من خلال التقييم والمراجعة والتدقيق وتطبيق أفضل الممارسات العالمية."
+          data-en="Ongoing enhancement of processes, systems, and workforce capabilities through evaluation, audits, and global best practices."
+        >
+          Ongoing enhancement of processes, systems, and workforce capabilities through evaluation, audits, and global best practices.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+ IMG MODAL
+============================================================ -->
+<div id="img-modal-box">
+  <div id="img-modal">
+    <button class="flex" id="modal-close-btn" type="button">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <button class="flex" id="prev-btn" type="button">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <button class="flex" id="next-btn" type="button">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <img alt="Gallery preview"/>
+    <div class="gallery-modal-caption"></div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+ PROJECTS SECTION
+============================================================ -->
+<section class="py-4 reveal-up active" id="blog">
+  <div class="container">
+
+    <div class="title-wrap reveal-up active">
+      <h1 class="title" data-ar="مشاريعنا المنجزة" data-en="Completed Projects">
+        Completed Projects
+      </h1>
+    </div>
+
+    <div class="blog-row">
+
+
+      <!-- Project 1 -->
+      <div class="blog-item my-2 shadow">
+        <div class="blog-item-top">
+          <img alt="Al Salam Medical Center" src="./image5.jpg"/>
+          <span class="blog-date" data-ar="مشروع منجز" data-en="PROJECT DONE">
+            PROJECT DONE
+          </span>
+        </div>
+
+        <div class="blog-item-bottom">
+          <span
+            data-ar="١. الأعمال الكهربائية الداخلية"
+            data-en="1. Internal Electrical Installations"
+          >
+            1. Internal Electrical Installations
+          </span>
+
+          <a href="#">Al Salam Medical Center (AMC)</a>
+
+          <p
+            class="text"
+            data-ar="تقديم خدمات التصميم والتركيب والاختبار والتشغيل لأنظمة كهربائية داخلية متكاملة في مركز السلام الطبي. شمل نطاق العمل أنظمة توزيع الطاقة الكهربائية والإضاءة والتهوية والتكييف والتبريد، بما يضمن تشغيلاً آمناً وموثوقاً للمرافق الطبية والإدارية."
+            data-en="Provided design support, installation, testing, and commissioning of complete internal electrical systems for Al Salam Medical Center (AMC Centre). The project covered electrical power distribution, lighting, ventilation, air conditioning, and cooling systems, ensuring reliable and safe operation of both medical and administrative facilities."
+          >
+            Provided design support, installation, testing, and commissioning of complete internal electrical systems for Al Salam Medical Center (AMC Centre). The project covered electrical power distribution, lighting, ventilation, air conditioning, and cooling systems, ensuring reliable and safe operation of both medical and administrative facilities.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Project 2 -->
+      <div class="blog-item my-2 shadow">
+        <div class="blog-item-top">
+          <img alt="Jood Cables Factory" src="./image1.jpg"/>
+          <span class="blog-date" data-ar="مشروع منجز" data-en="PROJECT DONE">
+            PROJECT DONE
+          </span>
+        </div>
+
+        <div class="blog-item-bottom">
+          <span
+            data-ar="٢. محطة تحويل بجهد 33/11 كيلوفولت"
+            data-en="2. 33/11 kV Substation"
+          >
+            2. 33/11 kV Substation
+          </span>
+
+          <a href="#">Jood's Cables Factory — Khartoum, Sudan</a>
+
+          <p
+            class="text"
+            data-ar="تنفيذ الأعمال الهندسية والتركيب والاختبار والتشغيل لمحطة تحويل كهربائية متكاملة بجهد 33/11 كيلوفولت، بهدف توفير إمدادات طاقة موثوقة تدعم العمليات الصناعية، مع الالتزام بمعايير الجودة والسلامة الدولية. يشمل نطاق العمل: إنشاء المحطة · أعمال التركيب الكهربائي · الاختبار والتشغيل · تكامل أنظمة الطاقة الصناعية."
+            data-en="Engineering, installation, testing, and commissioning of a complete 33/11 kV electrical substation to provide reliable power supply for industrial operations while ensuring compliance with international safety and quality standards. Scope Highlights: Substation Construction · Electrical Installation · Testing &amp; Commissioning · Industrial Power Integration."
+          >
+            Engineering, installation, testing, and commissioning of a complete 33/11 kV electrical substation to provide reliable power supply for industrial operations while ensuring compliance with international safety and quality standards.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Project 3 -->
+      <div class="blog-item my-2 shadow">
+        <div class="blog-item-top">
+          <img alt="Merowe Substation" src="./image6.jpg"/>
+          <span class="blog-date" data-ar="مشروع منجز" data-en="PROJECT DONE">
+            PROJECT DONE
+          </span>
+        </div>
+
+        <div class="blog-item-bottom">
+          <span
+            data-ar="٣. مشروع مفاعل الجهد العالي"
+            data-en="3. High Voltage Reactor Project"
+          >
+            3. High Voltage Reactor Project
+          </span>
+
+          <a href="#">Merowe Substation — Merowe, Sudan</a>
+
+          <p
+            class="text"
+            data-ar="تنفيذ مشروع مفاعل للجهد العالي بهدف دعم استقرار الشبكة الوطنية وتحسين التحكم في الجهد، من خلال ممارسات هندسية معترف بها دولياً وتقنيات متقدمة. يشمل نطاق العمل: أنظمة الجهد العالي · تعزيز استقرار الشبكة · تحسين التحكم في الجهد · التعاون التقني الدولي. نُفذ المشروع بواسطة SETCO بالتعاون مع Siemens."
+            data-en="Implementation of a high-voltage reactor project aimed at supporting national grid stability and optimizing voltage control through internationally recognized engineering practices and advanced technologies. Scope Highlights: High Voltage Systems · Grid Stability Improvement · Voltage Control Optimization · International Technical Collaboration. Executed by SETCO in cooperation with Siemens."
+          >
+            Implementation of a high-voltage reactor project aimed at supporting national grid stability and optimizing voltage control through internationally recognized engineering practices and advanced technologies.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Project 4 -->
+      <div class="blog-item my-2 shadow">
+        <div class="blog-item-top">
+          <img alt="Dongola Substation" src="./image4.jpg"/>
+          <span class="blog-date" data-ar="مشروع منجز" data-en="PROJECT DONE">
+            PROJECT DONE
+          </span>
+        </div>
+
+        <div class="blog-item-bottom">
+          <span
+            data-ar="٤. مشروع المفاعل الكهربائي — دنقلا"
+            data-en="4. Reactor Project Dongola"
+          >
+            4. Reactor Project Dongola
+          </span>
+
+          <a href="#">Dongola Substation — Dongola, Sudan</a>
+
+          <p
+            class="text"
+            data-ar="توريد وتركيب مفاعل كهربائي مصمم لتحسين تنظيم الجهد، وتعزيز جودة الطاقة، وتقليل خسائر الشبكة، ورفع كفاءة الأداء التشغيلي للمحطة. يشمل نطاق العمل: توريد المفاعل الكهربائي · أعمال التركيب والتنفيذ · تعزيز استقرار الشبكة · تحسين أداء النظام الكهربائي."
+            data-en="Supply and installation of a power reactor designed to improve voltage regulation, enhance power quality, reduce network losses, and strengthen substation operational performance. Scope Highlights: Reactor Supply · Installation Works · Grid Stability Enhancement · System Optimization."
+          >
+            Supply and installation of a power reactor designed to improve voltage regulation, enhance power quality, reduce network losses, and strengthen substation operational performance.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Project 5 -->
+      <div class="blog-item my-2 shadow">
+        <div class="blog-item-top">
+          <img alt="Al-Jadayel Resort" src="./image7.jpg"/>
+          <span class="blog-date" data-ar="مشروع منجز" data-en="PROJECT DONE">
+            PROJECT DONE
+          </span>
+        </div>
+
+        <div class="blog-item-bottom">
+          <span
+            data-ar="٥. مشروع إضاءة منتجع الجدايل"
+            data-en="5. Resort Lighting Project"
+          >
+            5. Resort Lighting Project
+          </span>
+
+          <a href="#">Al-Jadayel Resort</a>
+
+          <p
+            class="text"
+            data-ar="تنفيذ أعمال الإضاءة الخارجية وإضاءة المساحات والمناظر الطبيعية لمنتجع الجدايل، من خلال فريق تنفيذ مشترك يضم شركة ضحوي الهندسية وشركة ستار هوب باور. يشمل نطاق العمل: أنظمة الإضاءة الخارجية وإضاءة المناظر الطبيعية · الإضاءة الزخرفية والمعمارية · توزيع الطاقة لشبكات الإضاءة · تركيب الكيبلات وتوصيلها · أنظمة التحكم في الإضاءة · الاختبار والتشغيل · الالتزام بمعايير الجودة والسلامة · دعم البنية التحتية الكهربائية للمنتجع."
+            data-en="Execution of outdoor and landscape lighting works for Al Jadayel Resort through a joint delivery team comprising Dahawi Engineering and Star Hope Power. Scope Highlights: Outdoor &amp; Landscape Lighting Systems · Decorative and Architectural Lighting · Power Distribution for Lighting Networks · Cable Installation &amp; Termination · Lighting Control Systems · Testing &amp; Commissioning · Quality &amp; Safety Compliance · Resort Infrastructure Support."
+          >
+            Execution of outdoor and landscape lighting works for Al Jadayel Resort through a joint delivery team comprising Dahawi Engineering and Star Hope Power.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-4">
+<div class="container footer-row">
+
+  <!-- العلامة التجارية والوصف -->
+  <div class="footer-item">
+    <a class="site-brand" href="index.html"><span class="brand-en">Dahawi<span>Engineering</span></span><span class="brand-ar">ضحوي<span> الهندسية</span></span></a>
+    <p class="text" data-ar="تقدم ضحوي الهندسية خدمات إنشاء وتشغيل وصيانة البنية التحتية الكهربائية، بما يدعم كفاءة شبكات الطاقة واستمرارية تشغيلها." data-en="Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.">Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.</p>
+  </div>
+
+  <!-- روابط سريعة -->
+  <div class="footer-item quick-links">
+    <h2 data-ar="روابط سريعة" data-en="Quick Links">Quick Links</h2>
+    <ul class="quick-links-list">
+      <li><a data-ar="الرئيسية" data-en="Home" href="index.html">Home</a></li>
+      <li><a data-ar="من نحن" data-en="About Us" href="about.html">About Us</a></li>
+      <li><a data-ar="الخدمات" data-en="Services" href="services.html">Services</a></li>
+      <li><a data-ar="المشاريع" data-en="Projects" href="portfolio.html">Projects</a></li>
+      <li><a data-ar="الأسئلة الشائعة" data-en="FAQ" href="faq.html">FAQ</a></li>
+      <li><a data-ar="تواصل معنا" data-en="Contact" href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- تواصل مباشر + سوشيال -->
+  <div class="footer-item contact">
+    <h2 data-ar="تواصل معنا مباشرةً" data-en="Contact Directly">Contact Directly</h2>
+    <p class="text"><span data-ar="البريد:" data-en="Email:">Email:</span> <a href="mailto:info@dahawiengineering.com">info@dahawiengineering.com</a></p>
+    <p class="text"><span data-ar="هاتف:" data-en="Phone:">Phone:</span> <a dir="ltr" href="tel:+256762460923">+256 762 460 923</a></p>
+    <p class="text"><span data-ar="هاتف:" data-en="Phone:">Phone:</span> <a dir="ltr" href="tel:+249912194405">+249 912 194 405</a></p>
+    <h2 style="margin-top:1rem" data-ar="تابعونا عبر" data-en="Follow Us On">Follow Us On</h2>
+    <ul class="social-links">
+      <li><a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+      <li><a aria-label="Twitter" href="#"><i class="fab fa-x-twitter"></i></a></li>
+      <li><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+  </div>
+
+  <!-- شعار الشركة — واحد فقط، يتحرك بالـ CSS -->
+  <div class="footer-logo-col">
+    <img src="logo.png" alt="Dahawi Engineering Logo">
+  </div>
+
+</div>
+</footer>
+<!-- ============================================================
+ JAVASCRIPT
+============================================================ -->
+<script>
+ /* ---------- Language system ---------- */
+ const htmlRoot2 = document.getElementById('html-root') || document.documentElement;
+ let currentLang2 = localStorage.getItem('dahawi-lang') || 'en';
+ function applyLang2(lang) {
+ currentLang2 = lang;
+ localStorage.setItem('dahawi-lang', lang);
+ htmlRoot2.lang = lang;
+ htmlRoot2.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+ document.querySelectorAll('[data-ar],[data-en]').forEach(el => {
+ const val = el.getAttribute('data-' + lang);
+ if (val !== null) el.innerHTML = val;
+ });
+ document.title = (lang === 'ar')
+ ? 'أعمالنا | شركة ضحوي الهندسية'
+ : 'Services | Dahawi Engineering';
+ }
+ document.getElementById('lang-toggle').addEventListener('click', () => {
+ applyLang2(currentLang2 === 'en' ? 'ar' : 'en');
+ });
+ applyLang2(currentLang2); /* ---------- Navbar toggle ---------- */
+ const navCollapse = document.getElementById('navbar-collapse');
+ document.getElementById('navbar-show-btn').addEventListener('click', () => navCollapse.classList.add('open'));
+ document.getElementById('navbar-close-btn').addEventListener('click', () => navCollapse.classList.remove('open')); 
+ /* ---------- Gallery modal ---------- */
+ const galleryItems = document.querySelectorAll('.gallery-item[data-index]');
+ const imgModalDiv = document.getElementById('img-modal-box');
+ const modalCloseBtn = document.getElementById('modal-close-btn');
+ const nextBtn = document.getElementById('next-btn');
+ const prevBtn = document.getElementById('prev-btn');
+ const modalImage = document.querySelector('#img-modal img');
+ const modalCaption = document.querySelector('#img-modal .gallery-modal-caption');
+ let currentIndex = 0; function getGalleryData() {
+ return Array.from(galleryItems).map(item => ({
+ index: Number(item.dataset.index),
+ src: item.querySelector('img').getAttribute('src'),
+ title: item.dataset.title,
+ description: item.dataset.description
+ })).sort((a, b) => a.index - b.index);
+ } const openModal = (item) => {
+ if (!item) return;
+ currentIndex = item.index;
+ modalImage.src = item.src;
+ modalImage.alt = item.title || 'Gallery image';
+ if (modalCaption) {
+ modalCaption.innerHTML = `<strong>${item.title}</strong><p>${item.description}</p>`;
+ }
+ imgModalDiv.style.display = 'block';
+ }; galleryItems.forEach(galleryItem => {
+ galleryItem.addEventListener('click', () => {
+ const data = getGalleryData();
+ const item = data.find(e => e.index === Number(galleryItem.dataset.index));
+ openModal(item);
+ });
+ }); nextBtn.addEventListener('click', () => {
+ const data = getGalleryData();
+ currentIndex = currentIndex === data.length ? 1 : currentIndex + 1;
+ openModal(data.find(e => e.index === currentIndex));
+ }); prevBtn.addEventListener('click', () => {
+ const data = getGalleryData();
+ currentIndex = currentIndex === 1 ? data.length : currentIndex - 1;
+ openModal(data.find(e => e.index === currentIndex));
+ }); modalCloseBtn.addEventListener('click', () => imgModalDiv.style.display = 'none');
+ imgModalDiv.addEventListener('click', e => { if (e.target === imgModalDiv) imgModalDiv.style.display = 'none'; }); 
+ /* ---------- Scroll reveal ---------- */
+ const revealObserver = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add('active');
+ revealObserver.unobserve(entry.target);
+ }
+ });
+ }, { threshold: 0.12 }); document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+</script>
+<script src="dahawi-lang.js"></script>
+<script src="dahawi-ui.js"></script>
+</body>
+</html>

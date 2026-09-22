@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html id="html-root" dir="ltr" lang="en">
+<head>
+ <!-- Website Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title data-en="About | Dahawi Engineering" data-ar="من نحن | ضحوي الهندسيّة">About | Dahawi Engineering</title>
+<meta name="description" content="Learn about Dahawi Engineering, an electrical infrastructure company focused on substation construction, network operation, and maintenance."/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:    #c62828;
+  --accent:     #f6b746;
+  --dark:       #182023;
+  --bg:         #f5f6f6;
+  --navy-mid:   #202a2d;
+  --white:      #ffffff;
+  --text:       #182023;
+  --text-light: #697275;
+  --border:     #e5e7e8;
+  --shadow:     0 4px 24px rgba(0,0,0,.10);
+  --nav-h:      72px;
+  --font-en:    'Inter', sans-serif;
+  --font-ar:    'Cairo', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-en); font-size: 16px; color: var(--text); background: var(--bg); line-height: 1.7; }
+html[lang="ar"] body { font-family: var(--font-ar); direction: rtl; text-align: right; }
+html[lang="ar"] * { letter-spacing: 0 !important; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+.container { width: min(1200px, 92%); margin-inline: auto; }
+.flex { display: flex; align-items: center; }
+.py-4 { padding-block: 4.5rem; }
+.py-5 { padding-block: 5rem; }
+.text { font-size: .95rem; color: var(--text-light); line-height: 1.8; }
+
+/* ============================================================
+   LANG BUTTON
+============================================================ */
+#lang-toggle {
+  display: flex; align-items: center; gap: .45rem;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,.5);
+  color: #fff; padding: .35rem .85rem;
+  border-radius: 50px; font-size: .8rem;
+  font-weight: 600; cursor: pointer;
+  transition: background .2s, border-color .2s;
+  white-space: nowrap; margin-inline-start: auto; margin-inline-end: .75rem;
+}
+#lang-toggle:hover { background: rgba(255,255,255,.15); border-color: #fff; }
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--navy-mid);
+  height: var(--nav-h);
+  border-bottom: 3px solid var(--primary);
+  box-shadow: 0 2px 16px rgba(0,0,0,.25);
+}
+.navbar .container { height: 100%; justify-content: space-between; gap: 1rem; }
+
+.site-brand { font-size: 1.45rem; font-weight: 800; color: #fff; letter-spacing: -.5px; }
+.site-brand span { color: var(--accent); }
+
+#navbar-collapse { display: flex; align-items: center; gap: 1rem; margin-inline-start: auto; }
+.navbar-nav { display: flex; align-items: center; gap: .2rem; }
+
+.nav-link {
+  display: block; padding: .45rem .9rem;
+  color: rgba(255,255,255,.8); font-size: .875rem; font-weight: 500;
+  border-radius: 6px; transition: background .18s, color .18s;
+}
+.nav-link:hover { background: rgba(246,183,70,.14); color: var(--accent); }
+.nav-link.active { color: var(--accent); background: rgba(246,183,70,.12); }
+
+#navbar-show-btn, #navbar-close-btn {
+  display: none; background: none; border: none;
+  color: #fff; font-size: 1.3rem; cursor: pointer; padding: .4rem;
+}
+
+/* ============================================================
+   PAGE HEADER
+============================================================ */
+.page-header {
+  margin-top: var(--nav-h);
+  padding: 4.5rem 0 3.5rem;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800; color: #fff; margin-bottom: .75rem;
+}
+.page-header p {
+  color: rgba(255,255,255,.75); font-size: 1.05rem;
+  max-width: 620px; margin-inline: auto;
+}
+
+/* ============================================================
+   SECTION TITLES
+============================================================ */
+.title-wrap { text-align: center; margin-bottom: 3rem; }
+.sm-title {
+  display: inline-block;
+  font-size: .75rem; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--primary);
+  margin-bottom: .5rem;
+}
+html[lang="ar"] .sm-title { letter-spacing: 0; }
+.lg-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800; color: var(--dark); text-transform: capitalize;
+}
+
+/* ============================================================
+   ABOUT STORY SECTION
+============================================================ */
+.about-section { background: var(--white); }
+
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+  background: linear-gradient(135deg, var(--dark) 0%, #2a3a40 100%);
+  border-radius: 16px;
+  padding: 2.5rem;
+  min-height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.about-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(198,40,40,.07) 0px, rgba(198,40,40,.07) 1px,
+    transparent 1px, transparent 24px
+  );
+}
+.visual-icon-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.25rem; position: relative; z-index: 1;
+}
+.visual-icon-card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  color: #fff;
+}
+.visual-icon-card i {
+  font-size: 1.8rem; color: var(--accent); margin-bottom: .5rem; display: block;
+}
+.visual-icon-card span { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.75); }
+.about-badge {
+  position: absolute; bottom: 1.25rem; right: 1.25rem;
+  background: var(--primary);
+  color: #fff; padding: .5rem 1rem;
+  border-radius: 8px; font-size: .8rem; font-weight: 700;
+  display: flex; flex-direction: column; gap: .1rem; text-align: center;
+}
+html[lang="ar"] .about-badge { right: auto; left: 1.25rem; }
+.about-badge strong { font-size: 1rem; color: var(--accent); }
+
+.about-right h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 800; color: var(--primary); margin-bottom: 1.25rem;
+}
+.about-right .text { margin-bottom: 1.75rem; }
+
+.about-points {
+  display: flex; flex-direction: column; gap: .85rem;
+}
+.about-points > div {
+  display: flex; align-items: center; gap: .85rem;
+  background: var(--bg);
+  border-left: 3px solid var(--primary);
+  padding: .75rem 1rem;
+  border-radius: 0 8px 8px 0;
+  font-weight: 600; font-size: .92rem;
+}
+html[lang="ar"] .about-points > div {
+  border-left: none; border-right: 3px solid var(--primary);
+  border-radius: 8px 0 0 8px;
+}
+.about-points > div i { color: var(--primary); font-size: 1rem; width: 20px; text-align: center; }
+
+/* ============================================================
+   CEO SECTION
+============================================================ */
+.ceo-section { background: var(--bg); }
+
+.ceo-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.ceo-image { position: relative; }
+.ceo-image img {
+  width: 100%; aspect-ratio: 3/4;
+  object-fit: cover; object-position: top;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+.ceo-image::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; right: -8px;
+  width: 60px; height: 60px;
+  background: var(--primary);
+  border-radius: 8px;
+  z-index: -1;
+}
+html[lang="ar"] .ceo-image::after { right: auto; left: -8px; }
+
+.ceo-copy { padding-top: .5rem; }
+.ceo-copy .text { margin-bottom: 1.1rem; }
+.ceo-signature {
+  font-weight: 700; color: var(--primary);
+  font-size: 1rem; margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border);
+}
+
+/* ============================================================
+   CAPABILITIES SECTION
+============================================================ */
+.capabilities-section { background: var(--white); }
+
+.capability-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.capability-item {
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform .3s, box-shadow .3s;
+  border-top: 4px solid transparent;
+}
+.capability-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-top-color: var(--primary);
+}
+.capability-icon {
+  width: 60px; height: 60px;
+  background: rgba(198,40,40,.1);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+.capability-icon i { color: var(--primary); font-size: 1.4rem; }
+.capability-item h3 {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--text); margin-bottom: .65rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OVERRIDE: dahawi-unified.css forces flex-direction:row on ALL
+   .capability-item in AR mode (line ~2065). We must beat it here
+   for the two sections that need vertical stacking.
+   Using grid (not flex) so flex-direction has zero effect.
+══════════════════════════════════════════════════════════════ */
+
+/* ── Capabilities Section: no icon — title then text ── */
+.capabilities-section .capability-icon,
+.capabilities-section .capability-icon * { display: none !important; }
+
+/* grid beats any flex rule from the unified CSS */
+.capabilities-section .capability-item,
+html[lang="ar"] .capabilities-section .capability-item {
+  display: grid !important;
+  flex-direction: unset !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto auto !important;
+  justify-items: center !important;
+  text-align: center !important;
+  align-items: unset !important;
+  gap: 0 !important;
+}
+
+.capabilities-section .capability-item h3,
+html[lang="ar"] .capabilities-section .capability-item h3 {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 0 .65rem !important;
+}
+
+.capabilities-section .capability-item .text,
+html[lang="ar"] .capabilities-section .capability-item .text {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  flex: unset !important;
+  min-width: unset !important;
+}
+
+/* ── Core Values Section: icon → title → text ── */
+.values-section .capability-item,
+html[lang="ar"] .values-section .capability-item {
+  display: grid !important;
+  flex-direction: unset !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: auto auto auto !important;
+  justify-items: center !important;
+  text-align: center !important;
+  align-items: unset !important;
+  gap: 0 !important;
+}
+
+.values-section .capability-item .capability-icon,
+html[lang="ar"] .values-section .capability-item .capability-icon {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 60px !important;
+  height: 60px !important;
+  margin: 0 0 1.25rem 0 !important;
+  flex-shrink: unset !important;
+  background: rgba(198,40,40,.1) !important;
+  border-radius: 50% !important;
+}
+
+.values-section .capability-item .capability-icon i,
+html[lang="ar"] .values-section .capability-item .capability-icon i {
+  display: inline-block !important;
+  color: var(--primary) !important;
+  font-size: 1.4rem !important;
+}
+
+.values-section .capability-item h3,
+html[lang="ar"] .values-section .capability-item h3 {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 0 .65rem !important;
+}
+
+.values-section .capability-item .text,
+html[lang="ar"] .values-section .capability-item .text {
+  grid-column: 1 !important;
+  grid-row: 3 !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  flex: unset !important;
+  min-width: unset !important;
+}
+
+/* Undo the unified-CSS "content block grows" rule for these two sections */
+.capabilities-section .capability-item > div:not(.capability-icon),
+.values-section .capability-item > div:not(.capability-icon),
+html[lang="ar"] .capabilities-section .capability-item > div:not(.capability-icon),
+html[lang="ar"] .values-section .capability-item > div:not(.capability-icon) {
+  flex: unset !important;
+  min-width: unset !important;
+  text-align: center !important;
+}
+
+/* ============================================================
+   CORE VALUES — ICON HOVER & CARD REVEAL EFFECTS
+============================================================ */
+
+/* Card lift + glow on hover */
+.values-section .capability-item {
+  cursor: default;
+  transition: transform .35s cubic-bezier(.25,.8,.25,1),
+              box-shadow .35s cubic-bezier(.25,.8,.25,1),
+              border-top-color .35s ease !important;
+  will-change: transform, box-shadow;
+}
+.values-section .capability-item:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 20px 48px rgba(198,40,40,.18), 0 6px 16px rgba(0,0,0,.1) !important;
+  border-top-color: var(--primary) !important;
+}
+
+/* Icon circle — spin + scale + color shift on hover */
+.values-section .capability-item .capability-icon {
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1),
+              background .35s ease,
+              box-shadow .35s ease !important;
+}
+.values-section .capability-item:hover .capability-icon {
+  transform: rotate(8deg) scale(1.18) !important;
+  background: var(--primary) !important;
+  box-shadow: 0 0 0 6px rgba(198,40,40,.15) !important;
+}
+
+/* Icon glyph — flip color to white on hover */
+.values-section .capability-item:hover .capability-icon i {
+  color: #fff !important;
+  transition: color .25s ease;
+}
+
+/* Icon glyph — default transition */
+.values-section .capability-item .capability-icon i {
+  transition: color .25s ease !important;
+}
+
+/* Title underline reveal on hover */
+.values-section .capability-item h3 {
+  position: relative;
+  padding-bottom: .45rem;
+}
+.values-section .capability-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width .35s ease;
+}
+.values-section .capability-item:hover h3::after {
+  width: 40px;
+}
+
+/* Card background shimmer on hover */
+.values-section .capability-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(198,40,40,.06) 0%, transparent 65%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.values-section .capability-item {
+  position: relative;
+  overflow: hidden;
+}
+.values-section .capability-item:hover::after {
+  opacity: 1;
+}
+
+/* ============================================================
+   CAPABILITIES SECTION — REFINED TYPOGRAPHY & TEXT ALIGNMENT
+============================================================ */
+
+/* Left-align text for better readability (English-style) */
+.capabilities-section .capability-item,
+html[lang="ar"] .capabilities-section .capability-item {
+  text-align: left !important;
+  justify-items: start !important;
+  padding: 2.25rem 2rem !important;
+  border-left: 4px solid transparent;
+  border-top: none !important;
+  border-radius: 14px !important;
+  transition: transform .3s ease, box-shadow .3s ease, border-left-color .3s ease !important;
+}
+html[lang="ar"] .capabilities-section .capability-item {
+  text-align: right !important;
+  justify-items: end !important;
+  border-left: none !important;
+  border-right: 4px solid transparent !important;
+}
+
+.capabilities-section .capability-item:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,.12) !important;
+  border-left-color: var(--primary) !important;
+}
+html[lang="ar"] .capabilities-section .capability-item:hover {
+  border-left-color: transparent !important;
+  border-right-color: var(--primary) !important;
+}
+
+/* Number badge before each capability */
+.capabilities-section .capability-item h3 {
+  text-align: left !important;
+  font-size: 1.1rem !important;
+  font-weight: 800 !important;
+  color: var(--dark) !important;
+  margin-bottom: .75rem !important;
+  letter-spacing: -.2px;
+  line-height: 1.3 !important;
+}
+html[lang="ar"] .capabilities-section .capability-item h3 {
+  text-align: right !important;
+}
+
+/* Paragraph text — left-aligned, good line-height */
+.capabilities-section .capability-item .text {
+  text-align: left !important;
+  font-size: .935rem !important;
+  line-height: 1.85 !important;
+  color: var(--text-light) !important;
+}
+html[lang="ar"] .capabilities-section .capability-item .text {
+  text-align: right !important;
+  line-height: 2 !important;
+}
+
+/* Thin top accent line per card */
+.capabilities-section .capability-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 2rem; right: 2rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  border-radius: 0 0 3px 3px;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+html[lang="ar"] .capabilities-section .capability-item::before {
+  background: linear-gradient(270deg, var(--primary), transparent);
+}
+.capabilities-section .capability-item:hover::before {
+  opacity: 1;
+}
+.capabilities-section .capability-item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   OVERRIDE: facts-item — keep vertical stacking in BOTH languages
+   dahawi-unified.css forces flex:row on html[lang="ar"] .facts-item
+   which breaks the icon-above-number-above-text layout.
+   We restore the vertical (block/column) layout for this section.
+══════════════════════════════════════════════════════════════ */
+html[lang="ar"] .facts-section .facts-item {
+  display: block !important;
+  flex-direction: unset !important;
+  align-items: unset !important;
+  text-align: center !important;
+  gap: unset !important;
+}
+
+html[lang="ar"] .facts-section .facts-icon {
+  display: block !important;
+  margin: 0 auto 1rem auto !important;
+  flex-shrink: unset !important;
+  font-size: 1.55rem !important;
+}
+
+html[lang="ar"] .facts-section .facts-item strong {
+  display: block !important;
+  text-align: center !important;
+}
+
+html[lang="ar"] .facts-section .facts-item .text {
+  display: block !important;
+  text-align: center !important;
+  flex: unset !important;
+  min-width: unset !important;
+}
+
+/* ============================================================
+   FACTS / STATS SECTION
+============================================================ */
+.facts-section {
+  background: linear-gradient(135deg, var(--dark) 0%, #1e2e34 100%);
+  padding-block: 5rem;
+}
+.facts-section .sm-title { color: var(--accent); }
+.facts-section .lg-title { color: #fff; }
+
+.facts-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+.facts-item {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  border-bottom: 3px solid var(--accent);
+  border-radius: 14px;
+  padding: 2.25rem 1.25rem 2rem;
+  text-align: center;
+  transition: background .25s, transform .25s, box-shadow .25s;
+  position: relative;
+  overflow: hidden;
+}
+.facts-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(246,183,70,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.facts-item:hover {
+  background: rgba(255,255,255,.11);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.32);
+}
+.facts-icon {
+  font-size: 1.55rem; color: var(--accent);
+  display: block; margin-bottom: 1rem; opacity: .9;
+}
+.facts-item strong {
+  display: block; font-size: 2.4rem; font-weight: 800;
+  color: #fff; line-height: 1; margin-bottom: .55rem;
+  letter-spacing: -.5px;
+}
+.facts-247 { animation: pulse247 2.4s ease-in-out infinite; }
+@keyframes pulse247 {
+  0%, 100% { color: #fff; text-shadow: none; }
+  50%       { color: var(--accent); text-shadow: 0 0 20px rgba(246,183,70,.55); }
+}
+.facts-item .text { color: rgba(255,255,255,.58); font-size: .84rem; line-height: 1.5; }
+
+/* ============================================================
+   VISION & MISSION
+============================================================ */
+.vm-section { background: var(--bg); }
+.vm-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+.vm-card {
+  background: var(--white); border-radius: 14px;
+  padding: 2.25rem 2rem; border-top: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+}
+.vm-card-head { display: flex; align-items: center; gap: .9rem; margin-bottom: .9rem; }
+.vm-card-head .capability-icon { width: 48px; height: 48px; margin: 0; flex-shrink: 0; }
+.vm-card-head .capability-icon i { font-size: 1.15rem; }
+.vm-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--dark); margin-bottom: 0; }
+
+/* ============================================================
+   CORE VALUES / WHY CHOOSE US
+============================================================ */
+.values-section { background: var(--white); }
+.why-section    { background: var(--white); }
+
+/* ============================================================
+   STRATEGIC OBJECTIVES
+============================================================ */
+.objectives-section { background: var(--bg); }
+.objectives-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.objective-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--white); border-radius: 12px;
+  padding: 1.15rem 1.4rem; box-shadow: var(--shadow);
+}
+.objective-num {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .9rem;
+}
+.objective-item p { font-size: .92rem; color: var(--text-light); line-height: 1.6; padding-top: .35rem; }
+
+/* ============================================================
+   COVERAGE & INDUSTRIES
+============================================================ */
+.coverage-section { background: linear-gradient(135deg, var(--dark) 0%, #1e2e34 100%); }
+.coverage-section .sm-title { color: var(--accent); }
+.coverage-section .lg-title { color: #fff; }
+.coverage-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.coverage-col h3 { color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; }
+.coverage-col p.text { color: rgba(255,255,255,.65); margin-bottom: 1.25rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: .6rem; }
+.tag-list span {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+  color: #fff; padding: .45rem 1rem; border-radius: 50px; font-size: .8rem;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,.8);
+  padding-block: 4rem;
+}
+.footer-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+.footer-logo-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+}
+.footer-logo-col img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-item .site-brand { display: inline-block; margin-bottom: .85rem; }
+.footer-item h2 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+.footer-item .text { font-size: .88rem; color: rgba(255,255,255,.6); }
+.footer-item .text a { color: var(--accent); }
+.footer-item .text a:hover { text-decoration: underline; }
+
+.quick-links-list li { margin-bottom: .4rem; }
+.quick-links-list a { font-size: .88rem; color: rgba(255,255,255,.6); transition: color .2s; }
+.quick-links-list a:hover { color: var(--accent); }
+
+.social-links { display: flex; gap: .65rem; flex-wrap: wrap; margin-top: .25rem; }
+.social-links a {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,.1); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; transition: background .2s;
+}
+.social-links a:hover { background: var(--primary); }
+
+/* ============================================================
+   FOOTER BOTTOM
+============================================================ */
+.footer-bottom { padding: 0.2rem 0 !important; min-height: 0 !important; }
+.footer-bottom .container {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 1rem; min-height: 0 !important;
+}
+.footer-bottom p { margin: 0 !important; padding: 0 !important; font-size: 0.68rem !important; line-height: 1.25 !important; }
+html[dir="rtl"] .footer-bottom .container { flex-direction: row-reverse; }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+============================================================ */
+.reveal-up { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-up.active { opacity: 1; transform: none; }
+
+/* ============================================================
+   RESPONSIVE — UNIFIED
+============================================================ */
+
+/* ─── Large tablet: 769–1024 px ─────────────────────────────── */
+@media (max-width: 1024px) {
+  .about-row      { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ceo-row        { grid-template-columns: 220px 1fr; gap: 2rem; }
+  .capability-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } /* 3→2 cols */
+  .vm-row         { grid-template-columns: repeat(2, 1fr); }               /* was 1fr */
+  .objectives-row { grid-template-columns: repeat(2, 1fr); }               /* was 1fr */
+  .coverage-row   { grid-template-columns: 1fr; gap: 2rem; }
+  .board-row      { grid-template-columns: 1fr 1fr; }
+  .footer-row     { grid-template-columns: repeat(3, 1fr); }               /* orphan fix */
+  .footer-logo-col { display: none !important; }
+}
+
+/* ─── Mobile: ≤ 768 px ──────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Navbar overlay */
+  #navbar-show-btn { display: flex; }
+  #navbar-collapse {
+    position: fixed; inset: 0;
+    background: var(--dark);
+    flex-direction: column; justify-content: center;
+    transform: translateX(-100%); transition: transform .3s;
+    z-index: 1100;
+  }
+  html[lang="ar"] #navbar-collapse { transform: translateX(100%); }
+  #navbar-collapse.open { transform: translateX(0); }
+  .navbar-nav { flex-direction: column; gap: .5rem; }
+  .nav-link   { font-size: 1.1rem; padding: .75rem 2rem; }
+  #navbar-close-btn {
+    display: flex; position: absolute;
+    top: 1rem; right: 1.5rem;
+  }
+  html[lang="ar"] #navbar-close-btn { right: auto; left: 1.5rem; }
+
+  /* About visual: reduce when stacked */
+  .about-visual { min-height: 210px; padding: 1.5rem; }
+
+  /* CEO: stack */
+  .ceo-row   { grid-template-columns: 1fr; }
+  .ceo-image { max-width: 260px; margin-inline: auto; }
+
+  /* Capabilities & Values — 2 cols on mobile (NOT 1) */
+  .capability-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .capability-item     { padding: 1.35rem 1rem; }
+  .capability-icon     { width: 50px; height: 50px; margin-bottom: .85rem; }
+  .capability-icon i   { font-size: 1.1rem; }
+  .capability-item h3  { font-size: .9rem; }
+  .capability-item .text { font-size: .8rem; line-height: 1.65; }
+
+  /* Facts */
+  .facts-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .7rem; margin-top: 1.5rem;
+  }
+  .facts-item {
+    min-width: 0; padding: 1.1rem .65rem 1rem; border-radius: 10px;
+  }
+  .facts-icon        { font-size: 1rem; margin-bottom: .55rem; }
+  .facts-item strong { font-size: 1.45rem !important; letter-spacing: 0; margin-bottom: .4rem; }
+  .facts-item .text  { font-size: .68rem !important; line-height: 1.65 !important; }
+
+  /* VM + Objectives: single column on mobile */
+  .vm-row         { grid-template-columns: 1fr; }
+  .objectives-row { grid-template-columns: 1fr; }
+
+  /* Board */
+  .board-row { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+
+  /* Footer */
+  .footer-row      { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom p { font-size: 0.62rem !important; }
+}
+
+/* ─── Small phones: ≤ 480 px ────────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Capabilities: stay 2 cols, tighter padding */
+  .capability-row  { gap: .75rem; }
+  .capability-item { padding: 1rem .7rem; }
+  .capability-icon   { width: 40px; height: 40px; }
+  .capability-icon i { font-size: .95rem; }
+  .capability-item h3  { font-size: .82rem; margin-bottom: .45rem; }
+  .capability-item .text { font-size: .72rem; line-height: 1.6; }
+
+  /* Facts */
+  .facts-row       { gap: .55rem; }
+  .facts-item      { padding: .9rem .5rem .85rem; }
+  .facts-icon      { font-size: .9rem; margin-bottom: .45rem; }
+  .facts-item strong { font-size: 1.2rem !important; }
+  .facts-item .text  { font-size: .62rem !important; line-height: 1.7 !important; }
+}
+
+.footer-logo-col {
+    background: transparent !important;
+    align-self: flex-start;        /* محاذاة مع أعلى بقية الأعمدة */
+    display: flex;
+    justify-content: center;       /* توسيط أفقي */
+    padding-top: .85rem;
+    width: 100%;                   /* ✅ يضمن أن التوسيط يعمل في RTL و LTR */
+}
+
+.footer-logo-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    background: transparent !important;
+    mix-blend-mode: lighten;
+    margin-inline: auto;           /* ✅ توسيط إضافي لضمان العمل في الاتجاهين */
+}
+.footer-logo-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    mix-blend-mode: screen;     /* يزيل الخلفية البيضاء ويبقي الألوان */
+}
+#navbar-collapse #lang-toggle i {
+    color: #fff !important;
+}
+</style>
+<link rel="stylesheet" href="dahawi-unified.css"/>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar">
+<div class="container flex">
+  <a class="site-brand" href="index.html">
+    <span class="brand-en">Dahawi<span>Engineering</span></span>
+    <span class="brand-ar">شركة ضحوي<span> الهندسية</span></span>
+  </a>
+  <button type="button" id="navbar-show-btn" aria-label="Open menu">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div id="navbar-collapse">
+    <button type="button" id="navbar-close-btn" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="navbar-nav">
+      <li><a class="nav-link"        href="index.html"     data-en="Home"         data-ar="الرئيسية">Home</a></li>
+      <li><a class="nav-link active" href="about.html"     data-en="About Us"     data-ar="من نحن">About Us</a></li>
+      <li><a class="nav-link"        href="services.html"  data-en="Services"     data-ar="خدماتنا">Services</a></li>
+      <li><a class="nav-link"        href="portfolio.html" data-en="Projects"     data-ar="مشاريعنا">Projects</a></li>
+      <li><a class="nav-link"        href="faq.html"       data-en="FAQ"          data-ar="الأسئلة الشائعة">FAQ</a></li>
+      <li><a class="nav-link"        href="contact.html"   data-en="Contact"      data-ar="تواصل معنا">Contact</a></li>
+    </ul>
+    <button aria-label="Switch language" id="lang-toggle" title="Switch language">
+      <i class="fas fa-globe"></i>
+    </button>
+  </div>
+</div>
+</nav>
+
+<!-- ══════════════ PAGE HEADER ══════════════ -->
+<header class="page-header">
+<div class="container">
+  <h1 data-en="About Dahawi Engineering" data-ar="عن شركة ضحوي الهندسية">About Dahawi Engineering</h1>
+  <p data-en="We plan, build, operate, and maintain electrical infrastructure that keeps energy moving safely and reliably."
+     data-ar="نخطط وننفذ ونشغّل ونصين البنية التحتية الكهربائية بما يضمن استمرارية إمدادات الطاقة بأعلى مستويات الأمان والموثوقية.">We plan, build, operate, and maintain electrical infrastructure that keeps energy moving safely and reliably.</p>
+</div>
+</header>
+
+<!-- ══════════════ ABOUT STORY ══════════════ -->
+<section class="about-section py-4" id="about">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <span class="sm-title" data-en="built for dependable energy networks" data-ar="نبني شبكات طاقة موثوقة">built for dependable energy networks</span>
+    <h2 class="lg-title" data-en="our engineering story" data-ar="مسيرتنا الهندسية">our engineering story</h2>
+  </div>
+  <div class="about-row">
+    <div class="about-visual reveal-up">
+      <div class="visual-icon-grid">
+        <div class="visual-icon-card">
+          <i class="fas fa-charging-station"></i>
+          <span data-en="Substations" data-ar="المحطات الكهربائية">Substations</span>
+        </div>
+        <div class="visual-icon-card">
+          <i class="fas fa-network-wired"></i>
+          <span data-en="Networks" data-ar="الشبكات">Networks</span>
+        </div>
+        <div class="visual-icon-card">
+          <i class="fas fa-tools"></i>
+          <span data-en="Maintenance" data-ar="الصيانة">Maintenance</span>
+        </div>
+        <div class="visual-icon-card">
+          <i class="fas fa-shield-alt"></i>
+          <span data-en="Safety" data-ar="السلامة">Safety</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal-up">
+      <h2 data-en="Engineering Support From Planning to Maintenance"
+          data-ar="دعم هندسي متكامل من التخطيط إلى الصيانة">Engineering Support From Planning to Maintenance</h2>
+      <p class="text"
+         data-en="Dahawi Engineering is an international company specialized in the execution, operation, and maintenance of energy and electrical infrastructure projects. The company operates in the construction of distribution substations, implementation of integrated electrical schemes, and maintenance of transmission and distribution network components, including towers, poles, transformers, cables, and medium-voltage switchgear. We combine technical discipline with practical field experience so every project is delivered with attention to safety, reliability, and long-term performance."
+         data-ar="شركة ضحوي الهندسية شركة دولية متخصصة في تنفيذ وتشغيل وصيانة مشاريع البنية التحتية للطاقة والكهرباء. وتشمل أعمالنا إنشاء محطات التوزيع الكهربائية، وتنفيذ الأنظمة الكهربائية المتكاملة، وصيانة مكونات شبكات النقل والتوزيع، بما في ذلك الأبراج والأعمدة والمحولات والكيبلات ومعدات الجهد المتوسط. ونجمع بين الانضباط الهندسي والخبرة الميدانية العملية لضمان تنفيذ كل مشروع وفق أعلى معايير السلامة والموثوقية والأداء المستدام على المدى الطويل.">Dahawi Engineering is an international company specialized in the execution, operation, and maintenance of energy and electrical infrastructure projects.</p>
+      <div class="about-points">
+        <div>
+          <i class="fas fa-hard-hat"></i>
+          <span data-en="Experienced field teams" data-ar="فرق ميدانية عالية الكفاءة والخبرة">Experienced field teams</span>
+        </div>
+        <div>
+          <i class="fas fa-bolt"></i>
+          <span data-en="Electrical network expertise" data-ar="خبرة متخصصة في شبكات الطاقة الكهربائية">Electrical network expertise</span>
+        </div>
+        <div>
+          <i class="fas fa-clipboard-check"></i>
+          <span data-en="Quality and safety controls" data-ar="ضوابط صارمة للجودة والسلامة">Quality and safety controls</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ VISION & MISSION ══════════════ -->
+<section class="vm-section py-4" id="vision-mission">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <span class="sm-title" data-en="where we are headed" data-ar="وجهتنا نحو المستقبل">where we are headed</span>
+    <h2 class="lg-title" data-en="vision &amp; mission" data-ar="رؤيتنا ورسالتنا">vision &amp; mission</h2>
+  </div>
+  <div class="vm-row">
+    <div class="vm-card reveal-up">
+      <div class="vm-card-head">
+        <div class="capability-icon"><i class="fas fa-eye"></i></div>
+        <h3 data-en="Our Vision" data-ar="رؤيتنا">Our Vision</h3>
+      </div>
+      <p class="text"
+         data-en="To become a leading regional engineering partner recognized for delivering innovative, reliable, and sustainable energy infrastructure solutions while maintaining the highest standards of quality, safety, and operational excellence."
+         data-ar="أن نصبح شريكًا هندسيًا إقليميًا رائدًا، مشهودًا له بتقديم حلول مبتكرة وموثوقة ومستدامة للبنية التحتية للطاقة، مع الالتزام بأعلى معايير الجودة والسلامة والتميز التشغيلي.">To become a leading regional engineering partner recognized for delivering innovative, reliable, and sustainable energy infrastructure solutions while maintaining the highest standards of quality, safety, and operational excellence.</p>
+    </div>
+    <div class="vm-card reveal-up">
+      <div class="vm-card-head">
+        <div class="capability-icon"><i class="fas fa-bullseye"></i></div>
+        <h3 data-en="Our Mission" data-ar="رسالتنا">Our Mission</h3>
+      </div>
+      <p class="text"
+         data-en="To provide comprehensive engineering solutions in power generation, transmission, distribution, industrial electrification, and renewable energy through highly qualified professionals, advanced technologies, and strict compliance with international standards and client requirements."
+         data-ar="تقديم حلول هندسية متكاملة في مجالات توليد الطاقة ونقلها وتوزيعها، والكهرباء الصناعية، والطاقة المتجددة، من خلال كوادر مؤهلة تأهيلًا عاليًا وتقنيات متقدمة، مع الالتزام الكامل بالمعايير الدولية ومتطلبات العملاء.">To provide comprehensive engineering solutions in power generation, transmission, distribution, industrial electrification, and renewable energy through highly qualified professionals, advanced technologies, and strict compliance with international standards and client requirements.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ CORE VALUES ══════════════ -->
+<section class="values-section py-4" id="core-values">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <span class="sm-title" data-en="the principles that guide us" data-ar="المبادئ التي نسترشد بها">the principles that guide us</span>
+    <h2 class="lg-title" data-en="core values" data-ar="قيمنا الأساسية">core values</h2>
+  </div>
+  <div class="capability-row">
+    <div class="capability-item reveal-up">
+      <div class="capability-icon"><i class="fas fa-hard-hat"></i></div>
+      <h3 data-en="Safety First" data-ar="السلامة أولًا">Safety First</h3>
+      <p class="text" data-en="We prioritize the health and safety of our employees, clients, and communities." data-ar="نضع صحة وسلامة موظفينا وعملائنا والمجتمعات التي نخدمها في مقدمة أولوياتنا.">We prioritize the health and safety of our employees, clients, and communities.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <div class="capability-icon"><i class="fas fa-handshake"></i></div>
+      <h3 data-en="Integrity" data-ar="النزاهة">Integrity</h3>
+      <p class="text" data-en="We conduct our business with honesty, transparency, and accountability." data-ar="نمارس أعمالنا بأمانة وشفافية، ونلتزم بالمساءلة وتحمل المسؤولية.">We conduct our business with honesty, transparency, and accountability.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <div class="capability-icon"><i class="fas fa-medal"></i></div>
+      <h3 data-en="Excellence" data-ar="التميّز">Excellence</h3>
+      <p class="text" data-en="We pursue the highest standards in engineering, project execution, and service delivery." data-ar="نسعى إلى تحقيق أعلى المعايير في الهندسة وتنفيذ المشاريع وتقديم الخدمات.">We pursue the highest standards in engineering, project execution, and service delivery.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <div class="capability-icon"><i class="fas fa-lightbulb"></i></div>
+      <h3 data-en="Innovation" data-ar="الابتكار">Innovation</h3>
+      <p class="text" data-en="We embrace modern technologies and continuous improvement." data-ar="نعتمد التقنيات الحديثة ونسعى باستمرار إلى تطوير أساليب العمل وتحسين الأداء.">We embrace modern technologies and continuous improvement.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <div class="capability-icon"><i class="fas fa-leaf"></i></div>
+      <h3 data-en="Sustainability" data-ar="الاستدامة">Sustainability</h3>
+      <p class="text" data-en="We promote environmentally responsible and energy-efficient solutions." data-ar="نعزز الحلول التي تراعي المسؤولية البيئية وتدعم كفاءة استخدام الطاقة.">We promote environmentally responsible and energy-efficient solutions.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <div class="capability-icon"><i class="fas fa-people-arrows"></i></div>
+      <h3 data-en="Partnership" data-ar="الشراكة">Partnership</h3>
+      <p class="text" data-en="We build lasting relationships based on trust, collaboration, and mutual success." data-ar="نبني علاقات طويلة الأمد تقوم على الثقة والتعاون وتحقيق النجاح المشترك.">We build lasting relationships based on trust, collaboration, and mutual success.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ CEO MESSAGE ══════════════ -->
+<section class="ceo-section py-4" id="ceo-message">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <h2 class="lg-title" data-en="a message from the CEO" data-ar="كلمة الرئيس التنفيذي">a message from the CEO</h2>
+  </div>
+  <div class="ceo-row">
+    <div class="ceo-image reveal-up">
+      <img alt="CEO portrait" src="./CEO.jpg"/>
+    </div>
+    <div class="ceo-copy reveal-up">
+      <p class="text"
+         data-en="At Dahawi Engineering Co. Ltd we believe that robust energy infrastructure is the driving force behind economic advancement, industrial growth, and sustainable development. Our mission is to deliver world-class engineering solutions that enhance the reliability, efficiency, and resilience of the power systems. By combining technical expertise, innovation, and uncompromising quality standards, we provide safe and dependable services that meet the evolving needs of our clients and the industries we serve."
+         data-ar="في شركة ضحوي الهندسية المحدودة، نؤمن بأن البنية التحتية المتينة للطاقة تمثل قوة دافعة للتقدم الاقتصادي والنمو الصناعي والتنمية المستدامة. وتتمثل رسالتنا في تقديم حلول هندسية رفيعة المستوى تعزز موثوقية أنظمة الطاقة وكفاءتها وقدرتها على الصمود. ومن خلال الجمع بين الخبرة التقنية والابتكار والالتزام الصارم بمعايير الجودة، نقدم خدمات آمنة وموثوقة تلبي الاحتياجات المتنامية لعملائنا والقطاعات التي نخدمها.">At Dahawi Engineering Co. Ltd we believe that robust energy infrastructure is the driving force behind economic advancement, industrial growth, and sustainable development.</p>
+      <p class="text"
+         data-en="Driven by engineering excellence, we strengthen critical infrastructure, enable sustainable growth, and create lasting value through trusted partnerships and high-impact projects. Our vision is to advance modern, resilient, and sustainable energy systems that power progress across Africa and beyond."
+         data-ar="وانطلاقًا من التميز الهندسي، نعمل على تعزيز البنية التحتية الحيوية، ودعم النمو المستدام، وخلق قيمة طويلة الأمد من خلال الشراكات الموثوقة والمشاريع المؤثرة. وتتمثل رؤيتنا في تطوير أنظمة طاقة حديثة ومرنة ومستدامة تدعم مسيرة التقدم في أفريقيا وخارجها.">Driven by engineering excellence, we strengthen critical infrastructure, enable sustainable growth, and create lasting value through trusted partnerships and high-impact projects.</p>
+      <p class="text"
+         data-en="As CEO, I believe strong leadership, skilled teams, and clear communication are the foundations of successful engineering delivery. We are here to build trust, solve complex challenges, and power the future with confidence."
+         data-ar="وبصفتي الرئيس التنفيذي، أؤمن بأن القيادة الفاعلة، والكوادر الماهرة، والتواصل الواضح تمثل ركائز أساسية لنجاح تنفيذ المشاريع الهندسية. نحن هنا لبناء الثقة، ومعالجة التحديات المعقدة، والمساهمة بثقة في بناء مستقبل الطاقة.">As CEO, I believe strong leadership, skilled teams, and clear communication are the foundations of successful engineering delivery.</p>
+      <p class="ceo-signature"
+         data-en="— Eng. Zunoon Adam Dahawi, CEO"
+         data-ar="— م. ذوالنون آدم ضحوي، الرئيس التنفيذي">— Eng. Zunoon Adam Dahawi, CEO</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ STRATEGIC OBJECTIVES ══════════════ -->
+<section class="objectives-section py-4" id="objectives">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <span class="sm-title" data-en="how we plan to get there" data-ar="كيف نحقق أهدافنا">how we plan to get there</span>
+    <h2 class="lg-title" data-en="strategic objectives" data-ar="أهدافنا الاستراتيجية">strategic objectives</h2>
+  </div>
+  <div class="objectives-row">
+    <div class="objective-item reveal-up">
+      <span class="objective-num">1</span>
+      <p data-en="Deliver high-quality engineering and infrastructure projects on time and within budget."
+         data-ar="تنفيذ مشاريع هندسية ومشاريع بنية تحتية عالية الجودة في المواعيد المحددة وضمن الميزانيات المعتمدة.">Deliver high-quality engineering and infrastructure projects on time and within budget.</p>
+    </div>
+    <div class="objective-item reveal-up">
+      <span class="objective-num">2</span>
+      <p data-en="Expand operations across regional energy and industrial markets."
+         data-ar="توسيع نطاق عملياتنا في أسواق الطاقة والصناعة على المستوى الإقليمي.">Expand operations across regional energy and industrial markets.</p>
+    </div>
+    <div class="objective-item reveal-up">
+      <span class="objective-num">3</span>
+      <p data-en="Strengthen technical capabilities through innovation and workforce development."
+         data-ar="تعزيز قدراتنا الفنية من خلال الابتكار وتنمية مهارات الكوادر البشرية.">Strengthen technical capabilities through innovation and workforce development.</p>
+    </div>
+    <div class="objective-item reveal-up">
+      <span class="objective-num">4</span>
+      <p data-en="Enhance renewable energy adoption and sustainability initiatives."
+         data-ar="تعزيز الاعتماد على الطاقة المتجددة وتوسيع نطاق مبادرات الاستدامة.">Enhance renewable energy adoption and sustainability initiatives.</p>
+    </div>
+    <div class="objective-item reveal-up">
+      <span class="objective-num">5</span>
+      <p data-en="Maintain internationally benchmarked QHSE performance standards."
+         data-ar="الحفاظ على معايير الجودة والصحة والسلامة والبيئة وفق أفضل الممارسات والمعايير الدولية.">Maintain internationally benchmarked QHSE performance standards.</p>
+    </div>
+    <div class="objective-item reveal-up">
+      <span class="objective-num">6</span>
+      <p data-en="Build strategic partnerships with industry leaders and technology providers."
+         data-ar="بناء شراكات استراتيجية مع رواد القطاع ومزوّدي التقنيات.">Build strategic partnerships with industry leaders and technology providers.</p>
+    </div>
+    <div class="objective-item reveal-up">
+      <span class="objective-num">7</span>
+      <p data-en="Achieve long-term value creation for clients and stakeholders."
+         data-ar="تحقيق قيمة مستدامة وطويلة الأمد لعملائنا وأصحاب المصلحة.">Achieve long-term value creation for clients and stakeholders.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ STATS / FACTS ══════════════ -->
+<section class="facts-section" id="facts">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <span class="sm-title" data-en="our work is measured by reliability" data-ar="نقيس نجاحنا بموثوقية أعمالنا">our work is measured by reliability</span>
+    <h2 class="lg-title" data-en="company strengths" data-ar="نقاط قوتنا">company strengths</h2>
+  </div>
+  <div class="facts-row">
+    <div class="facts-item reveal-up">
+      <i class="fas fa-bolt facts-icon"></i>
+      <strong class="facts-247">24/7</strong>
+      <p class="text" data-en="Technical support" data-ar="دعم فني متواصل على مدار الساعة">Technical support</p>
+    </div>
+    <div class="facts-item reveal-up">
+      <i class="fas fa-shield-alt facts-icon"></i>
+      <strong data-target="100" data-suffix="%">0%</strong>
+      <p class="text" data-en="Zero-incident commitment" data-ar="التزام راسخ بتحقيق بيئة عمل خالية من الحوادث">Zero-incident commitment</p>
+    </div>
+    <div class="facts-item reveal-up">
+      <i class="fas fa-project-diagram facts-icon"></i>
+      <strong>MV</strong>
+      <p class="text" data-en="Network expertise" data-ar="خبرة متخصصة في شبكات الجهد المتوسط">Network expertise</p>
+    </div>
+    <div class="facts-item reveal-up">
+      <i class="fas fa-industry facts-icon"></i>
+      <strong>EPC</strong>
+      <p class="text" data-en="Project support" data-ar="دعم مشاريع الهندسة والمشتريات والإنشاء">Project support</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ CAPABILITIES ══════════════ -->
+<section class="capabilities-section py-4" id="capabilities">
+<div class="container">
+  <div class="title-wrap reveal-up">
+    <span class="sm-title" data-en="what we bring to every project" data-ar="ما نقدمه في كل مشروع">what we bring to every project</span>
+    <h2 class="lg-title" data-en="core capabilities" data-ar="قدراتنا الأساسية">core capabilities</h2>
+  </div>
+  <div class="capability-row">
+    <div class="capability-item reveal-up">
+      <h3 data-en="Substation Works" data-ar="أعمال المحطات الكهربائية">Substation Works</h3>
+      <p class="text" data-en="Construction and commissioning of distribution substations, switchgear, transformers, and associated electrical systems and protection equipment." data-ar="إنشاء وتجهيز محطات التوزيع الكهربائية، وتركيب المحولات ومعدات الفصل والتحويل، وتنفيذ الأنظمة الكهربائية المرتبطة بها ومعدات الحماية.">Construction and commissioning of distribution substations, switchgear, transformers, and associated electrical systems and protection equipment.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <h3 data-en="Network Infrastructure" data-ar="البنى التحتية للشبكات">Network Infrastructure</h3>
+      <p class="text" data-en="Implementation of electrical schemes, cabling works, towers, poles, and medium-voltage (MV) distribution components." data-ar="تنفيذ الأنظمة الكهربائية، وأعمال الكيبلات والأبراج والأعمدة، ومكونات شبكات توزيع الجهد المتوسط.">Implementation of electrical schemes, cabling works, towers, poles, and medium-voltage (MV) distribution components.</p>
+    </div>
+    <div class="capability-item reveal-up">
+      <h3 data-en="Operation &amp; Maintenance" data-ar="التشغيل والصيانة">Operation &amp; Maintenance</h3>
+      <p class="text" data-en="Preventive and corrective maintenance support for reliable transmission and distribution network performance." data-ar="تقديم خدمات الصيانة الوقائية والتصحيحية لضمان موثوقية أداء شبكات النقل والتوزيع واستمراريته.">Preventive and corrective maintenance support for reliable transmission and distribution network performance.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="py-4">
+<div class="container footer-row">
+
+  <div class="footer-item">
+    <a class="site-brand" href="index.html">
+      <span class="brand-en">Dahawi<span>Engineering</span></span>
+      <span class="brand-ar">ضحوي<span> الهندسية</span></span>
+    </a>
+    <p class="text"
+       data-ar="تقدم ضحوي الهندسية خدمات إنشاء وتشغيل وصيانة البنية التحتية الكهربائية، بما يدعم كفاءة شبكات الطاقة واستمرارية تشغيلها."
+       data-en="Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.">Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.</p>
+  </div>
+
+  <div class="footer-item quick-links">
+    <h2 data-ar="روابط سريعة" data-en="Quick Links">Quick Links</h2>
+    <ul class="quick-links-list">
+      <li><a data-ar="الرئيسية"        data-en="Home"      href="index.html">Home</a></li>
+      <li><a data-ar="من نحن"          data-en="About Us"  href="about.html">About Us</a></li>
+      <li><a data-ar="الخدمات"         data-en="Services"  href="services.html">Services</a></li>
+      <li><a data-ar="المشاريع"        data-en="Projects"  href="portfolio.html">Projects</a></li>
+      <li><a data-ar="الأسئلة الشائعة" data-en="FAQ"       href="faq.html">FAQ</a></li>
+      <li><a data-ar="تواصل معنا"      data-en="Contact"   href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-item contact">
+    <h2 data-ar="تواصل معنا مباشرةً" data-en="Contact Directly">Contact Directly</h2>
+    <p class="text"><span data-ar="البريد:" data-en="Email:">Email:</span> <a href="mailto:info@dahawiengineering.com">info@dahawiengineering.com</a></p>
+    <p class="text"><span data-ar="هاتف:" data-en="Phone:">Phone:</span> <a dir="ltr" href="tel:+256762460923">+256 762 460 923</a></p>
+    <p class="text"><span data-ar="هاتف:" data-en="Phone:">Phone:</span> <a dir="ltr" href="tel:+249912194405">+249 912 194 405</a></p>
+    <h2 style="margin-top:1rem" data-ar="تابعونا عبر" data-en="Follow Us On">Follow Us On</h2>
+    <ul class="social-links">
+      <li><a aria-label="Facebook"  href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+      <li><a aria-label="Twitter"   href="#"><i class="fab fa-x-twitter"></i></a></li>
+      <li><a aria-label="LinkedIn"  href="#"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+  </div>
+
+  <div class="footer-logo-col">
+    <img src="logo.png" alt="Dahawi Engineering Logo">
+  </div>
+
+</div>
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+  var htmlRoot    = document.getElementById('html-root') || document.documentElement;
+  var currentLang = localStorage.getItem('dahawi-lang') || 'en';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('dahawi-lang', lang);
+    htmlRoot.lang = lang;
+    htmlRoot.dir  = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-ar],[data-en]').forEach(function(el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+    document.title = (lang === 'ar')
+      ? 'من نحن | ضحوي الهندسيّة'
+      : 'About | Dahawi Engineering';
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', function() {
+    applyLang(currentLang === 'en' ? 'ar' : 'en');
+  });
+  applyLang(currentLang);
+
+  var navCollapse = document.getElementById('navbar-collapse');
+  document.getElementById('navbar-show-btn').addEventListener('click', function() {
+    navCollapse.classList.add('open');
+  });
+  document.getElementById('navbar-close-btn').addEventListener('click', function() {
+    navCollapse.classList.remove('open');
+  });
+
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('active'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal-up').forEach(function(el) { revealObs.observe(el); });
+</script>
+<script src="dahawi-lang.js"></script>
+<script src="dahawi-ui.js"></script>
+</body>
+</html>
