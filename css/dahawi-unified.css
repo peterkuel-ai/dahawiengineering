@@ -1,0 +1,2412 @@
+/* ============================================================
+   DAHAWI ENGINEERING — UNIFIED BRAND STYLESHEET v2
+   Applies consistent design across all pages.
+   Link AFTER page-specific styles so overrides take effect.
+   Revised: All 27 QA requirements addressed.
+============================================================ */
+
+/* ---- Remove the default mobile "tap flash" on links/buttons ---- */
+a, button, .btn, .btn-outline, .cta-link, .btn-send, input, textarea, select {
+  -webkit-tap-highlight-color: transparent !important;
+}
+.cta-link:active, .btn-send:active { transform: translateY(0) scale(.98) !important; }
+
+
+/* Language Toggle Icon - Circular Black Background */
+#lang-toggle i {
+    color: #fff !important;
+    background-color: #000;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* ============================================================
+   CORE DESIGN TOKENS
+============================================================ */
+:root {
+  --primary:    #c62828;
+  --accent:     #f6b746;
+  --dark:       #182023;
+  --bg:         #f5f6f6;
+  --white:      #ffffff;
+  --text:       #182023;
+  --text-light: #697275;
+  --border:     #e5e7e8;
+  --shadow:     0 4px 20px rgba(0,0,0,.10);
+  /* ---- Navbar height tokens — single source of truth (REQ 1, 4, 19) ---- */
+  --nav-h:         clamp(72px, 5vw, 82px);
+  --nav-h-mobile:  clamp(64px, 10vw, 72px);
+  --font-en:    'Inter', sans-serif;
+  --font-ar:    'Cairo', sans-serif;
+}
+
+/* ============================================================
+   TYPOGRAPHY — SPACE SECTION - MYTH
+============================================================ */
+
+/* أضف هذا في قسم الـ CSS */
+
+/* Footer hover effects */
+.ft-social-btn {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s, border-color .2s;
+  text-decoration: none;
+}
+.ft-social-btn:hover { background: #f6b746; border-color: #f6b746; }
+.ft-social-btn:hover svg { opacity: 0; }
+
+.ft-link {
+  font-size: .84rem;
+  color: rgba(255,255,255,.5);
+  text-decoration: none;
+  transition: color .2s;
+}
+.ft-link:hover { color: #f6b746; }
+
+.ft-contact-link {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.ft-contact-link:hover { color: #f6b746; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ft-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .ft-grid { grid-template-columns: 1fr !important; }
+  .ft-bottom { flex-direction: column; gap: .35rem; text-align: center; }
+}
+
+/* ============================================================
+   TYPOGRAPHY — LANGUAGE ENFORCEMENT
+============================================================ */
+html[lang="ar"] body { font-family: var(--font-ar) !important; }
+html[lang="en"] body { font-family: var(--font-en) !important; }
+
+html[lang="ar"] p, html[lang="ar"] h1, html[lang="ar"] h2,
+html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5,
+html[lang="ar"] h6, html[lang="ar"] span, html[lang="ar"] a,
+html[lang="ar"] li, html[lang="ar"] td, html[lang="ar"] th,
+html[lang="ar"] label, html[lang="ar"] button,
+html[lang="ar"] input, html[lang="ar"] textarea,
+html[lang="ar"] select, html[lang="ar"] .nav-link,
+html[lang="ar"] .btn, html[lang="ar"] .text,
+html[lang="ar"] .sm-title, html[lang="ar"] .lg-title,
+html[lang="ar"] .title {
+  font-family: var(--font-ar) !important;
+}
+
+/* Restore monospace for code blocks */
+html[lang] code,
+html[lang] pre,
+html[lang] kbd { font-family: monospace !important; }
+
+/* ============================================================
+   NAVBAR — CORE STRUCTURE (REQ 1, 2, 3, 4, 5, 7, 19)
+   Single definition; NO page-specific overrides anywhere.
+============================================================ */
+
+/* --- Universal navbar reset: strip any page-specific sizing --- */
+/* Contact page, about page, every page: same navbar */
+.navbar,
+body .navbar,
+.contact-page .navbar,
+.about-page .navbar,
+.services-page .navbar,
+.projects-page .navbar,
+#main-navbar,
+[class*="page"] .navbar {
+  height: var(--nav-h) !important;
+  min-height: var(--nav-h) !important;
+  max-height: var(--nav-h) !important;
+  padding-block: 0 !important;
+  padding-inline: clamp(1rem, 4vw, 3rem) !important;
+  display: flex !important;
+  align-items: center !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  box-sizing: border-box !important;
+  /* REQ 2 — Initial color: same as footer (--dark) */
+  background: var(--dark) !important;
+  border-bottom: 3px solid var(--primary) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,.25) !important;
+  /* REQ 3 — Smooth scroll transition */
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease !important;
+}
+
+/* --- Navbar inner container: consistent alignment --- */
+.navbar > *,
+.navbar .navbar-inner,
+.navbar .container,
+.navbar .nav-container {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ============================================================
+   DAHAWI FOOTER — PROFESSIONAL REVEAL ANIMATION
+   Opacity only — No transform — No layout movement مشكلة
+   ============================================================ */
+
+/* ============================================================
+   FOOTER REVEAL — opacity only, no layout impact
+   .footer-bottom يبقى مرئياً دائماً كـ fallback آمن
+   ============================================================ */
+
+footer.footer-animate {
+    opacity: 1;
+    transition: none;
+}
+
+footer.footer-animate.footer-visible {
+    opacity: 1;
+}
+
+.footer-bottom.footer-bottom-animate {
+    opacity: 0;
+    transition: opacity 0.7s ease 0.12s;
+}
+
+.footer-bottom.footer-bottom-visible {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    footer.footer-animate,
+    .footer-bottom.footer-bottom-animate {
+        opacity: 1 !important;
+        transition: none !important;
+    }
+}
+/* ============================================================
+   NAVBAR SCROLL STATE — Turns white when scrolling (REQ 3)
+============================================================ */
+.navbar.navbar-scrolled,
+.navbar-scrolled {
+  background: var(--white) !important;
+  border-bottom-color: var(--border) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,.12) !important;
+}
+
+/* When white: nav links become dark */
+.navbar.navbar-scrolled .nav-link,
+.navbar-scrolled .nav-link {
+  color: var(--text) !important;
+}
+.navbar.navbar-scrolled .nav-link:hover,
+.navbar-scrolled .nav-link:hover,
+.navbar.navbar-scrolled .nav-link.active,
+.navbar-scrolled .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* When white: hamburger icon becomes dark */
+.navbar.navbar-scrolled .hamburger,
+.navbar-scrolled .hamburger,
+.navbar.navbar-scrolled .hamburger span,
+.navbar-scrolled .hamburger span,
+.navbar.navbar-scrolled #hamburger,
+.navbar-scrolled #hamburger {
+  background: var(--text) !important;
+  color: var(--text) !important;
+}
+.navbar.navbar-scrolled .hamburger i,
+.navbar-scrolled .hamburger i {
+  color: var(--text) !important;
+}
+
+/* When white: lang toggle becomes dark */
+.navbar.navbar-scrolled #lang-toggle,
+.navbar-scrolled #lang-toggle,
+.navbar.navbar-scrolled .lang-btn,
+.navbar-scrolled .lang-btn {
+  color: var(--text) !important;
+}
+.navbar.navbar-scrolled #lang-toggle:hover,
+.navbar-scrolled #lang-toggle:hover {
+  background: rgba(24,32,35,.1) !important;
+}
+
+/* Accent underline adapts on white navbar */
+.navbar.navbar-scrolled .nav-link::after,
+.navbar-scrolled .nav-link::after {
+  background: var(--primary) !important;
+}
+
+/* ============================================================
+   LOGO (REQ 5, 6)
+   LOGOIMG.PNG, correct proportions, subtle hover only
+============================================================ */
+.navbar .site-brand,
+.navbar .brand,
+.navbar .logo-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  text-decoration: none !important;
+  transition: transform 220ms ease !important;
+}
+.navbar .site-brand:hover,
+.navbar .brand:hover,
+.navbar .logo-wrap:hover {
+  transform: scale(1.02) !important; /* REQ 5: max 1.04 */
+}
+
+/* Logo image sizing — responsive, proportional */
+.navbar .site-brand img,
+.navbar .brand img,
+.navbar .logo-img,
+.navbar img[src*="LOGO"],
+.navbar img[alt*="logo"],
+.navbar img[alt*="Logo"] {
+  width: clamp(110px, 10vw, 155px) !important;
+  height: auto !important;
+  max-height: calc(var(--nav-h) - 20px) !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* REQ 6 — Arabic company name: always ضحوي الهندسية in AR mode */
+/* Suppress any text-rendered "Dhahwi" inside the Arabic navbar */
+html[lang="ar"] .navbar .site-brand .en-name,
+html[lang="ar"] .navbar .brand .en-name { display: none !important; }
+html[lang="en"] .navbar .site-brand .ar-name,
+html[lang="en"] .navbar .brand .ar-name { display: none !important; }
+
+/* ---- Bilingual brand toggle: .brand-en / .brand-ar spans ----
+   Every site-brand link on every page now contains both an
+   English and an Arabic name span; only one is ever shown. ---- */
+.site-brand .brand-en,
+.site-brand .brand-ar {
+  display: none !important;
+  align-items: center !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+html[lang="en"] .site-brand .brand-en,
+html[lang="ar"] .site-brand .brand-ar {
+  display: inline-flex !important;
+}
+html[lang="ar"] .site-brand .brand-ar {
+  font-family: var(--font-ar) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Text brand fallback / brand sizing — balanced with navbar height,
+   consistent across desktop, tablet and mobile (REQ 3) */
+.navbar .site-brand,
+.navbar .site-brand .brand-en,
+.navbar .site-brand .brand-ar,
+.navbar .brand-name {
+  color: #fff !important;
+  font-weight: 800 !important;
+  font-size: clamp(16px, 1.3vw, 20px) !important;
+  letter-spacing: -.01em !important;
+}
+.navbar .site-brand span,
+.navbar .site-brand .brand-en span,
+.navbar .site-brand .brand-ar span,
+.navbar .brand-name span {
+  color: var(--accent) !important;
+  font-weight: 800 !important;
+}
+.navbar.navbar-scrolled .site-brand,
+.navbar.navbar-scrolled .site-brand .brand-en,
+.navbar.navbar-scrolled .site-brand .brand-ar,
+.navbar-scrolled .site-brand,
+.navbar-scrolled .brand-name {
+  color: var(--dark) !important;
+}
+.navbar.navbar-scrolled .site-brand span,
+.navbar.navbar-scrolled .site-brand .brand-en span,
+.navbar.navbar-scrolled .site-brand .brand-ar span,
+.navbar-scrolled .site-brand span {
+  color: var(--primary) !important;
+}
+
+@media (max-width: 480px) {
+  .navbar .site-brand,
+  .navbar .site-brand .brand-en,
+  .navbar .site-brand .brand-ar {
+    font-size: 15px !important;
+  }
+}
+
+/* ============================================================
+   NAVIGATION LINKS (REQ 7, 8)
+============================================================ */
+.nav-link {
+  position: relative !important;
+  font-size: clamp(13px, 1vw, 15px) !important;
+  font-weight: 500 !important;
+  letter-spacing: .01em !important;
+  padding: .3rem .65rem !important;
+  color: rgba(255,255,255,.88) !important;
+  text-decoration: none !important;
+  transition: color 250ms ease !important;
+  white-space: nowrap !important;
+}
+
+/* Active: accent color, no background box */
+.nav-link:hover,
+.nav-link.active {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border-radius: 0 !important;
+}
+
+/* ---- C) Nav link underline slide (LTR) ---- */
+html[lang="en"] .nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important; right: auto !important;
+  width: 0 !important; height: 2px !important;
+  background: var(--accent) !important;
+  transition: width 250ms ease !important;
+}
+html[lang="en"] .nav-link:hover::after,
+html[lang="en"] .nav-link.active::after { width: 100% !important; }
+
+/* ---- Nav link underline slide (RTL) ---- */
+html[lang="ar"] .nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  right: 0 !important; left: auto !important;
+  width: 0 !important; height: 2px !important;
+  background: var(--accent) !important;
+  transition: width 250ms ease !important;
+}
+html[lang="ar"] .nav-link:hover::after,
+html[lang="ar"] .nav-link.active::after { width: 100% !important; }
+
+/* ============================================================
+   LANGUAGE TOGGLE
+============================================================ */
+#lang-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+  color: rgba(255,255,255,.85) !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  transition: background 200ms, color 200ms !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+  flex-shrink: 0 !important;
+}
+#lang-toggle:hover {
+  background: rgba(255,255,255,.12) !important;
+  color: #fff !important;
+}
+#lang-toggle #lang-label,
+#lang-toggle .lang-text { display: none !important; }
+
+/* Contact page lang btn */
+.lang-btn {
+  border: none !important;
+  border-radius: 50% !important;
+  color: rgba(255,255,255,.85) !important;
+  background: transparent !important;
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background 200ms, color 200ms !important;
+}
+.lang-btn:hover {
+  background: rgba(255,255,255,.12) !important;
+  color: #fff !important;
+}
+.navbar.navbar-scrolled .lang-btn { color: var(--text) !important; }
+.navbar.navbar-scrolled .lang-btn:hover { background: rgba(24,32,35,.1) !important; }
+.lang-btn .lang-text { display: none !important; }
+
+/* ============================================================
+   MOBILE NAVBAR (REQ 1 mobile height, REQ 8 animations)
+============================================================ */
+@media (max-width: 768px) {
+  .navbar,
+  body .navbar,
+  [class*="page"] .navbar {
+    height: var(--nav-h-mobile) !important;
+    min-height: var(--nav-h-mobile) !important;
+    max-height: var(--nav-h-mobile) !important;
+  }
+  .navbar .site-brand img,
+  .navbar img[src*="LOGO"],
+  .navbar img[alt*="logo"],
+  .navbar img[alt*="Logo"] {
+    width: clamp(90px, 28vw, 130px) !important;
+  }
+  .nav-link {
+    font-size: clamp(14px, 4vw, 16px) !important;
+    padding: .6rem 1rem !important;
+  }
+  /* Mobile menu background */
+  #navbar-collapse {
+    background: var(--dark) !important;
+  }
+}
+
+/* ============================================================
+   MOBILE MENU — FIXED BEHAVIOR
+   Black background + yellow items are locked independently
+   from the navbar scroll state. The menu closes via .open.
+============================================================ */
+@media (max-width: 768px) {
+  #navbar-collapse {
+    background: #000 !important;
+    background-color: #000 !important;
+    color: var(--accent) !important;
+    opacity: 1 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    animation: none !important;
+    transition: transform 280ms cubic-bezier(.4,0,.2,1), visibility 0s linear 280ms !important;
+  }
+  #navbar-collapse.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transition: transform 280ms cubic-bezier(.4,0,.2,1), visibility 0s linear 0s !important;
+  }
+  /* Normal links: white. Active page: yellow (accent). */
+  #navbar-collapse .nav-link,
+  #navbar-collapse .nav-link:hover,
+  #navbar-collapse .nav-link:focus,
+  #navbar-collapse a,
+  #navbar-collapse a:hover,
+  #navbar-collapse a:focus {
+    color: #fff !important;
+    background: transparent !important;
+  }
+  #navbar-collapse .nav-link.active,
+  #navbar-collapse a.active {
+    color: var(--accent) !important;
+  }
+  #navbar-collapse .nav-link::after {
+    background: var(--accent) !important;
+  }
+  html[lang="en"] #navbar-collapse { transform: translateX(-100%) !important; }
+  html[lang="en"] #navbar-collapse.open { transform: translateX(0) !important; }
+  html[lang="ar"] #navbar-collapse { transform: translateX(100%) !important; }
+  html[lang="ar"] #navbar-collapse.open { transform: translateX(0) !important; }
+  /* Scrolling changes only the navbar, never the open menu. */
+  .navbar.navbar-scrolled #navbar-collapse,
+  .navbar-scrolled #navbar-collapse {
+    background: #000 !important;
+    background-color: #000 !important;
+    color: var(--accent) !important;
+    opacity: 1 !important;
+  }
+  /* Scrolled state: menu links stay white, active stays yellow — never override. */
+  .navbar.navbar-scrolled #navbar-collapse .nav-link,
+  .navbar-scrolled #navbar-collapse .nav-link,
+  .navbar.navbar-scrolled #navbar-collapse .nav-link:hover,
+  .navbar-scrolled #navbar-collapse .nav-link:hover,
+  .navbar.navbar-scrolled #navbar-collapse a,
+  .navbar-scrolled #navbar-collapse a {
+    color: #fff !important;
+    background: transparent !important;
+  }
+  .navbar.navbar-scrolled #navbar-collapse .nav-link.active,
+  .navbar-scrolled #navbar-collapse .nav-link.active,
+  .navbar.navbar-scrolled #navbar-collapse a.active,
+  .navbar-scrolled #navbar-collapse a.active {
+    color: var(--accent) !important;
+  }
+}
+
+/* Desktop: no transform */
+@media (min-width: 769px) {
+  html[lang="en"] #navbar-collapse,
+  html[lang="ar"] #navbar-collapse {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ============================================================
+   MOBILE MENU — LANG TOGGLE CENTERING
+   On desktop: margin-inline-start:auto pushes #lang-toggle to the
+   far edge (correct). Inside the mobile slide-out menu the parent
+   is a flex-column with align-items:center, so auto-margin on the
+   inline axis fights centering and sends the button to one side.
+   Reset it here so the button centres like every other menu item.
+============================================================ */
+@media (max-width: 768px) {
+  #navbar-collapse #lang-toggle,
+  #navbar-collapse .lang-btn {
+    margin-inline-start: 0 !important;
+    margin-inline-end:   0 !important;
+    margin-top:    .4rem !important;   /* breathing room below last link */
+    margin-bottom: .4rem !important;
+  }
+}
+
+/* ============================================================
+   BODY OFFSET — account for fixed navbar (REQ 18)
+============================================================ */
+body {
+  padding-top: var(--nav-h) !important;
+  scroll-behavior: smooth !important;
+}
+@media (max-width: 768px) {
+  body { padding-top: var(--nav-h-mobile) !important; }
+}
+
+/* Sections with anchors: offset so navbar doesn't cover headings (REQ 18) */
+section[id],
+[id].section,
+div[id].anchor-target {
+  scroll-margin-top: calc(var(--nav-h) + 12px) !important;
+}
+@media (max-width: 768px) {
+  section[id],
+  [id].section,
+  div[id].anchor-target {
+    scroll-margin-top: calc(var(--nav-h-mobile) + 10px) !important;
+  }
+}
+
+/* ============================================================
+   HERO / PAGE HEADER (BG.PNG)
+============================================================ */
+.home-hero,
+.page-header,
+.header-sm {
+  background-image: url('BG.PNG') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: var(--dark) !important;
+  background-blend-mode: normal !important;
+}
+
+/* ============================================================
+   SECTION TITLES
+============================================================ */
+.sm-title  { color: var(--accent) !important; }
+.lg-title  { color: var(--dark) !important; }
+.title     { color: var(--dark) !important; }
+
+/* Eyebrow / role labels */
+.board-title,
+.blog-item-bottom > span {
+  color: var(--accent) !important;
+}
+
+/* ============================================================
+   ZERO BORDER-RADIUS ON INTERACTIVE / CARD ELEMENTS
+============================================================ */
+button, .btn, .btn-outline,
+#lang-toggle, .lang-btn,
+.faq-item, .news-card, .work-card,
+.gallery-item, .blog-item,
+.services-item, .featured-item,
+.capability-item, .credential-card,
+.award-card, .board-card, .facts-item,
+.purpose-card, .value-card,
+.form-card, .stat-card, .social-links a,
+input, textarea, select,
+#img-modal, #modal-close-btn, #prev-btn, #next-btn {
+  border-radius: 0 !important;
+}
+.about-visual { border-radius: 0 !important; }
+
+/* ============================================================
+   GLOBAL LAYOUT — section / card background
+============================================================ */
+section {
+  background: var(--bg) !important;
+}
+
+.faq-item, .news-card, .work-card,
+.gallery-item, .blog-item,
+.services-item, .service-card, .featured-item,
+.capability-item, .credential-card,
+.board-card,
+.purpose-card, .value-card,
+.form-card, .stat-card,
+.vm-card, .objective-item {
+  background: var(--white) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* ============================================================
+   ABOUT POINTS (company strengths list items)
+============================================================ */
+.about-points > div {
+  background: var(--white) !important;
+  border-inline-start: 3px solid var(--primary) !important;
+  border-inline-end: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.07) !important;
+  padding: .8rem 1rem !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  border-radius: 0 !important;
+}
+html[lang="ar"] .about-points > div {
+  border-inline-start: 3px solid var(--primary) !important;
+  border-right: none !important;
+  border-left: none !important;
+}
+.about-points > div i {
+  color: var(--primary) !important;
+  font-size: .9rem !important;
+  width: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+/* ============================================================
+   COMPANY STRENGTHS SECTION (REQ 20, 21)
+   Dark background (footer color), NO cards.
+   Statistics, icons, dividers, spacing — premium stats layout.
+============================================================ */
+
+.strengths-section,
+
+#strengths,
+
+#why-us,
+
+.why-us,
+
+.facts-section,
+
+#facts {
+  background: var(--dark) !important;
+}
+
+/* Section titles on dark BG */
+
+.strengths-section .sm-title,
+
+#strengths .sm-title,
+
+#why-us .sm-title,
+
+.why-us .sm-title,
+
+.facts-section .sm-title,
+
+#facts .sm-title { color: var(--accent) !important; }
+
+.strengths-section .lg-title,
+
+#strengths .lg-title,
+
+#why-us .lg-title,
+
+.why-us .lg-title,
+
+.facts-section .lg-title,
+
+#facts .lg-title { color: #fff !important; }
+
+/* REQ 20 — Remove card treatment; no floating cards */
+
+.strengths-section .capability-item,
+
+#strengths .capability-item,
+
+#why-us .capability-item,
+
+.why-us .capability-item,
+
+.facts-section .facts-item,
+
+#facts .facts-item,
+
+.strengths-section .stat-card,
+
+#strengths .stat-card,
+
+.why-us .stat-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-block: 1.6rem !important;
+  transition: none !important;
+}
+
+/* Hover: just a subtle text accent, no lift */
+
+.strengths-section .capability-item:hover,
+
+#strengths .capability-item:hover,
+
+#why-us .capability-item:hover,
+
+.why-us .capability-item:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Text on dark BG */
+
+.strengths-section .capability-item h3,
+
+#strengths .capability-item h3,
+
+#why-us .capability-item h3,
+
+.why-us .capability-item h3,
+
+.facts-section .facts-item h3,
+
+#facts .facts-item h3 { color: #fff !important; }
+
+.strengths-section .capability-item .text,
+
+#strengths .capability-item .text,
+
+#why-us .capability-item .text,
+
+.why-us .capability-item .text,
+
+.strengths-section .capability-item p,
+
+#strengths .capability-item p,
+
+#why-us .capability-item p,
+
+.why-us .capability-item p { color: rgba(255,255,255,.62) !important; }
+
+/* Stats numbers — large, prominent */
+
+.strengths-section .stat-number,
+
+#strengths .stat-number,
+
+#why-us .stat-number,
+
+.why-us .stat-number,
+
+.facts-section .facts-num,
+
+#facts .facts-num,
+
+.facts-section [class*="count"],
+
+#facts [class*="count"],
+
+#strengths [class*="count"] {
+  font-size: clamp(36px, 4vw, 60px) !important;
+  font-weight: 800 !important;
+  color: var(--accent) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -.02em !important;
+  display: block !important;
+}
+
+/* REQ 21 — Count-up animation: initial state handled by JS; CSS just prevents jump */
+
+[data-count] {
+  transition: none !important;
+}
+
+/* Icon style on dark strengths section */
+
+.strengths-section .capability-icon,
+
+#strengths .capability-icon,
+
+#why-us .capability-icon,
+
+.why-us .capability-icon,
+
+.facts-section .facts-icon,
+
+#facts .facts-icon {
+  border-radius: 0 !important;
+  transition: background 220ms ease !important;
+}
+
+/* =========================================
+   ICON → TITLE → DESCRIPTION
+   ========================================= */
+
+.strengths-section .capability-item,
+
+#strengths .capability-item,
+
+#why-us .capability-item,
+
+.why-us .capability-item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Icon first */
+
+.strengths-section .capability-icon,
+
+#strengths .capability-icon,
+
+#why-us .capability-icon,
+
+.why-us .capability-icon {
+  order: 1 !important;
+}
+
+/* Title second */
+
+.strengths-section .capability-item h3,
+
+#strengths .capability-item h3,
+
+#why-us .capability-item h3,
+
+.why-us .capability-item h3 {
+  order: 2 !important;
+}
+
+/* Description third */
+
+.strengths-section .capability-item .text,
+
+#strengths .capability-item .text,
+
+#why-us .capability-item .text,
+
+.why-us .capability-item .text,
+
+.strengths-section .capability-item p,
+
+#strengths .capability-item p,
+
+#why-us .capability-item p,
+
+.why-us .capability-item p {
+  order: 3 !important;
+}
+
+/* ============================================================
+   WHY US — FINAL STYLE
+   ============================================================ */
+
+/* FULL SECTION — GRAY BACKGROUND */
+#why-us,
+.why-us {
+  background: #f3f3f3 !important;
+  background-color: #f3f3f3 !important;
+}
+
+/* Override earlier dark-section rule */
+#why-us.strengths-section,
+.why-us.strengths-section {
+  background: #f3f3f3 !important;
+  background-color: #f3f3f3 !important;
+}
+
+/* Inner containers */
+#why-us .container,
+.why-us .container,
+#why-us .section-inner,
+.why-us .section-inner {
+  background: transparent !important;
+}
+
+/* ============================================================
+   REMOVE CARDS & ALL DIVIDER LINES
+   ============================================================ */
+
+#why-us .capability-item,
+.why-us .capability-item {
+  background: transparent !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================================
+   ICONS — RED / NO BACKGROUND / NO BOX
+   ============================================================ */
+
+#why-us .capability-icon,
+.why-us .capability-icon {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+#why-us .capability-icon:hover,
+.why-us .capability-icon:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#why-us .capability-icon i,
+.why-us .capability-icon i {
+  color: #e00000 !important;
+  background: transparent !important;
+}
+
+/* ============================================================
+   POSITION — ICON → TITLE → DESCRIPTION
+   ============================================================ */
+
+#why-us .capability-item,
+.why-us .capability-item {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#why-us .capability-icon,
+.why-us .capability-icon {
+  order: 1 !important;
+}
+
+#why-us .capability-item h3,
+.why-us .capability-item h3 {
+  order: 2 !important;
+}
+
+#why-us .capability-item p,
+#why-us .capability-item .text,
+.why-us .capability-item p,
+.why-us .capability-item .text {
+  order: 3 !important;
+}
+
+/* ============================================================
+   TEXT COLORS
+   ============================================================ */
+
+/* "WHAT SETS US APART" — ACCENT */
+#why-us .sm-title,
+.why-us .sm-title {
+  color: var(--accent) !important;
+}
+
+/* Main title — BLACK */
+#why-us .lg-title,
+.why-us .lg-title {
+  color: #000 !important;
+}
+
+/* Capability titles — BLACK */
+#why-us .capability-item h3,
+.why-us .capability-item h3 {
+  color: #000 !important;
+}
+
+/* Descriptions — BLACK */
+#why-us .capability-item p,
+#why-us .capability-item .text,
+.why-us .capability-item p,
+.why-us .capability-item .text {
+  color: #000 !important;
+}
+/* ============================================================
+   QHSE MANAGEMENT SYSTEM
+============================================================ */
+#qhse {
+  background: var(--dark) !important;
+}
+#qhse .sm-title { color: var(--accent) !important; }
+#qhse .lg-title { color: #fff !important; }
+
+.qhse-item {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  border-top: 3px solid var(--accent) !important;
+  border-radius: 0 !important;
+  padding: 1.6rem 1.4rem !important;
+  box-shadow: none !important;
+  transition: background 220ms ease !important;
+}
+.qhse-item:hover { background: rgba(255,255,255,.10) !important; }
+.qhse-item i {
+  color: var(--accent) !important;
+  font-size: 1.1rem !important;
+  margin-bottom: .6rem !important;
+  display: block !important;
+}
+.qhse-item h3 {
+  font-size: .95rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: .4rem !important;
+}
+.qhse-item p {
+  font-size: .82rem !important;
+  color: rgba(255,255,255,.6) !important;
+  line-height: 1.6 !important;
+}
+
+/* ============================================================
+   GEOGRAPHIC COVERAGE SECTION (REQ 14, 15)
+   Fix contrast: white text on dark overlay — fully readable.
+   Map: integrated, styled to match Kampala map approach.
+============================================================ */
+/* Ensure the coverage section has a dark, high-contrast base */
+.coverage-section,
+#coverage,
+[class*="coverage"] {
+  background: var(--dark) !important;
+  color: #fff !important;
+}
+
+.coverage-section .sm-title,
+#coverage .sm-title { color: var(--accent) !important; }
+.coverage-section .lg-title,
+#coverage .lg-title { color: #fff !important; }
+
+/* Override any light section rule */
+section.coverage-section,
+section#coverage {
+  background: var(--dark) !important;
+}
+
+/* Structural layout — shared by every page that uses this section
+   (about.html and index.html), so it doesn't depend on a page's own
+   inline <style> block defining it. */
+.coverage-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2.5rem !important;
+}
+@media (max-width: 768px) {
+  .coverage-row { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
+.tag-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: .6rem !important;
+  margin-top: 1rem !important;
+}
+
+/* Coverage columns — glass panels with strong contrast */
+.coverage-col {
+  background: rgba(255,255,255,.07) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  border-radius: 0 !important;
+  padding: 2rem 2.25rem !important;
+  box-shadow: none !important;
+}
+
+/* Headings inside coverage panels */
+.coverage-col h3,
+.coverage-col h4 {
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: clamp(15px, 1.3vw, 18px) !important;
+  margin-bottom: .7rem !important;
+}
+.coverage-col p,
+.coverage-col .text {
+  color: rgba(255,255,255,.78) !important;
+  line-height: 1.7 !important;
+  font-size: clamp(13px, 1vw, 15px) !important;
+}
+
+/* Icons in coverage */
+.coverage-col i { color: var(--accent) !important; }
+
+/* Tags / pills in coverage */
+.tag-list span,
+.coverage-col .tag,
+.coverage-col .badge {
+  background: rgba(255,255,255,.1) !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  color: #fff !important;
+  font-size: .78rem !important;
+  font-weight: 500 !important;
+  padding: .25rem .65rem !important;
+  border-radius: 0 !important;
+}
+
+/* REQ 15 — Map container (Sudan/West Kordufan location) */
+/* Same visual treatment as the Kampala map */
+.map-frame,
+.map-embed,
+#map-sudan,
+#coverage-map,
+.location-map {
+  width: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+  /* Subtle integration */
+  box-shadow: 0 2px 24px rgba(0,0,0,.35) !important;
+  background: #1a2427 !important;
+}
+
+/* Map iframe sizing — responsive */
+.map-frame iframe,
+.map-embed iframe,
+#map-sudan iframe,
+#coverage-map iframe,
+.location-map iframe {
+  width: 100% !important;
+  height: clamp(260px, 35vw, 420px) !important;
+  border: none !important;
+  display: block !important;
+  filter: grayscale(18%) contrast(1.05) !important; /* subtle branded tint */
+}
+
+/* Inline embedded map style: matches Kampala card */
+.map-card {
+  background: rgba(255,255,255,.05) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+}
+.map-card .map-label {
+  padding: .85rem 1.2rem !important;
+  color: rgba(255,255,255,.75) !important;
+  font-size: .8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .04em !important;
+  border-top: 1px solid rgba(255,255,255,.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: .5rem !important;
+}
+.map-card .map-label i { color: var(--accent) !important; font-size: .85rem !important; }
+
+/* ============================================================
+   EQUIPMENT & RESOURCES
+============================================================ */
+.equip-item {
+  background: var(--white) !important;
+  border-top: 3px solid var(--primary) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07) !important;
+  padding: 1.4rem 1rem !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: .5rem !important;
+  text-align: center !important;
+  transition: transform 220ms ease, box-shadow 220ms ease !important;
+}
+.equip-item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.11) !important;
+}
+.equip-item i {
+  color: var(--primary) !important;
+  font-size: 1.25rem !important;
+  display: block !important;
+  margin-bottom: 0 !important;
+}
+.equip-item span {
+  font-size: .82rem !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  line-height: 1.4 !important;
+}
+
+/* ============================================================
+   CONTACT BUTTON — REDESIGNED (REQ 16)
+   Professional, red accent, polished CTA.
+============================================================ */
+
+/* Primary CTA button */
+.cta-link,
+a.cta-link,
+.btn-contact,
+a.btn-contact,
+.hero-actions .btn,
+.hero-actions .cta-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .55rem !important;
+  padding: .75rem 1.8rem !important;
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-size: clamp(13px, .95vw, 15px) !important;
+  font-weight: 600 !important;
+  letter-spacing: .025em !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease,
+    transform 180ms ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.cta-link:hover,
+a.cta-link:hover,
+.btn-contact:hover,
+a.btn-contact:hover {
+  background: #a31f1f !important; /* deeper red on hover */
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(198,40,40,.35) !important;
+  transform: translateY(-1px) !important;
+  border-color: #a31f1f !important;
+}
+.cta-link:active,
+a.cta-link:active {
+  transform: translateY(0) scale(.98) !important;
+  box-shadow: none !important;
+}
+
+/* Outline CTA variant */
+.btn-outline-cta,
+.cta-link.outline {
+  background: transparent !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+.btn-outline-cta:hover,
+.cta-link.outline:hover {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* Navbar "Contact" button — slightly compact */
+.navbar .cta-link,
+.navbar .btn-contact {
+  padding: .5rem 1.25rem !important;
+  font-size: clamp(12px, .9vw, 14px) !important;
+}
+
+/* ============================================================
+   CTA SIZE STANDARDISATION
+============================================================ */
+.btn, .btn-outline {
+  padding: .68rem 1.4rem !important;
+  font-size: .88rem !important;
+  font-weight: 600 !important;
+}
+.btn-send {
+  padding: .68rem 1.5rem !important;
+  font-size: .88rem !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
+   ICONS — GLOBAL LAYOUT FIX (REQ 10, 11, 12, 13)
+   Icons must be BESIDE titles/content, never above.
+============================================================ */
+
+/* ---- Global icon size reduction ---- */
+/* Icon containers */
+.capability-icon,
+.service-icon,
+.purpose-icon,
+.services-icon,
+.work-icon,
+.feat-icon,
+.value-icon,
+.vm-icon,
+.facts-icon {
+  width: clamp(32px, 2.5vw, 44px) !important;
+  height: clamp(32px, 2.5vw, 44px) !important;
+  min-width: clamp(32px, 2.5vw, 44px) !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0 !important;
+}
+
+/* Icon glyphs inside containers */
+.capability-icon i,
+.service-icon i,
+.purpose-icon i,
+.services-icon i,
+.work-icon i {
+  font-size: clamp(13px, 1.2vw, 18px) !important;
+}
+
+.value-icon i,
+.feat-icon i,
+.vm-icon i { font-size: clamp(12px, 1vw, 16px) !important; }
+
+.facts-icon i { font-size: clamp(16px, 1.4vw, 22px) !important; }
+
+/* Standalone contextual icons (not in a box) */
+.cinfo-icon i { font-size: clamp(12px, .9vw, 15px) !important; }
+
+/* ---- REQ 10 (revised): icon + title on one line, description below ----
+   capability-item / facts-item hold three siblings in the DOM:
+   [icon] [h3 title] [p description]. CSS Grid places icon+title on row 1
+   (columns: icon | title) and lets the description span the full width
+   on row 2 below — this reads correctly and never crowds the icon
+   against long paragraph text. Grid column order is direction-aware, so
+   this needs no separate LTR/RTL flex-direction handling at all: column
+   1 is always the inline-start side (left in English, right in Arabic). */
+.capability-item,
+.facts-item {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  column-gap: .85rem !important;
+  row-gap: .5rem !important;
+  align-items: center !important;
+  text-align: start !important;
+}
+
+html[lang="en"] .capability-item,
+html[lang="en"] .facts-item { text-align: left !important; }
+html[lang="ar"] .capability-item,
+html[lang="ar"] .facts-item { text-align: right !important; }
+
+.capability-icon,
+.facts-icon {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+}
+.capability-item h3,
+.facts-item strong {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+  align-self: center !important;
+}
+.capability-item p,
+.capability-item .text,
+.facts-item p,
+.facts-item .text {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  margin: 0 !important;
+}
+
+/* .vm-card / .objective-item are NOT flat icon+title+text triplets —
+   .vm-card wraps its own nested .vm-card-head (icon+title) plus a
+   separate <p> below it; forcing .vm-card itself into a row previously
+   squashed that nested layout and made the Vision & Mission text
+   overlap. Leave .vm-card as a normal block; only .vm-card-head (the
+   icon+title strip) is a row. */
+.vm-card { display: block !important; }
+.vm-card-head {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: .9rem !important;
+}
+html[lang="en"] .vm-card-head { text-align: left !important; }
+html[lang="ar"] .vm-card-head { text-align: right !important; }
+.vm-card-head .capability-icon { margin: 0 !important; }
+.vm-card h3 {
+  margin: 0 !important;
+  font-size: clamp(15px, 1.3vw, 18px) !important;
+  font-weight: 800 !important;
+}
+.vm-card > p,
+.vm-card > .text {
+  margin-top: 0 !important;
+}
+
+/* objective-item: icon/number + a single short paragraph, no separate
+   title — a plain row is correct here, nothing to stack. */
+.objective-item {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1rem !important;
+  align-items: flex-start !important;
+  text-align: start !important;
+}
+html[lang="en"] .objective-item { text-align: left !important; }
+html[lang="ar"] .objective-item { text-align: right !important; }
+
+/* Text block grows to fill remaining row width where still used */
+.objective-item > *:not(.objective-num) {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.capability-item h3,
+.service-card h3,
+.work-card h3,
+.facts-item h3 {
+  font-size: clamp(14px, 1.2vw, 17px) !important;
+  font-weight: 700 !important;
+}
+
+/* ---- vision-card / mission-card (generic, class-substring variants) ---- */
+.vision-card,
+.mission-card,
+[class*="vision"],
+[class*="mission"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
+}
+html[lang="en"] .vision-card,
+html[lang="en"] .mission-card,
+html[lang="en"] [class*="vision"],
+html[lang="en"] [class*="mission"] { text-align: left !important; }
+
+html[lang="ar"] .vision-card,
+html[lang="ar"] .mission-card,
+html[lang="ar"] [class*="vision"],
+html[lang="ar"] [class*="mission"] { text-align: right !important; }
+
+.vision-card .vm-icon,
+.mission-card .vm-icon { margin-bottom: 0 !important; }
+
+/* ---- value-card: horizontal ---- */
+.value-card {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: .9rem !important;
+  align-items: flex-start !important;
+}
+html[lang="en"] .value-card { text-align: left !important; }
+html[lang="ar"] .value-card { text-align: right !important; }
+
+/* featured-item */
+.feat-head { flex-direction: row !important; }
+
+/* services-item */
+html[lang="ar"] .services-item { text-align: right !important; }
+
+/* ---- REQ 23: Mobile — icon+title row, description below, at every
+   breakpoint (grid handles this without any extra rules needed) ---- */
+@media (max-width: 480px) {
+  .vm-card-head,
+  .objective-item,
+  .value-card,
+  .vision-card,
+  .mission-card {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: .75rem !important;
+    align-items: flex-start !important;
+  }
+  .vm-card-head { align-items: center !important; }
+  /* Shrink icons on mobile rather than stacking */
+  .capability-icon,
+  .service-icon,
+  .purpose-icon,
+  .services-icon,
+  .work-icon,
+  .vm-icon,
+  .value-icon {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* ---- REQ 12: Icon direction — RTL/LTR directional icons ---- */
+/* Arrows and directional icons: flip in RTL */
+html[lang="ar"] .fa-arrow-right,
+html[lang="ar"] .fa-chevron-right,
+html[lang="ar"] .fa-angle-right,
+html[lang="ar"] .icon-arrow-right {
+  transform: scaleX(-1) !important;
+}
+html[lang="ar"] .fa-arrow-left,
+html[lang="ar"] .fa-chevron-left,
+html[lang="ar"] .fa-angle-left,
+html[lang="ar"] .icon-arrow-left {
+  transform: scaleX(1) !important; /* already pointing right in RTL context */
+}
+
+/* Non-directional icons: never flip */
+html[lang="ar"] .fa-phone,
+html[lang="ar"] .fa-envelope,
+html[lang="ar"] .fa-map-marker-alt,
+html[lang="ar"] .fa-star,
+html[lang="ar"] .fa-check,
+html[lang="ar"] .fa-globe,
+html[lang="ar"] .fa-cog,
+html[lang="ar"] .fa-bolt,
+html[lang="ar"] .fa-tools,
+html[lang="ar"] .fa-hard-hat,
+html[lang="ar"] .fa-industry,
+html[lang="ar"] .fa-project-diagram {
+  transform: none !important;
+}
+
+/* ---- CAPABILITY-ICON box (colored background) ---- */
+.capability-icon {
+  background: var(--primary) !important;
+  border-radius: 0 !important;
+}
+.capability-icon i { color: #fff !important; }
+
+/* ============================================================
+   REQ 9 — POWER STRUCTURE: Remove "Substations Networks Maintenance Safety"
+   Hide the text-only label row above the power structure image.
+============================================================ */
+.power-labels,
+.power-structure-labels,
+[class*="power"] > .label-row,
+[class*="power"] > p:first-of-type,
+#power-structure > p,
+.power-section > p,
+/* Target the specific text string via attribute / content if rendered in a span */
+.power-tags,
+.power-text-row {
+  display: none !important;
+}
+
+/* ============================================================
+   BACK-TO-TOP — REMOVE SQUARE BUTTON (REQ 17) ء
+============================================================ */
+#btt-btn,
+.back-to-top,
+[class*="back-to-top"],
+[id*="back-to-top"],
+.scroll-top,
+[class*="scroll-top"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+/* ============================================================
+   FOOTER — COMPACT & BALANCED
+   ============================================================ */
+
+footer,
+.footer {
+  background: var(--dark) !important;
+  color: rgba(255,255,255,.82) !important;
+}
+
+/* Footer links */
+.footer-item .text a,
+.footer-col .foot-desc a,
+.foot-nav a {
+  color: rgba(255,255,255,.82) !important;
+}
+
+.footer-item .text a:hover,
+.foot-nav a:hover {
+  color: var(--accent) !important;
+}
+
+/* Brand */
+.footer-item .site-brand,
+.footer-col .site-brand {
+  color: #fff !important;
+  font-size: clamp(15px, 1.1vw, 18px) !important;
+  margin-bottom: .5rem !important;
+}
+
+/* Footer headings */
+.footer-item h2,
+.footer-col h5,
+footer h2,
+footer h5,
+.footer h2,
+.footer h5 {
+  font-size: .9rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: #fff !important;
+  margin-bottom: .6rem !important;
+}
+
+/* Footer body text */
+.quick-links-list a,
+.foot-nav a,
+.footer-item .text,
+.foot-desc,
+.foot-contact-row,
+.footer-item .text a {
+  font-size: .8rem !important;
+  line-height: 1.55 !important;
+}
+
+/* Navigation spacing */
+.quick-links-list li,
+.foot-nav a {
+  margin-bottom: .25rem !important;
+}
+
+/* Arabic / English brand */
+.footer-item .site-brand .brand-en,
+.footer-item .site-brand .brand-ar,
+.footer-col .site-brand .brand-en,
+.footer-col .site-brand .brand-ar {
+  font-size: inherit !important;
+  color: #fff !important;
+}
+
+/* Social icons */
+.social-links a {
+  background: rgba(255,255,255,.1) !important;
+  border-radius: 0 !important;
+}
+
+.social-links a:hover {
+  background: var(--primary) !important;
+}
+
+/* ============================================================
+   COPYRIGHT — SMALLER & LIGHTER
+   ============================================================ */
+
+.footer-bottom {
+  background: #0f1618 !important;
+  color: rgba(255,255,255,.4) !important;
+  font-size: .72rem !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+}
+
+/* ============================================================
+   CONTACT PAGE — INFO ICONS
+============================================================ */
+.cinfo-icon,
+.cinfo-icon i { color: var(--primary) !important; }
+.cinfo-icon.wa { background: rgba(198,40,40,.1) !important; }
+.cinfo-icon.wa,
+.cinfo-icon.wa i { color: var(--primary) !important; }
+
+/* ============================================================
+   FAQ ACCORDION
+============================================================ */
+.faq-question-text { color: var(--dark) !important; }
+.faq-icon          { color: var(--primary) !important; }
+.faq-answer-content a { color: var(--accent) !important; }
+
+/* ---- D) FAQ accordion smooth open ---- */
+.faq-answer {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .35s cubic-bezier(.4, 0, .2, 1),
+              padding .35s ease !important;
+}
+.faq-item.open .faq-answer { max-height: 600px !important; }
+
+/* ============================================================
+   CERTIFICATES / CREDENTIALS
+============================================================ */.certificates-section {
+    background: var(--bg);
+}
+
+/* ---- Credential cards ---- */
+.credential-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.credential-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 320px;
+    min-height: 320px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background-size: cover;
+    background-position: center;
+}
+
+.credential-card > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+.credential-card .cred-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .credential-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .credential-row {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-inline: auto;
+    }
+}
+
+/* ============================================================
+   ANIMATIONS & INTERACTIONS
+============================================================ */
+
+/* ---- A) Scroll reveal ---- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+/* FAQ لا تأخذ أنيميشن ظهور — الأكورديون فقط */
+.faq-item.reveal-up,
+.faq-item.reveal-up.active {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+.reveal-up:nth-child(2) { transition-delay: .04s; }
+.reveal-up:nth-child(3) { transition-delay: .08s; }
+.reveal-up:nth-child(4) { transition-delay: .12s; }
+.reveal-up:nth-child(5) { transition-delay: .16s; }
+.reveal-up:nth-child(6) { transition-delay: .20s; }
+.reveal-up.active       { opacity: 1; transform: none; }
+.reveal-up.reveal-instant { transition: none !important; }
+
+/* ---- B) Card hover lift — only on relevant cards (not strengths, not faq) ---- */
+.news-card, .services-item, .service-card,
+.board-card, .work-card,
+.blog-item, .stat-card, .vm-card,
+.credential-card, .facts-item,
+.purpose-card, .value-card {
+  transition: transform .22s ease, box-shadow .22s ease !important;
+}
+.news-card:hover, .services-item:hover, .service-card:hover,
+.board-card:hover, .work-card:hover,
+.blog-item:hover, .stat-card:hover, .vm-card:hover,
+.credential-card:hover, .facts-item:hover,
+.purpose-card:hover, .value-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 32px rgba(0,0,0,.14) !important;
+}
+
+/* ---- FAQ accordion — isolated rules, no interference ---- */
+.faq-item {
+  transition: box-shadow .2s ease !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+.faq-item:hover {
+  transform: none !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.10) !important;
+}
+.faq-question {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+.faq-answer {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .35s ease !important;
+}
+.faq-item.open .faq-answer {
+  max-height: 600px !important;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(180deg) !important;
+}
+
+/* ---- E) Hero text entrance ---- */
+.hero-eyebrow { animation: heroFadeUp .6s ease both; }
+.home-hero h1,
+.page-header h1,
+.header-sm h1  { animation: heroFadeUp .7s .12s ease both; }
+.home-hero .hero-sub,
+.page-header p,
+.header-sm p   { animation: heroFadeUp .7s .24s ease both; }
+.hero-actions  { animation: heroFadeUp .7s .36s ease both; }
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- F) Page fade-in — REMOVED (caused page freeze & counter stall) ---- */
+html { background: var(--bg); }
+
+/* REQ 21 — Count-up entrance animation for strength numbers */
+@keyframes statPop {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+.stat-animated {
+  animation: statPop .55s cubic-bezier(.22,1,.36,1) both !important;
+}
+
+/* Icon entrance on strengths section */
+@keyframes iconPulse {
+  0%   { transform: scale(.85); opacity: 0; }
+  60%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.icon-animated {
+  animation: iconPulse .45s cubic-bezier(.22,1,.36,1) both !important;
+}
+
+/* ============================================================
+   GLOBAL PROPORTION FIX (REQ 22)
+   Use clamp() on headings, spacing — prevent oversizing.
+============================================================ */
+
+/* Headings scale */
+h1, .h1 { font-size: clamp(28px, 3.5vw, 52px) !important; }
+h2, .h2 { font-size: clamp(22px, 2.5vw, 38px) !important; }
+h3, .h3 { font-size: clamp(16px, 1.5vw, 24px) !important; }
+h4, .h4 { font-size: clamp(14px, 1.2vw, 20px) !important; }
+
+/* Section heading tokens */
+.lg-title { font-size: clamp(24px, 2.8vw, 42px) !important; }
+.sm-title { font-size: clamp(11px, .85vw, 13px) !important; letter-spacing: .08em !important; text-transform: uppercase !important; font-weight: 700 !important; }
+
+/* Section vertical rhythm */
+section { padding-block: clamp(3rem, 6vw, 6rem) !important; }
+
+/* ============================================================
+   RESPONSIVE DESIGN (REQ 24)
+   No horizontal overflow across all breakpoints.
+============================================================ */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+* { box-sizing: border-box !important; }
+
+img, video, iframe, embed, object {
+  max-width: 100% !important;
+}
+
+/* Map responsive */
+@media (max-width: 768px) {
+  .map-frame iframe,
+  .map-embed iframe,
+  #map-sudan iframe,
+  #coverage-map iframe,
+  .location-map iframe {
+    height: clamp(220px, 55vw, 300px) !important;
+  }
+}
+
+/* Coverage grid stacks on mobile */
+@media (max-width: 768px) {
+  .coverage-col {
+    padding: 1.5rem 1.25rem !important;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY & READABILITY (REQ 25)
+============================================================ */
+
+/* Focus states — keyboard accessible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 3px !important;
+}
+
+/* Adequate body text contrast */
+body {
+  color: var(--text) !important;
+  line-height: 1.65 !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal-up { opacity: 1 !important; transform: none !important; }
+}
+
+/* ============================================================
+   RTL / LTR LAYOUT SUPPORT (capability-item, services-item)
+============================================================ */
+html[lang="ar"] .capability-item,
+html[lang="ar"] .purpose-card { text-align: right !important; }
+
+/* ============================================================
+   VISUAL-ICON-CARD (small icon cards in services etc.)
+============================================================ */
+.visual-icon-card i {
+  font-size: 1.1rem !important;
+  margin-bottom: .3rem !important;
+}
+
+/* ============================================================
+   SMOOTH SCROLLING (REQ 18)
+============================================================ */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ============================================================
+   SUPPRESSION OF PAGE-SPECIFIC NAVBAR OVERRIDES (REQ 19)
+   Null out any page-specific navbar height rules.
+============================================================ */
+.contact-navbar,
+.contact-page .navbar,
+.page-contact .navbar,
+body.contact .navbar,
+.about-navbar,
+.about-page .navbar,
+.services-navbar,
+.projects-navbar,
+[class*="-page"] .navbar {
+  height: var(--nav-h) !important;
+  min-height: var(--nav-h) !important;
+  max-height: var(--nav-h) !important;
+  padding-block: 0 !important;
+}
+@media (max-width: 768px) {
+  .contact-navbar,
+  .contact-page .navbar,
+  .page-contact .navbar,
+  body.contact .navbar,
+  .about-navbar,
+  .about-page .navbar,
+  .services-navbar,
+  .projects-navbar,
+  [class*="-page"] .navbar {
+    height: var(--nav-h-mobile) !important;
+    min-height: var(--nav-h-mobile) !important;
+    max-height: var(--nav-h-mobile) !important;
+  }
+}
+
+/* ============================================================
+   INDUSTRIES SERVED — readability on dark BG
+============================================================ */
+.industries-section,
+#industries,
+[class*="industries"] {
+  background: var(--dark) !important;
+  color: #fff !important;
+}
+section.industries-section,
+section#industries {
+  background: var(--dark) !important;
+}
+.industries-section .sm-title,
+#industries .sm-title { color: var(--accent) !important; }
+.industries-section .lg-title,
+#industries .lg-title { color: #fff !important; }
+
+.industries-section h3,
+.industries-section h4,
+#industries h3,
+#industries h4 { color: #fff !important; }
+
+.industries-section p,
+.industries-section .text,
+#industries p,
+#industries .text { color: rgba(255,255,255,.75) !important; }
+
+/* Industry items — glass panels */
+.industry-item,
+.industries-section .item,
+#industries .item {
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.4rem !important;
+}
+.industry-item i,
+.industries-section .item i { color: var(--accent) !important; }
+
+/* ============================================================
+   RTL ICON POSITION FIX — ARABIC MODE
+   Fixes icon placement across all pages when lang="ar".
+   Overrides all inline page-level styles.
+============================================================ */
+
+/* ---- capability-item: force horizontal layout, icon right in RTL ----
+   flex-direction stays "row" in RTL too — the icon (first in the DOM)
+   already lands on the right because the row axis follows the
+   inherited rtl direction. row-reverse would flip it a second time. */
+html[lang="ar"] .capability-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  text-align: right !important;
+  gap: 1rem !important;
+}
+
+/* Undo the "centered icon above text" that page CSS sets */
+html[lang="ar"] .capability-icon,
+html[lang="ar"] .capability-item .capability-icon {
+  margin: 0 !important;        /* remove margin: 0 auto */
+  flex-shrink: 0 !important;
+}
+
+/* Content block grows */
+html[lang="ar"] .capability-item > div:not(.capability-icon) {
+  flex: 1 !important;
+  min-width: 0 !important;
+  text-align: right !important;
+}
+
+/* ---- facts-item: force horizontal layout, icon right in RTL ---- */
+html[lang="ar"] .facts-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  text-align: right !important;
+  gap: 1rem !important;
+}
+
+html[lang="ar"] .facts-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;        /* remove margin-bottom that stacks icon above */
+  flex-shrink: 0 !important;
+  font-size: unset !important; /* let the icon-box sizing from above take over */
+}
+
+html[lang="ar"] .facts-item > div:not(.facts-icon),
+html[lang="ar"] .facts-item .item-content {
+  flex: 1 !important;
+  min-width: 0 !important;
+  text-align: right !important;
+}
+
+/* ---- vm-card-head / vision-mission: reverse in RTL ---- */
+html[lang="ar"] .vm-card-head,
+html[lang="ar"] .vm-card > .vm-card-head {
+  flex-direction: row !important;
+  text-align: right !important;
+}
+
+html[lang="ar"] .vm-card-head .capability-icon {
+  margin: 0 !important;
+}
+
+/* ---- objective-item: icon/number on right in RTL ---- */
+html[lang="ar"] .objective-item {
+  flex-direction: row !important;
+  text-align: right !important;
+}
+
+html[lang="ar"] .objective-num {
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+/* ---- purpose-card: horizontal layout in RTL ---- */
+html[lang="ar"] .purpose-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  text-align: right !important;
+  gap: 1rem !important;
+}
+
+html[lang="ar"] .purpose-icon {
+  margin: 0 !important;        /* remove margin-bottom / margin: 0 auto */
+  flex-shrink: 0 !important;
+}
+
+html[lang="ar"] .purpose-card > div:not(.purpose-icon),
+html[lang="ar"] .purpose-card .purpose-body {
+  flex: 1 !important;
+  min-width: 0 !important;
+  text-align: right !important;
+}
+
+/* ---- feat-head (featured items): icon right in RTL ---- */
+html[lang="ar"] .feat-head {
+  flex-direction: row !important;
+  text-align: right !important;
+}
+
+/* ---- cinfo-item (contact info rows): icon right in RTL ---- */
+html[lang="ar"] .cinfo-item {
+  flex-direction: row !important;
+  text-align: right !important;
+}
+
+html[lang="ar"] .cinfo-icon {
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+html[lang="ar"] .cinfo-item > div:not(.cinfo-icon),
+html[lang="ar"] .cinfo-item .cinfo-body {
+  flex: 1 !important;
+  min-width: 0 !important;
+  text-align: right !important;
+}
+
+/* ---- services-item: text right in RTL ---- */
+html[lang="ar"] .services-item {
+  text-align: right !important;
+}
+
+/* ---- about-points items: correct border side in RTL ----
+   border-inline-start (declared earlier) already tracks the inherited
+   direction on its own, so we only need flex-direction: row here — the
+   icon (first child) lands on the right automatically. */
+html[lang="ar"] .about-points > div {
+  display: flex !important;
+  flex-direction: row !important;
+  text-align: right !important;
+}
+
+html[lang="ar"] .about-points > div i {
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+/* ---- qhse-item: icon alignment in RTL ---- */
+html[lang="ar"] .qhse-item {
+  text-align: right !important;
+}
+
+html[lang="ar"] .qhse-item i {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin-inline-start: auto !important;
+}
+
+/* ---- industry-item / coverage-col: text right in RTL ---- */
+html[lang="ar"] .industry-item,
+html[lang="ar"] .coverage-col {
+  text-align: right !important;
+}
+
+/* ---- cta-strip: mirror in RTL (content/CTA swap sides naturally
+   via the inherited direction — row, not row-reverse) ---- */
+html[lang="ar"] .cta-strip {
+  flex-direction: row !important;
+  text-align: right !important;
+}
+
+/* ---- Mobile: RTL fixes stay in force at small breakpoints too.
+   (No flex-direction override needed here — "row" already mirrors
+   correctly via the inherited direction at every breakpoint.) ---- */
+
+/* ============================================================
+   RTL / LTR — REMAINING COMPONENTS
+   Icon-with-text and directional components not covered above.
+   Same rule everywhere: flex-direction stays "row"; the inherited
+   dir="rtl"/"ltr" on <html> does the actual mirroring.
+============================================================ */
+
+/* Buttons / links with a leading or trailing icon */
+.btn, .btn-outline, .cta-link, .btn-send,
+.nav-link, .form-submit {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: .5rem !important;
+}
+
+/* Cards with an icon row (service/news/work/credential/stat cards) */
+.service-card .service-icon,
+.stat-card,
+.credential-card,
+.work-card .work-icon,
+.news-card .news-icon {
+  text-align: inherit;
+}
+
+/* FAQ question row: chevron follows content direction automatically
+   via inherited direction + row (faq.html already pairs this per-lang;
+   ensure no double-reverse leaks in from elsewhere). */
+.faq-question {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Breadcrumbs / step indicators / pagination — text-align follows
+   content direction automatically; only need to make sure separators
+   read in logical (not physical) order via gap, not margin. */
+.pagination, .tabs, .filter-tabs, .breadcrumbs {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: .5rem !important;
+}
+
+/* END OF DAHAWI ENGINEERING UNIFIED STYLESHEET v2 */
+
+/* ============================================================
+   HAMBURGER SCROLL COLOR — ICON ONLY
+============================================================ */
+@media (max-width: 768px) {
+  /* Button + icon glyph: black icon color, NO background box */
+  .navbar.navbar-scrolled #navbar-show-btn,
+  .navbar-scrolled #navbar-show-btn,
+  .navbar.navbar-scrolled #navbar-show-btn i,
+  .navbar-scrolled #navbar-show-btn i,
+  .navbar.navbar-scrolled #hamburger,
+  .navbar-scrolled #hamburger {
+    color: #000 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  /* The three bar lines (if a span-based hamburger is used) are
+     drawn WITH background-color — that's how the bars themselves
+     get their black color, it's not a background box. */
+  .navbar.navbar-scrolled #navbar-show-btn span,
+  .navbar-scrolled #navbar-show-btn span,
+  .navbar.navbar-scrolled #hamburger span,
+  .navbar-scrolled #hamburger span,
+  .navbar.navbar-scrolled .hamburger,
+  .navbar-scrolled .hamburger,
+  .navbar.navbar-scrolled .hamburger span,
+  .navbar-scrolled .hamburger span {
+    background-color: #000 !important;
+  }
+  /* The menu itself remains black; only its contents are white,
+     with the active page remaining yellow. */
+  .navbar.navbar-scrolled #navbar-collapse,
+  .navbar-scrolled #navbar-collapse {
+    background: #000 !important;
+    color: #fff !important;
+  }
+  .navbar.navbar-scrolled #navbar-collapse .nav-link,
+  .navbar-scrolled #navbar-collapse .nav-link {
+    color: #fff !important;
+  }
+  .navbar.navbar-scrolled #navbar-collapse .nav-link.active,
+  .navbar-scrolled #navbar-collapse .nav-link.active {
+    color: var(--accent) !important;
+  }
+}
+
+/* ============================================================
+   MOBILE MENU STACKING — CENTRALIZED, SITE-WIDE FIX
+   Applies on every page that links this stylesheet (it loads
+   last, so !important here beats any leftover/duplicate
+   per-page inline z-index values without editing each page).
+
+   Rule: while the menu is open, the panel (#navbar-collapse)
+   and its close button MUST sit above the hamburger open
+   button — always, on every page — so the close (X) button is
+   never covered and always clickable.
+============================================================ */
+@media (max-width: 768px) {
+  /* Panel + close button: always on top */
+  #navbar-collapse {
+    z-index: 9999 !important;
+  }
+  #navbar-close-btn {
+    z-index: 10000 !important;
+  }
+  #navbar-show-btn {
+    z-index: 100 !important;
+  }
+  /* Belt-and-suspenders: while the menu is open, remove the
+     hamburger button from view entirely so it can never
+     intercept a tap, even on a page whose own inline CSS
+     still sets a stray high z-index somewhere. */
+  .navbar:has(#navbar-collapse.open) #navbar-show-btn {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  .footer-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;  /* LTR: الشعار آخر يمين */
+  gap: 2rem;
+  align-items: start;
+}
+
+/* AR: نحرك عمود الشعار ليصير أول يسار */
+html[dir="rtl"] .footer-row {
+  grid-template-columns: auto repeat(3, 1fr);
+}
+
+html[dir="rtl"] .footer-logo-col {
+  order: -1;
+}
+
+.footer-logo-col img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+}
+/* ============================================================
+   FOOTER LOGO COLUMN — HIDE ON MOBILE
+   Hard override for all pages
+============================================================ */
+/* ============================================================
+   FOOTER LOGO COLUMN — HIDE ON TABLET & BELOW
+============================================================ */
+@media (max-width: 1024px) {
+  .footer-logo-col {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  footer .footer-row,
+  footer.py-4 .footer-row,
+  footer div.footer-row {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+  }
+}
