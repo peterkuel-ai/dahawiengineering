@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+<html dir="ltr" id="html-root" lang="en">
+  
+<head>
+   <!-- Website Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>Contact | Dahawi Engineering</title>
+<meta content="Contact Dahawi Engineering for electrical infrastructure construction, operation, and maintenance project inquiries." name="description"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Font Awesome -->
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" rel="stylesheet"/>
+<!-- Fonts: Inter (EN) + Cairo (AR) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cairo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    /* Arabic typography — match English visual weight */
+html[lang="ar"] body {
+    font-family: 'Cairo', sans-serif;
+}
+html[lang="ar"] .clink:hover {
+    color: #c62828 !important;
+    text-decoration: underline;
+}
+html[lang="ar"] .cinfo-sublabel {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: 0 !important;
+}
+
+html[lang="ar"] .clink {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 500;
+    color: var(--navy);
+}
+
+.footer-logo-col {
+    background: transparent !important;
+    align-self: flex-start;        /* محاذاة مع أعلى بقية الأعمدة */
+    display: flex;
+    justify-content: center;       /* توسيط أفقي */
+    padding-top: .85rem;
+    width: 100%;                   /* ✅ يضمن أن التوسيط يعمل في RTL و LTR */
+}
+
+.footer-logo-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    background: transparent !important;
+    mix-blend-mode: lighten;
+    margin-inline: auto;           /* ✅ توسيط إضافي لضمان العمل في الاتجاهين */
+}
+.footer-logo-col img {
+    width: 150px;
+    height: auto;
+    display: block;
+    mix-blend-mode: screen;     /* يزيل الخلفية البيضاء ويبقي الألوان */
+}
+ /* ═══════════════════════════════════════════════════════
+ RESET + TOKENS
+ ═══════════════════════════════════════════════════════ */
+ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+ :root {
+ /* ── Global tokens (shared with index.html) ── */
+ --primary: #c62828;
+ --accent: #f6b746;
+ --dark: #182023;
+ --nav-h: 72px;
+ --font-en: 'Inter', sans-serif;
+ --font-ar: 'Cairo', sans-serif;
+ /* ── Contact-page aliases ── */
+ --navy: #182023;
+ --navy-mid: #202a2d;
+ --blue: #c62828;
+ --blue-dk: #c62828;
+ --gold: #f6b746;
+ --gold-lt: #f6b746;
+ --green-wa: #25d366;
+ --text: #1e293b;
+ --muted: #64748b;
+ --light: #c9cfd1;
+ --bg: #f3f4f4;
+ --white: #ffffff;
+ --border: #e5e7e8;
+ --r: 10px;
+ --sh: 0 3px 18px rgba(0,0,0,.08);
+ --t: .2s ease;
+ }
+
+ html { scroll-behavior: smooth; }
+
+ body {
+ font-family: 'Inter', sans-serif;
+ font-size: 15px;
+ line-height: 1.65;
+ color: var(--text);
+ background: var(--bg);
+ padding-top: var(--nav-h);
+ }
+
+ html[lang="ar"] body { font-family: 'Cairo', sans-serif; direction: rtl; }
+ html[lang="ar"] * { letter-spacing: 0 !important; }
+
+ a { text-decoration: none; color: inherit; }
+ ul { list-style: none; }
+ button { cursor: pointer; }
+
+ .container {
+ width: min(1160px, 92%);
+ margin-inline: auto;
+ }
+
+ /* ═══════════════════════════════════════════════════════
+ NAVBAR
+ ═══════════════════════════════════════════════════════ */
+
+ /* Language Toggle Button */
+ #lang-toggle {
+ display: flex;
+ align-items: center;
+ gap: .45rem;
+ background: transparent;
+ border: 2px solid rgba(255,255,255,.55);
+ color: #fff;
+ padding: .35rem .85rem;
+ border-radius: 0;
+ font-size: .8rem;
+ font-weight: 600;
+ cursor: pointer;
+ transition: background .2s, border-color .2s;
+ letter-spacing: .5px;
+ white-space: nowrap;
+ font-family: inherit;
+ }
+ #lang-toggle:hover { background: #ffffff26; border-color: #fff; }
+ #lang-toggle .flag { font-size: 1rem; }
+
+ /* Navbar base */
+ .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy-mid);height:var(--nav-h);box-shadow:0 2px 16px rgba(0,0,0,.25);border-bottom:3px solid var(--primary)}
+ .navbar .container{height:100%;justify-content:space-between;gap:1rem}
+ .site-brand{font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-.5px}
+ .site-brand span{color:var(--accent)}
+ #navbar-collapse{display:flex;align-items:center;gap:1rem;margin-inline-start:auto}
+ .navbar-nav{display:flex;align-items:center;gap:.25rem}
+ .nav-link{display:block;padding:.45rem .9rem;color:rgba(255,255,255,.82);font-size:.875rem;font-weight:500;border-radius:0;transition:background .18s,color .18s}
+ .nav-link:hover,.nav-link.active{background:rgba(246,183,70,.14);color:var(--accent)}
+ #navbar-show-btn,#navbar-close-btn{display:none;background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:.4rem}
+
+ /* Scrolled navbar */
+ .navbar.scrolled{background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+ .navbar.scrolled .site-brand{color:var(--dark)}
+ .navbar.scrolled .nav-link{color:var(--dark)}
+ .navbar.scrolled .nav-link:hover,.navbar.scrolled .nav-link.active{background:rgba(198,40,40,.08);color:var(--primary)}
+ .navbar.scrolled #navbar-show-btn,.navbar.scrolled #navbar-close-btn{color:var(--dark)}
+ .navbar.scrolled #lang-toggle{border-color:rgba(24,32,35,.45);color:var(--dark)}
+ .navbar.scrolled #lang-toggle:hover{background:rgba(24,32,35,.08);border-color:var(--dark)}
+
+ /* Mobile navbar */
+ @media (max-width:768px){
+ #navbar-show-btn{display:flex!important;align-items:center;justify-content:center;position:relative;z-index:1200}
+ #navbar-collapse{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;max-width:100vw;height:100dvh;box-sizing:border-box;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow-y:auto;overflow-x:hidden;transform:translateX(-100%);transition:transform .35s ease,background .3s ease;z-index:1100}
+ #navbar-collapse.open{transform:translateX(0)}
+ .navbar-nav{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:.5rem;margin:0;padding:0 1rem;box-sizing:border-box}
+ .nav-link{display:block;width:100%;box-sizing:border-box;font-size:1.1rem;padding:.75rem 2rem;text-align:center;color:var(--dark)}
+ .nav-link:hover,.nav-link.active{color:var(--primary);background:rgba(198,40,40,.08)}
+ #navbar-close-btn{display:flex!important;align-items:center;justify-content:center;position:absolute;top:1rem;right:1.5rem;z-index:1201;color:var(--dark)}
+ html[lang="ar"] #navbar-close-btn{right:auto;left:1.5rem}
+ html[lang="ar"] #navbar-collapse{direction:rtl}
+ html[lang="en"] #navbar-collapse{direction:ltr}
+ .navbar.scrolled #navbar-collapse,.navbar.scrolled #navbar-collapse.open{background:var(--dark)}
+ .navbar.scrolled #navbar-collapse .nav-link{color:#fff}
+ .navbar.scrolled #navbar-collapse .nav-link:hover,.navbar.scrolled #navbar-collapse .nav-link.active{color:var(--primary);background:rgba(198,40,40,.12)}
+ .navbar.scrolled #navbar-close-btn{color:#fff}
+ #navbar-collapse #lang-toggle{border-color:rgba(24,32,35,.45);color:var(--dark);margin-top:1rem}
+ .navbar.scrolled #navbar-collapse #lang-toggle{border-color:rgba(255,255,255,.55);color:#fff}
+ }
+
+ @media (max-width:480px){
+ #navbar-collapse{padding-inline:1rem}
+ .navbar-nav{max-width:100%;padding-inline:.5rem}
+ .nav-link{padding-inline:1rem}
+ }
+
+ /* ═══════════════════════════════════════════════════════
+ PAGE HEADER
+ ═══════════════════════════════════════════════════════ */
+ .page-header {
+ /* BG.PNG applied via dahawi-unified.css */
+ padding: 3.5rem 0;
+ color: var(--white);
+ position: relative;
+ overflow: hidden;
+ }
+ .page-header .container { position: relative; z-index: 1; }
+
+ .page-header h1 {
+ font-size: clamp(1.5rem, 4vw, 2.2rem);
+ font-weight: 700;
+ line-height: 1.22;
+ margin-bottom: .6rem;
+ }
+ .page-header p {
+ font-size: .93rem;
+ color: var(--light);
+ max-width: 550px;
+ }
+
+ /* ═══════════════════════════════════════════════════════
+ CONTACT SECTION
+ ═══════════════════════════════════════════════════════ */
+ 
+/* ═══════════════════════════════════════════════════════
+ CONTACT SECTION
+ ═══════════════════════════════════════════════════════ */
+
+.contact-section { padding: 3.5rem 0; }
+
+.sec-label {
+ font-size: .7rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ color: #c62828;
+ margin-bottom: .28rem;
+}
+
+.sec-title {
+ font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+ font-weight: 700;
+ text-transform: capitalize;
+ margin-bottom: 2rem;
+}
+
+.contact-grid {
+ display: grid;
+ grid-template-columns: 1fr 390px;
+ gap: 1.6rem;
+ align-items: start;
+}
+
+@media (max-width: 860px) {
+ .contact-grid {
+ grid-template-columns: 1fr;
+ }
+}
+
+/* ── FORM CARD ── */
+
+.form-card {
+ background: var(--white);
+ border-radius: 0;
+ padding: 1.9rem 1.75rem;
+ box-shadow: var(--sh);
+}
+
+.form-group {
+ margin-bottom: .95rem;
+}
+
+.form-group label {
+ display: block;
+ font-size: .8rem;
+ font-weight: 600;
+ color: var(--text);
+ margin-bottom: .28rem;
+}
+
+
+/* ── FORM CONTROL ── */
+
+.form-ctrl {
+ width: 100%;
+ padding: .58rem .82rem;
+ border: 1.5px solid var(--border);
+ border-radius: 0;
+ font-size: .875rem;
+ font-family: inherit;
+ color: var(--text);
+ background: #f8f8f8;
+ outline: none !important;
+ transition: border-color var(--t), background var(--t);
+ -webkit-appearance: none;
+ appearance: none;
+
+ /* يسمح بتطبيق اللمعان حول العنصر */
+ position: relative;
+}
+
+
+/* ── FOCUS ── */
+
+.form-ctrl:focus,
+.form-ctrl:focus-visible {
+ outline: none !important;
+ /* نفس الحواف الأصلية ولكن باللون الأحمر */
+ border-color: #c62828;
+
+ background: var(--white);
+ /*
+ اللمعان الأحمر المتحرك
+ بدون تغيير حجم العنصر
+ */
+ 
+.form-ctrl {
+ width: 100%;
+ padding: .58rem .82rem;
+ border: 1.5px solid var(--border);
+ border-radius: 0;
+ font-size: .875rem;
+ font-family: inherit;
+ color: var(--text);
+ background: #f8f8f8;
+ outline: none !important;
+ box-shadow: none !important;
+ transition: border-color var(--t), background var(--t);
+ -webkit-appearance: none;
+ appearance: none;
+
+ /* ضروري لحركة الخط حول الحواف */
+ position: relative;
+}
+
+
+/* ── إزالة التحديد الأصفر وإظهار الإطار الأحمر المتحرك ── */
+
+.form-ctrl:focus {
+ /* الخط المتحرك */
+ background-image:
+ linear-gradient(#fff, #fff),
+ conic-gradient(
+ from 0deg,
+ transparent 0deg,
+ transparent 330deg,
+ #c62828 350deg,
+ #c62828 360deg
+ );
+
+ background-origin: border-box;
+ background-clip: padding-box, border-box;
+
+ animation: movingRedOutline 1.8s linear infinite;
+}
+
+
+/* ── حركة الخط حول الصندوق ── */
+
+@keyframes movingRedOutline {
+ 0% {
+ background-position: 0 0, 0 0;
+ background-size: 100% 100%, 100% 100%;
+ }
+
+ 100% {
+ background-position: 0 0, 0 0;
+ background-size: 100% 100%, 100% 100%;
+ transform: rotate(0deg);
+ }
+}
+
+
+}
+
+
+/* ═══════════════════════════════════════════════════════
+ RED MOVING SHIMMER
+ ═══════════════════════════════════════════════════════ */
+
+@keyframes redBorderShimmer {
+
+ 0% {
+ box-shadow:
+ -8px 0 10px -6px rgba(198, 40, 40, 0),
+ 8px 0 10px -6px rgba(198, 40, 40, 0);
+ }
+
+ 12% {
+ box-shadow:
+ -8px 0 10px -5px rgba(198, 40, 40, .95),
+ 8px 0 10px -5px rgba(198, 40, 40, .95);
+ }
+
+ 25% {
+ box-shadow:
+ 0 -8px 10px -5px rgba(198, 40, 40, .95),
+ 0 8px 10px -5px rgba(198, 40, 40, .95);
+ }
+
+ 38% {
+ box-shadow:
+ 8px 0 10px -5px rgba(198, 40, 40, .95),
+ -8px 0 10px -5px rgba(198, 40, 40, .95);
+ }
+
+ 50% {
+ box-shadow:
+ 0 8px 10px -5px rgba(198, 40, 40, .9),
+ 0 -8px 10px -5px rgba(198, 40, 40, .9);
+ }
+
+ 62% {
+ box-shadow:
+ -8px 0 10px -5px rgba(198, 40, 40, .8),
+ 8px 0 10px -5px rgba(198, 40, 40, .8);
+ }
+
+ 75% {
+ box-shadow:
+ 0 -8px 10px -5px rgba(198, 40, 40, .7),
+ 0 8px 10px -5px rgba(198, 40, 40, .7);
+ }
+
+ 88% {
+ box-shadow:
+ 8px 0 10px -5px rgba(198, 40, 40, .45),
+ -8px 0 10px -5px rgba(198, 40, 40, .45);
+ }
+
+ 100% {
+ box-shadow:
+ 0 0 0 0 rgba(198, 40, 40, 0),
+ 0 0 0 0 rgba(198, 40, 40, 0);
+ }
+}
+
+
+textarea.form-ctrl {
+ resize: vertical;
+ min-height: 112px;
+}
+
+select.form-ctrl {
+ appearance: none;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+ background-repeat: no-repeat;
+ background-position: right .78rem center;
+ padding-inline-end: 2.2rem;
+}
+
+html[dir="rtl"] select.form-ctrl {
+ background-position: left .78rem center;
+}
+
+.btn-send {
+ width: 100%;
+ padding: .7rem 1.5rem;
+ background: #c62828;
+ color: var(--white);
+ border: none;
+ border-radius: 0;
+ font-size: .9rem;
+ font-weight: 600;
+ font-family: inherit;
+ margin-top: .3rem;
+ transition: background var(--t), transform .14s;
+}
+
+.btn-send:hover {
+ background: #a71e1e;
+ transform: translateY(-1px);
+}
+
+ /* ── INFO CARD ── */
+ .info-card {
+ background: var(--white);
+ border-radius: 0;
+ padding: 1.65rem 1.5rem;
+ box-shadow: var(--sh);
+ }
+ .info-card h3 {
+ font-size: 1.02rem;
+ font-weight: 700;
+ color: var(--navy);
+ margin-bottom: .42rem;
+ }
+ .card-intro {
+ font-size: .83rem;
+ color: var(--muted);
+ margin-bottom: 1.4rem;
+ line-height: 1.58;
+ }
+
+ .cinfo-item {
+ display: flex;
+ gap: .75rem;
+ margin-bottom: 1.1rem;
+ align-items: flex-start;
+ }
+ .cinfo-icon {
+ width: 33px; height: 33px;
+ border-radius: 0;
+ background: rgba(198,40,40,.1);
+ color: #c62828;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .82rem;
+ flex-shrink: 0;
+ margin-top: 2px;
+ }
+ .cinfo-icon.wa { background: rgba(37,211,102,.1); color: var(--green-wa); }
+
+ .cinfo-sublabel {
+ font-size: .68rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ color: var(--dark);
+ display: block;
+ margin-bottom: .18rem;
+ 
+ }
+ .cinfo-row { display: flex; flex-wrap: wrap; align-items: center; gap: .18rem; }
+ .clink {
+ font-size: .845rem;
+ color: var(--navy, #182023);
+ font-weight: 500;
+ transition: color var(--t);
+ }
+ .clink:hover { color: #c62828; text-decoration: underline; }
+ .sep-bar { color: var(--border); }
+
+
+ .branch-note {
+ font-size: .77rem;
+ color: var(--muted);
+ margin-top: .28rem;
+ line-height: 1.5;
+ }
+ .branch-note strong { color: var(--text); font-weight: 600; }
+ 
+
+ /* ── CTA STRIP ── */
+ .cta-strip {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 1.2rem;
+ margin-top: 1.6rem;
+ padding: 1.55rem 1.9rem;
+ background: linear-gradient(112deg, var(--navy-mid), var(--navy));
+ border-radius: 0;
+ }
+ .cta-strip h3 {
+ font-size: .98rem;
+ font-weight: 700;
+ color: var(--white);
+ margin-bottom: .22rem;
+ }
+ .cta-strip p { font-size: .83rem; color: var(--light); }
+
+ .cta-link {
+ display: inline-flex;
+ align-items: center;
+ gap: .42rem;
+ padding: .6rem 1.3rem;
+ background: var(--gold);
+ color: var(--navy);
+ border-radius: 0;
+ font-weight: 700;
+ font-size: .865rem;
+ white-space: nowrap;
+ transition: background var(--t), transform .14s;
+ }
+ .cta-link:hover { background: #e0a534; transform: translateY(-1px); }
+
+ /* ---- Footer ---- */
+ footer { background: var(--dark); color: rgba(255,255,255,.82); padding-block: 4rem; }
+ .footer-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+ .footer-item .site-brand { display: inline-block; margin-bottom: .75rem; }
+ .footer-item h2 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: .85rem; }
+ .footer-item .text { font-size: .88rem; color: rgba(255,255,255,.65); }
+ .footer-item .text a { color: var(--accent); }
+ .footer-item .text a:hover { text-decoration: underline; }
+ .quick-links-list li { margin-bottom: .4rem; }
+ .quick-links-list a { font-size: .88rem; color: rgba(255,255,255,.65); transition: color .2s; }
+ .quick-links-list a:hover { color: var(--accent); }
+ .social-links { display: flex; gap: .75rem; flex-wrap: wrap; }
+ .social-links a {
+ width: 38px; height: 38px; border-radius: 50%;
+ background: rgba(255,255,255,.1); color: #fff;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .9rem; transition: background .2s;
+ }
+ .social-links a:hover { background: var(--accent); }
+ .footer-bottom {
+ background: #182023; color: rgba(255,255,255,.5);
+ font-size: .82rem; padding: 1rem 0; text-align: center;
+ }
+ 
+/* =========================================================
+ FOOTER BOTTOM — ULTRA THIN BAR
+ ========================================================= */
+
+.footer-bottom {
+ padding: 0.2rem 0 !important;
+ min-height: 0 !important;
+}
+
+.footer-bottom .container {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 1rem;
+ min-height: 0 !important;
+}
+
+.footer-bottom p {
+ margin: 0 !important;
+ padding: 0 !important;
+ font-size: 0.68rem !important;
+ line-height: 1.25 !important;
+}
+
+
+/* RTL / LTR */
+html[dir="rtl"] .footer-bottom .container {
+ flex-direction: row-reverse;
+}
+
+
+/* Mobile */
+@media (max-width: 576px) {
+ .footer-bottom {
+ padding: 0.18rem 0 !important;
+ }
+
+ .footer-bottom p {
+ font-size: 0.62rem !important;
+ }
+}
+    
+        .footer-logo-col{
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-col {
+        display: none;
+    }
+}
+ </style>
+
+<link rel="stylesheet" href="dahawi-unified.css"/>
+<style>
+html[dir="rtl"] body {
+ direction: rtl;
+ font-family: 'Cairo', sans-serif;
+}
+html[dir="ltr"] body {
+ direction: ltr;
+ font-family: 'Inter', sans-serif;
+}
+html[dir="rtl"] .form-card,
+html[dir="rtl"] .info-card,
+html[dir="rtl"] .contact-section {
+ direction: rtl;
+ text-align: right;
+}
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+ direction: rtl;
+ text-align: right;
+}
+html[dir="rtl"] select.form-ctrl {
+ background-position: left .78rem center;
+ padding-left: 2.2rem;
+ padding-right: .82rem;
+}
+html[dir="ltr"] select.form-ctrl {
+ background-position: right .78rem center;
+ padding-right: 2.2rem;
+ padding-left: .82rem;
+}
+html[dir="rtl"] .footer-bottom .container {
+ flex-direction: row-reverse;
+}
+
+#navbar-collapse #lang-toggle i {
+    color: #fff !important;
+}
+</style>
+
+</head>
+<body><!-- ═══════════════════════════════════════════════════════
+ NAVBAR — global navigation system (same as index.html)
+═══════════════════════════════════════════════════════ -->
+<nav class="navbar"><div class="container flex"><a class="site-brand" href="index.html"><span class="brand-en">Dahawi<span>Engineering</span></span><span class="brand-ar">ضحوي<span> الهندسية</span></span></a><button aria-label="Open menu" id="navbar-show-btn" type="button"><i class="fas fa-bars"></i></button><div id="navbar-collapse"><button aria-label="Close menu" id="navbar-close-btn" type="button"><i class="fas fa-times"></i></button>
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" data-ar="الرئيسية" data-en="Home" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" data-ar="من نحن" data-en="About Us" href="about.html">About Us</a></li>
+<li class="nav-item"><a class="nav-link" data-ar="الخدمات" data-en="Services" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" data-ar="المشاريع" data-en="Projects" href="portfolio.html">Projects</a></li>
+<li class="nav-item"><a class="nav-link" data-ar="الأسئلة الشائعة" data-en="FAQ" href="faq.html">FAQ</a></li>
+<li class="nav-item"><a class="nav-link active" data-ar="تواصل معنا" data-en="Contact" href="contact.html">Contact</a></li>
+</ul>
+<button aria-label="Switch language" id="lang-toggle" title="Switch language"><i class="fas fa-globe"></i></button>
+</div></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+ PAGE HEADER
+═══════════════════════════════════════════════════════ -->
+<header class="page-header">
+<div class="container">
+<h1 data-ar="تواصل مع ضحوي الهندسية" data-en="Contact Dahawi Engineering">Contact Dahawi Engineering</h1>
+<p data-ar="تواصل مع فريقنا لمناقشة مشاريع البنية التحتية الكهربائية، وأعمال المحطات الفرعية، وصيانة الشبكات، والحصول على الدعم الهندسي الذي تحتاجه." data-en="Talk to our team about electrical infrastructure projects, substation works, network maintenance, and the engineering support you need.">Talk to our team about electrical infrastructure projects, substation works, network maintenance, and the engineering support you need.</p>
+</div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+ CONTACT SECTION
+═══════════════════════════════════════════════════════ -->
+<section class="contact-section">
+<div class="container">
+<p class="sec-label" data-ar="استفسارات المشاريع والدعم الفني" data-en="Project Inquiries &amp; Technical Support">Project Inquiries &amp; Technical Support</p>
+<h2 class="sec-title" data-ar="تواصل معنا" data-en="Get in Touch">Get in Touch</h2>
+<div class="contact-grid">
+
+<!-- FORM -->
+<div class="form-card">
+<form action="mailto:info@dahawiengineering.com" enctype="text/plain" method="post">
+<div class="form-group">
+<label for="f-name" data-ar="الاسم الكامل" data-en="Full Name">Full Name</label>
+<input class="form-ctrl" data-ph-ar="اسمك الكامل" data-ph-en="Your full name" id="f-name" name="name" placeholder="Your full name" required="" type="text"/>
+</div>
+
+<div class="form-group">
+<label for="f-email" data-ar="البريد الإلكتروني" data-en="Email Address">Email Address</label>
+<input class="form-ctrl" data-ph-ar="you@example.com" data-ph-en="you@example.com" id="f-email" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+
+<div class="form-group">
+<label for="f-phone" data-ar="رقم الهاتف" data-en="Phone Number">Phone Number</label>
+<input class="form-ctrl" data-ph-ar="+1 000 000 000" data-ph-en="+1 000 000 000" id="f-phone" name="phone" placeholder="+1 000 000 000" required="" type="tel"/>
+</div>
+
+<div class="form-group">
+<label for="f-service" data-ar="الخدمة المطلوبة" data-en="Service Required">Service Required</label>
+<select class="form-ctrl" id="f-service" name="service">
+<option data-ar="البنية التحتية للطاقة" data-en="Power Infrastructure">Power Infrastructure</option>
+<option data-ar="الطاقة المتجددة" data-en="Renewable Energy">Renewable Energy</option>
+<option data-ar="التشغيل والصيانة" data-en="Operations &amp; Maintenance">Operations &amp; Maintenance</option>
+<option data-ar="الخدمات الكهربائية الصناعية" data-en="Industrial Electrical Services">Industrial Electrical Services</option>
+<option data-ar="الاستشارات الهندسية" data-en="Engineering Consultancy">Engineering Consultancy</option>
+<option data-ar="خدمات التدريب" data-en="Training Services">Training Services</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="f-msg" data-ar="تفاصيل المشروع" data-en="Project Details">Project Details</label>
+<textarea class="form-ctrl" data-ph-ar="أخبرنا عن مشروعك وموقعه والجدول الزمني المتوقع." data-ph-en="Tell us about your project, location, and timeline." id="f-msg" name="message" placeholder="Tell us about your project, location, and timeline." required="" rows="5"></textarea>
+</div>
+
+<button class="btn-send" type="submit" data-ar="إرسال الرسالة" data-en="Send Message">Send Message</button>
+</form>
+</div>
+
+<!-- CONTACT INFO -->
+<div class="info-card">
+<h3 data-ar="معلومات الاتصال" data-en="Contact Information">Contact Information</h3>
+<p class="card-intro" data-ar="استخدم بيانات الاتصال أدناه للتواصل مباشرةً مع ضحوي الهندسية بشأن تخطيط المشاريع، والدعم الميداني، والاستفسارات الفنية." data-en="Use the contact details below to reach Dahawi Engineering directly for project planning, site support, and technical inquiries.">Use the contact details below to reach Dahawi Engineering directly for project planning, site support, and technical inquiries.</p>
+
+<!-- Phone -->
+<div class="cinfo-item">
+<span class="cinfo-icon"><i class="fas fa-phone-alt"></i></span>
+<div>
+<span class="cinfo-sublabel" data-ar="الهاتف" data-en="Phone">Phone</span>
+<div class="cinfo-row">
+<a class="clink" dir="ltr" href="tel:+256762460923">+256 762 460 923</a>
+<span class="sep-bar">|</span>
+<a class="clink" dir="ltr" href="tel:+249912194405">+249 912 194 405</a>
+</div>
+</div>
+</div>
+
+<!-- WhatsApp -->
+<div class="cinfo-item">
+<span class="cinfo-icon wa"><i class="fab fa-whatsapp"></i></span>
+<div>
+<span class="cinfo-sublabel" data-ar="واتساب" data-en="WhatsApp">WhatsApp</span>
+<div class="cinfo-row">
+<a class="clink"  dir="ltr"href="https://wa.me/256759114204" rel="noopener" target="_blank">+256 759 114 204</a>
+<span class="sep-bar">|</span>
+<a class="clink" dir="ltr"href="https://wa.me/249912194405" rel="noopener" target="_blank">+249 912 194 405</a>
+</div>
+</div>
+</div>
+
+<!-- Email -->
+<div class="cinfo-item">
+<span class="cinfo-icon"><i class="fas fa-envelope"></i></span>
+<div>
+<span class="cinfo-sublabel" data-ar="البريد الإلكتروني" data-en="Email">Email</span>
+<div class="cinfo-row">
+<a class="clink" href="mailto:info@dahawiengineering.com">info@dahawiengineering.com</a>
+</div>
+</div>
+</div>
+
+<!-- Office -->
+<div class="cinfo-item">
+<span class="cinfo-icon"><i class="fas fa-map-marker-alt"></i></span>
+<div>
+<span class="cinfo-sublabel" data-ar="المكاتب" data-en="Offices">Offices</span>
+
+<a class="clink" href="https://maps.app.goo.gl/aa1LVSvmX9tEoo1Y7" 
+   rel="noopener" target="_blank">
+   <span data-ar="كمبالا، يوغندا" data-en="Kampala, Uganda">Kampala, Uganda</span>
+</a>
+
+<span class="sep-bar">|</span>
+
+<a class="clink" href="https://www.google.com/maps?q=11.03237,27.754519" 
+   rel="noopener" target="_blank">
+   <span data-ar="المجلد، السودان" data-en="Al-Mujlad, Sudan">Al-Mujlad, Sudan</span>
+</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+<div>
+<h3 data-ar="هل لديك مشروع ترغب في مناقشته؟" data-en="Have a project to discuss?">Have a project to discuss?</h3>
+<p data-ar="أرسل استفسارك إلينا، وسيتولى فريقنا الهندسي مراجعة نطاق العمل والجدول الزمني والمتطلبات الفنية." data-en="Send us your inquiry, and our engineering team will review the scope, timeline, and technical requirements.">Send us your inquiry, and our engineering team will review the scope, timeline, and technical requirements.</p>
+</div>
+
+<a class="cta-link" href="mailto:info@dahawiengineering.com?subject=Project%20Inquiry%20-%20Dahawi%20Engineering&amp;body=Hello%20Dahawi%20Engineering%2C%0A%0AI%20would%20like%20to%20discuss%20a%20project%20inquiry.%0A%0AThank%20you.">
+<i class="fas fa-envelope"></i>
+<span data-ar="راسلنا الآن" data-en="Email Us Now">Email Us Now</span>
+</a>
+</div>
+
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="py-4">
+<div class="container footer-row">
+
+  <!-- العلامة التجارية والوصف -->
+  <div class="footer-item">
+    <a class="site-brand" href="index.html"><span class="brand-en">Dahawi<span>Engineering</span></span><span class="brand-ar">ضحوي<span> الهندسية</span></span></a>
+    <p class="text" data-ar="تقدم ضحوي الهندسية خدمات إنشاء وتشغيل وصيانة البنية التحتية الكهربائية، بما يدعم كفاءة شبكات الطاقة واستمرارية تشغيلها." data-en="Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.">Dahawi Engineering delivers electrical infrastructure construction, operation, and maintenance services for reliable energy networks.</p>
+  </div>
+
+  <!-- روابط سريعة -->
+  <div class="footer-item quick-links">
+    <h2 data-ar="روابط سريعة" data-en="Quick Links">Quick Links</h2>
+    <ul class="quick-links-list">
+      <li><a data-ar="الرئيسية" data-en="Home" href="index.html">Home</a></li>
+      <li><a data-ar="من نحن" data-en="About Us" href="about.html">About Us</a></li>
+      <li><a data-ar="الخدمات" data-en="Services" href="services.html">Services</a></li>
+      <li><a data-ar="المشاريع" data-en="Projects" href="portfolio.html">Projects</a></li>
+      <li><a data-ar="الأسئلة الشائعة" data-en="FAQ" href="faq.html">FAQ</a></li>
+      <li><a data-ar="تواصل معنا" data-en="Contact" href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- تواصل مباشر + سوشيال -->
+  <div class="footer-item contact">
+    <h2 data-ar="تواصل معنا مباشرةً" data-en="Contact Directly">Contact Directly</h2>
+    <p class="text"><span data-ar="البريد:" data-en="Email:">Email:</span> <a href="mailto:info@dahawiengineering.com">info@dahawiengineering.com</a></p>
+    <p class="text"><span data-ar="هاتف:" data-en="Phone:">Phone:</span> <a dir="ltr" href="tel:+256762460923">+256 762 460 923</a></p>
+    <p class="text"><span data-ar="هاتف:" data-en="Phone:">Phone:</span> <a dir="ltr" href="tel:+249912194405">+249 912 194 405</a></p>
+    <h2 style="margin-top:1rem" data-ar="تابعونا عبر" data-en="Follow Us On">Follow Us On</h2>
+    <ul class="social-links">
+      <li><a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li><a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+      <li><a aria-label="Twitter" href="#"><i class="fab fa-x-twitter"></i></a></li>
+      <li><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+  </div>
+
+  <!-- شعار الشركة — واحد فقط، يتحرك بالـ CSS -->
+  <div class="footer-logo-col">
+    <img src="logo.png" alt="Dahawi Engineering Logo">
+  </div>
+
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════
+ JAVASCRIPT — global navigation system (same as index.html)
+═══════════════════════════════════════════════════════ -->
+<script>
+/* ---------- Complete Arabic / English language system ---------- */
+const htmlRoot = document.getElementById('html-root') || document.documentElement;
+const langToggle = document.getElementById('lang-toggle');
+let currentLang = localStorage.getItem('dahawi-lang') === 'ar' ? 'ar' : 'en';
+
+function applyLang(lang) {
+ currentLang = lang === 'ar' ? 'ar' : 'en';
+ localStorage.setItem('dahawi-lang', currentLang);
+
+ /* Full document language + direction */
+ htmlRoot.lang = currentLang;
+ htmlRoot.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+ /* All translated page content */
+ document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+ const value = el.getAttribute('data-' + currentLang);
+ if (value !== null) el.innerHTML = value;
+ });
+
+ /* Form placeholders */
+ document.querySelectorAll('[data-ph-ar][data-ph-en]').forEach(el => {
+ el.placeholder = currentLang === 'ar'
+ ? el.getAttribute('data-ph-ar')
+ : el.getAttribute('data-ph-en');
+ });
+
+ /* Select options */
+ document.querySelectorAll('select option[data-ar][data-en]').forEach(option => {
+ option.textContent = currentLang === 'ar'
+ ? option.getAttribute('data-ar')
+ : option.getAttribute('data-en');
+ });
+
+ const label = document.getElementById('lang-label');
+ if (label) label.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+
+ if (langToggle) {
+ langToggle.setAttribute('aria-label',
+ currentLang === 'ar' ? 'تغيير اللغة' : 'Switch language');
+ langToggle.setAttribute('title',
+ currentLang === 'ar' ? 'تغيير اللغة' : 'Switch language');
+ }
+
+ document.title = currentLang === 'ar'
+ ? 'تواصل معنا | شركة ضحوي الهندسية'
+ : 'Contact | Dahawi Engineering';
+}
+
+if (langToggle) {
+ langToggle.addEventListener('click', () => {
+ applyLang(currentLang === 'en' ? 'ar' : 'en');
+ });
+}
+
+if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', () => applyLang(currentLang));
+} else {
+ applyLang(currentLang);
+}
+</script>
+<script src="dahawi-lang.js"></script>
+<script src="dahawi-ui.js"></script>
+</body>
+</html>
